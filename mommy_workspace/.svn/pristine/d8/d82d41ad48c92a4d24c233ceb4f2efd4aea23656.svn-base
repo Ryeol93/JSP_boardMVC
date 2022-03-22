@@ -1,0 +1,469 @@
+@media (max-width: 390px){
+	
+	.phone-check2 {
+    width: 29%;
+    left: 213px !important;
+    bottom: 37px;
+    font-size: 14px;
+    height: 51px;
+    padding: 0px;
+    border: 2px solid #f6f6f6;
+    border-radius: 0px;
+    border: 2px solid #f6f6f6 !important;
+    border-radius: 0px !important;
+	}
+	.col1 {
+		position: relative !important;
+		left: 12px !important;
+	}
+	
+	#phone-button  {
+		width: 29%;
+    	left: 273px;
+    	bottom: 40px;
+    	font-size: 14px;
+    	height: 51px;
+    	padding: 0px;
+    	border: 2px solid #f6f6f6;
+    	border-radius: 0px;
+	}
+	
+
+    
+	#phone-check {
+    width: 29%;
+    display: inline-block;
+    left: 213px !important;
+    bottom: 41px;
+    font-size: 14px;
+    height: 49px;
+    padding: 0px;
+    border: 2px solid #f6f6f6;
+    border-radius: 0px;
+	}
+	
+	#sitter-join {
+		position: relative !important;
+		left: 187px !important;
+		bottom: 77px !important;
+	
+	}
+	
+	#col-1 {
+		width: 116% !important;
+		position: relative !important;
+		top: -75px !important;
+		left: -18px !important;
+	}
+	
+	.col-2 {
+		width: 23% !important;
+    	margin-right: 10px !important;
+   	 	height: 40px !important;
+    	position: relative !important;
+    	left: -18px !important;
+	}
+	
+	.container {
+		width: 80% !important;
+		position: relative !important;
+		top: 5px !important;
+		left: -6px !important;
+	}
+	
+	strong {
+		color: white;
+	}
+	
+	.major h2 img {
+		width : 30% !important;
+		position: relative !important;
+		left: 105px !important
+	}
+	
+	ul.actions {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    cursor: default;
+    list-style: none;
+    margin-left: -1em;
+    padding-left: 0;
+    justify-content: center;
+}
+	
+	input[type="text"],
+	input[type="password"] {
+		background-color: white;
+		border: none;
+		border: solid 2px #ffb61a;
+		color: inherit;
+		display: block;
+		outline: 0;
+		padding: 0 1em;
+		text-decoration: none;
+		width: 35%;
+		margin: 10px auto;
+		padding : 25px;
+		position: relative;
+		top: -15px;
+	}
+
+	.col-6 .col-12-xsmall {
+		position: relative;
+		top: 20px;
+	}
+	
+	
+	.center {
+		text-align: center;
+   		position: relative;
+   		top: -40px;
+	}
+	
+	.row {
+		justify-content: center;
+	}
+	
+	.center1 {
+		margin: 0 auto;
+		position: relative;
+  		top: 20px;
+	}
+	
+	input[type="radio"]:checked + label:before {
+		background: #ffb61a;
+		border-color: #ffb61a;
+		color: #ffffff;
+		content: '\f00c';
+		}
+		
+	body {
+		background: #f6f6f6;
+	
+	}
+	
+	#message {
+		width: 35%;
+		margin: 0 auto;
+	}
+	div .col-12 {
+		text-align: center;
+		margin: 0 auto;
+	}
+	.mainbox {
+		margin: 0 auto; width: 35%;
+		box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+		border-radius: 2px;
+		background: white;
+		padding: 15px;
+		width: 120% !important;
+		position: relative !important;
+		left: -25px !important;
+		bottom: 110px !important;
+		padding-top: 14px !important;
+    	padding-bottom: 14px !important;
+	}
+
+	
+	.font-position {
+		text-align: left;
+		margin: 0 0 0 19px;
+	}
+	
+	input[type="text"],input[type="password"],
+	.input-font {
+		border-left-width: 0;
+		border-bottom-width: 1;
+		border-right-width: 0;
+		border-top-width: 0;
+		color: black;
+		border-color: #f6f6f6;
+		font-size: 17px;
+		padding: 1px;
+		position: relative;
+		left: -9px;
+		border-bottom: 3px solid #f6f6f6;
+		border-radius: 0px;
+	}
+	
+	.button-size {
+   		width: 120% !important;
+   		height: 60px;
+   		font-size: 23px;
+   		background: #ffb61a;
+   		border: none;
+   		color: #f6f6f6;
+   		margin-left: -26px;
+   		margin-top: -19px !important;
+	}
+	
+	.p-font-color {
+		color: #626c6e;
+	}
+	
+	p {
+		margin: 0 0 25px 0;
+	}
+	.radio_obj input[type="radio"] {
+        display: none;
+    }
+ 
+    .radio_obj input[type="radio"] + span {
+        display: inline-block;
+        padding: 15px 10px;
+        border: 2px solid #ffb61a !important;
+        background-color: #ffffff;
+        text-align: center;
+        cursor: pointer;
+        font-size: 18px;
+        color: #93999a;
+        width: 184px !important;
+        position: relative;
+        left: -22px !important;
+    }
+ 
+    .radio_obj input[type="radio"]:checked + span {
+        background-color: #ffb61a;
+        color: #ffffff;
+    }
+    input:focus { 
+		border: none;
+		box-shadow: hidden !important;
+		boder-bottom: 2px;
+		
+	}
+	
+	.me {
+		display: inline-block;
+		background-image: url(../pic/me_balloon.png);
+		background-repeat: no-repeat;
+		background-size: contain;
+		padding: 0.125rem;
+		margin-right: 0.125rem;
+		vertical-align: middle;
+		font-size: 0.625rem;
+		color:#ffb61a;
+	}
+	
+	}
+	/* 미디어쿼리 끝 */
+	
+	
+	
+	
+	strong {
+		color: white;
+	}
+	
+	.major h2 img {
+		width : 17%;
+	}
+	
+	ul.actions {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    cursor: default;
+    list-style: none;
+    margin-left: -1em;
+    padding-left: 0;
+    justify-content: center;
+}
+	
+	input[type="text"],
+	input[type="password"] {
+		background-color: white;
+		border: none;
+		border: solid 2px #ffb61a;
+		color: inherit;
+		display: block;
+		outline: 0;
+		padding: 0 1em;
+		text-decoration: none;
+		width: 35%;
+		margin: 10px auto;
+		padding : 25px;
+		position: relative;
+		top: -15px;
+	}
+
+	.col-6 .col-12-xsmall {
+		position: relative;
+		top: 20px;
+	}
+	
+	
+	.center {
+		text-align: center;
+   		position: relative;
+   		top: -40px;
+	}
+	
+	.row {
+		justify-content: center;
+	}
+	
+	.center1 {
+		margin: 0 auto;
+		position: relative;
+  		top: 20px;
+	}
+	
+	input[type="radio"]:checked + label:before {
+		background: #ffb61a;
+		border-color: #ffb61a;
+		color: #ffffff;
+		content: '\f00c';
+		}
+		
+	body {
+		background: #f6f6f6;
+	
+	}
+	
+	#message {
+		width: 35%;
+		margin: 0 auto;
+	}
+	div .col-12 {
+		text-align: center;
+		margin: 0 auto;
+	}
+	.mainbox {
+		margin: 0 auto; width: 35%;
+		box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+		border-radius: 2px;
+		background: white;
+		padding: 15px;
+		padding-top: 14px;
+    	padding-bottom: 14px;
+	}
+
+	.font-position {
+		text-align: left;
+		margin: 0 0 0 19px;
+	}
+	
+	input[type="text"],input[type="password"],
+	.input-font {
+		border-left-width: 0;
+		border-bottom-width: 1;
+		border-right-width: 0;
+		border-top-width: 0;
+		color: black;
+		border-color: #f6f6f6;
+		font-size: 17px;
+		padding: 1px;
+		position: relative;
+		left: -9px;
+		border-bottom: 3px solid #f6f6f6;
+		border-radius: 0px;
+	}
+	
+	.button-size {
+		cursor: pointer;
+		font-weight: bold;
+		margin-top: 40px;
+		margin-bottom: 40px;
+   		width: 35%;
+   		height: 60px;
+   		font-size: 23px;
+   		background: #ffb61a;
+   		border: none;
+   		color: #f6f6f6;
+   	    border-radius: 1px !important;
+	}
+	
+	.p-font-color {
+		color: #626c6e;
+	}
+	
+	p {
+		margin: 0 0 25px 0;
+	}
+	.radio_obj input[type="radio"] {
+        display: none;
+    }
+ 
+    .radio_obj input[type="radio"] + span {
+        display: inline-block;
+        padding: 15px 10px;
+        border: 2px solid #ffb61a;
+        background-color: #ffffff;
+        text-align: center;
+        cursor: pointer;
+        font-size: 18px;
+        color: #93999a;
+    }
+ 
+    .radio_obj input[type="radio"]:checked + span {
+        background-color: #ffb61a;
+        color: #ffffff;
+    }
+    input:focus { 
+		border: none;
+		box-shadow: hidden !important;
+		boder-bottom: 2px;
+		
+	}
+	
+	.me {
+		display: inline-block;
+		background-image: url(../pic/me_balloon.png);
+		background-repeat: no-repeat;
+		background-size: contain;
+		padding: 0.125rem;
+		margin-right: 0.125rem;
+		vertical-align: middle;
+		font-size: 0.625rem;
+		color:#ffb61a;
+	}
+	
+	#phone-check {
+    width: 29%;
+    left: 273px;
+    bottom: 40px;
+    font-size: 14px;
+    height: 51px;
+    padding: 0px;
+    border: 2px solid #f6f6f6;
+    border-radius: 0px;
+	}
+	.phone-check2 {
+    width: 29%;
+    left: 273px;
+    bottom: 37px;
+    font-size: 14px;
+    height: 51px;
+    padding: 0px;
+    border: 2px solid #f6f6f6 !important;
+    border-radius: 0px !important;
+	}
+	
+	
+	
+	.p{
+	margin: 0px !important;
+    margin-top: -26px !important;
+    font-size: 13px;
+	}
+	#userId{
+	lime-mode:inactive;
+	}
+	
+	
+		
+	#radio_label{
+	font-size: 17px !important;
+	text-decoration: none !important;
+	color: black !important;
+		
+	}	
+	
+	
+	
+	
+         

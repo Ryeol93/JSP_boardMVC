@@ -1,0 +1,71 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	<footer id="footer" style = "background: #f6f6f6;">
+				<div class="container">
+					<div class="row">
+						<section class="col-4 col-12-medium about" style = "width: 45%; padding-left:156px;">
+							<img src = "${pageContext.request.contextPath}/images/로고2.png" style = "width:100px;" class = "footerLogo">
+								
+							<p id = "footerText" style ="font-size:0.8em;"><br>육아에 도움이 필요한 부모님들을 위해 <br>언제 어디서나 마미랑이 함께 하겠습니다.</p>
+						<ul class="labeled-icons">
+							
+								<li style = "margin: 0 0 1em 0 !important;">
+									<h4 class="icon alt solid fa-phone"><span class="label">Phone</span></h4>
+									<a href="tel:02)123-1234">02)123-1234</a>
+								</li>
+								<li>
+									<h4 class="icon alt solid fa-envelope"><span class="label">Email</span></h4>
+									<a href="mailto:mommyrang@gmail.com">mommyrang@gmail.com</a>
+								</li>
+								
+							</ul>
+						</section>
+						<section class="col-4 col-6-medium col-12-small" style = "width: 33.33333%;">
+							<h3 style = "font-size: 1em !important;">서비스 종류</h3>
+							<ul class="updates">
+								<li>
+									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/app/serviceSearch/searchMom.jsp">신생아/영아 풀타임 베이비시팅</a></p>
+								</li>
+								<li>
+									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/app/serviceSearch/searchMom.jsp">신생아/영아 풀타임 보조 베이비시팅</a></p>
+								</li>
+								<li>
+									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/app/serviceSearch/searchMom.jsp">등하원 베이비시팅</a></p>
+								</li>
+								<li>
+									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/app/serviceSearch/searchMom.jsp">놀이/학습 베이비시팅</a></p>
+								</li>
+									<li>
+									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/app/serviceSearch/searchMom.jsp">긴급/단기 베이비시팅</a></p>
+								</li>
+								</li>
+									<li>
+									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/app/serviceSearch/searchJob.jsp">일자리 찾기</a></p>
+								</li>
+									<li>
+									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/app/community/community2.jsp">부모님/시터 커뮤니티</a></p>
+								</li>
+							</ul>
+						</section>
+						<section class="col-4 col-6-medium col-12-small" style = "width: 16.6666%;">
+							<h3 style = "font-size: 1em !important;">고객센터</h3>
+							<ul class="updates">
+								<li>
+									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/app/notice/notice.jsp">공지사항</a></p>
+								</li>
+								<li>
+									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/app/ask/askInsert.jsp">1:1 문의하기</a></p>
+								</li>
+								<li>
+									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/app/user/joinInfo.jsp">이용약관</a></p>
+								</li>
+								<li>
+									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/app/user/joinInfo.jsp">개인정보처리방침</a></p>
+								</li>
+							</ul>
+						</section>
+					</div>
+				</div>
+				
+			</footer>

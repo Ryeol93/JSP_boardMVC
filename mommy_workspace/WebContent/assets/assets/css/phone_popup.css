@@ -1,0 +1,14 @@
+	.input-style{
+		width: 97%;
+    	height: 52px;
+   		font-size: 17px;
+}
+	.button-style{
+		width: 99%;
+    	height: 57px;
+	    position: relative;
+	    top: 18px;
+	    font-size: 19px;
+	}
+}
+         

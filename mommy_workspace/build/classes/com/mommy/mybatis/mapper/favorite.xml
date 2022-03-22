@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http//mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace=Favorite>
+
+	<!-- 찜목록 추가 -->
+	<insert id="insert" parameterType="FavoriteVO">
+		insert into tbl_favorite
+		(userNum, profileNum)
+		values(#{userNum}, #{profileNum})
+	</insert>
+	
+	<!--  찜목록 삭제 -->
+	<delete id="delete" parameterType="FavoriteVO">
+		delete from tbl_favorite 
+		where userNum = #{userNum} and
+		 profileNum = #{profileNum}
+	</delete>
+	
+	<!-- 찜 목록 보기 -->
+	<select id="selectAll" parameterType="_int" resultType="FavoriteDTO">
+	select f.profileNum, profilePicture 
+	from tbl_favorite f join tbl_profile p 
+	on f.profileNum = p.profileNum and f.userNum = #{userNum}
+	</select>
+
+</mapper>

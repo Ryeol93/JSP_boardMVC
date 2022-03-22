@@ -1,0 +1,265 @@
+	@media (max-width: 390px){
+	
+	.logo-location {
+		position: relative !important;
+    	top: -77px !important;
+    	width: 550px !important;
+    	left: 126px !important;
+	}
+	
+	.p-location {
+		position: relative !important;
+    	top: 68px !important;
+   		left: 21px !important;
+    	width: 92% !important;
+    	font-size: 13px !important;
+	}
+	
+	
+	.container {
+		height: 800px !important;
+	}
+	
+		.major {
+			position: relative !important;
+			top: 123px !important;
+		}
+	
+		.major h2 img {
+			width : 17%;
+		}
+	
+	input[type="text"],
+	input[type="password"] {
+		background-color: white;
+		border: none;
+		border: solid 4px #f6f6f6;
+		color: inherit;
+		display: block;
+		outline: 0;
+		padding: 0 1em;
+		text-decoration: none;
+		width: 35%;
+		margin: 0 auto;
+		padding : 0 0 0 0;
+		position: relative;
+  		top: 8px;
+  		left: -17px;
+  		border-right: white 1px solid;
+        border-left: white 1px solid;
+        border-top: white 1px solid;
+        border-bottom: #f6f6f6 1px solid;
+	}
+
+	.col-6 .col-12-xsmall {
+		position: relative;
+		top: 20px;
+	}
+	
+	
+	.center {
+		text-align: center;
+   		position: relative;
+   		top: -27px;
+   		left: 85px;
+	}
+	
+	
+	.row {
+		justify-content: center;
+	}
+	
+	
+	.center1 {
+		margin: 0 auto;
+	}
+	
+	
+	input[type="radio"]:checked + label:before {
+		background: #ffb61a;
+		border-color: #ffb61a;
+		color: #ffffff;
+		content: '\f00c';
+		}
+		
+		
+	body {
+		background: #f6f6f6;
+	}
+	
+	
+	.first {
+		margin: 10% 0 0 0;
+		position: relative;
+		top: -150px;
+	}
+	
+	
+	.mainbox {
+		margin: 0 auto; width: 53%;
+		box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+		border-radius: 2px;
+		background: white;
+		position: relative;
+		top: -100px !important;
+		height : 200px !important;
+		width: 93% !important;
+	}
+
+
+	.font-position {
+		text-align: left;
+		margin: 0 0 0 19px;
+		height: 300px;
+		padding: 15px !important;
+	}
+	
+	
+	.input-font {
+		border-left-width: 0;
+		border-bottom-width: 1;
+		border-right-width: 0;
+		border-top-width: 0;
+		color: black;
+		border-color: #f6f6f6;
+		font-size: 15px;
+		width: 92% !important;
+	}
+	
+	
+	.button-size {
+   		height: 55px;
+   		font-size: 20px;
+   		background: #ffb61a;
+   		border: none;
+   		color: #f6f6f6;
+   		position: relative !important;
+  		top: -82px !important;
+    	width: 93% !important;
+    	left: 11px !important;
+	}
+	
+	
+	.p-font-color {
+		color: #626c6e;
+	}
+	
+	
+	
+	
+	
+	/* 미디어쿼리 끝 */
+	
+	
+	
+	}
+	.major h2 img {
+		width : 17%;
+	}
+	
+	input[type="text"],
+	input[type="password"] {
+		background-color: white;
+		border: none;
+		border: solid 4px #f6f6f6;
+		color: inherit;
+		display: block;
+		outline: 0;
+		padding: 0 1em;
+		text-decoration: none;
+		width: 35%;
+		margin: 0 auto;
+		padding : 0 0 0 0;
+		position: relative;
+  		top: 8px;
+  		left: -17px;
+  		border-right: white 1px solid;
+        border-left: white 1px solid;
+        border-top: white 1px solid;
+        border-bottom: #f6f6f6 1px solid;
+	}
+
+	.col-6 .col-12-xsmall {
+		position: relative;
+		top: 20px;
+	}
+	
+	
+	.center {
+		text-align: center;
+   		position: relative;
+   		top: -27px;
+   		left: 85px;
+	}
+	
+	.row {
+		justify-content: center;
+	}
+	
+	.center1 {
+		margin: 0 auto;
+	}
+	
+	input[type="radio"]:checked + label:before {
+		background: #ffb61a;
+		border-color: #ffb61a;
+		color: #ffffff;
+		content: '\f00c';
+		}
+		
+	body {
+		background: #f6f6f6;
+	}
+	
+	.first {
+		margin: 10% 0 0 0;
+		position: relative;
+		top: -150px;
+	}
+	
+	.mainbox {
+		margin: 0 auto; width: 53%;
+		box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+		border-radius: 2px;
+		background: white;
+		position: relative;
+		top: -170px;
+		padding-bottom: 49px;
+		
+	}
+
+	.font-position {
+		text-align: left;
+		margin: 0 0 0 19px;
+		height: 300px;
+		padding: 20px;
+		padding-top : 50px;	
+	}
+	
+	.input-font {
+		border-left-width: 0;
+		border-bottom-width: 1;
+		border-right-width: 0;
+		border-top-width: 0;
+		color: black;
+		border-color: #f6f6f6;
+		font-size: 15px;
+	}
+	
+	.button-size {
+		cursor: pointer;
+		font-weight: bold;
+		position: relative;
+   	 	top: -155px;
+   		width: 53%;
+   		height: 55px;
+   		font-size: 20px;
+   		background: #ffb61a;
+   		border: none;
+   		color: #f6f6f6;
+	}
+	
+	.p-font-color {
+		color: #626c6e;
+	}
+         

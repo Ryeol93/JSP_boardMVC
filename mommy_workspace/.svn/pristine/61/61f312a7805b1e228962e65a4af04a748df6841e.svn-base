@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http//mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Admin">
+	<!--문의 +신고 게시글 목록 -->
+	<select id="selectAll" parameterType="map" resultType="AdminQnaDTO">
+		select askNum, a.userNum, categoryNum, askTitle, askContent,
+		askDate, askStatus, askAnswer, askAttach, u.userId, u.userName, u.userStatus
+		from tbl_ask a join tbl_user u
+		order by 1 desc limit #{startRow}, #{rowCount}
+	</select>
+
+	<!--문의 게시글 전체 개수  -->
+	<select id="getQnaTotal" resultType="_int">
+		select count(categoryNum='1') from tbl_ask
+	</select>
+	
+	<!--신고 게시글 전체 개수  -->
+	<select id="getReportTotal" resultType="_int">
+		select count(categoryNum='2') from tbl_ask
+	</select>
+	
+	<!-- 게시글 상세보기(전체 정보 조회) -->
+	<select id="selectDetail" parameterType="_int" resultType="adminQnaVO">
+		select askNum, askTitle, askContent, askDate, askStatus,
+		categoryNum, a.userNum, askAnswer
+		from tbl_ask a join tbl_user u
+		on  a.userNum = u.userNum and askNum = #{askNum}
+	</select>
+	
+	<!-- 최근 게시글 번호 -->
+	<select id="getSeq" resultType="_int">
+		select askNum from tbl_ask
+		order by 1 desc limit 0, 1;
+	</select>
+	
+	<!--문의 처리중 게시글 전체 개수  --><!-- 처리중0 처리완료1 -->
+	<select id="getQnaTotal0" resultType="_int">
+		select count(askStatus) from tbl_ask 
+		where askStatus = '0' and categoryNum = '1'
+	</select>
+	
+	<!--문의 처리완료 게시글 전체 개수  --><!-- 처리중0 처리완료1 -->
+	<select id="getQnaTotal1" resultType="_int">
+		select count(askStatus) from tbl_ask 
+		where askStatus = '1' and categoryNum = '1'
+	</select>
+	
+	<!--신고 처리중 게시글 전체 개수  --><!-- 처리중0 처리완료1 -->
+	<select id="getReportTotal0" resultType="_int">
+		select count(askStatus) from tbl_ask 
+		where askStatus = '0' and categoryNum = '2'
+	</select>
+	
+	<!--신고 처리완료 게시글 전체 개수  --><!-- 처리중0 처리완료1 -->
+	<select id="getReportTotal1" resultType="_int">
+		select count(askStatus) from tbl_ask 
+		where askStatus = '1' and categoryNum = '2'
+	</select>
+
+		<!-- 답변 달기 -->
+	<update id="update" parameterType="AdminQnaVO">
+		update tbl_ask
+		set askAnswer =#{askAnswer}, askStatus ='1'
+		where askNum =#{askNum}
+		</update>
+		
+		<!-- 공지 게시판 목록 -->
+	<select id="noticeSelectAll" parameterType="map" resultType="AdminNoticeVO">
+		select noticeNum, noticeDate, noticeTitle, noticeContent, noticeDate from tbl_notice
+		order by 1 desc limit #{startRow}, #{rowCount}
+	</select>
+	
+	<!-- 공지 게시글 총 갯수 -->
+	<select id="noticeGetTotal" resultType="_int">
+		select count(noticeNum) from tbl_notice
+	</select>
+	
+	<!-- 공지 게시판 상세보기 -->
+	<select id="noticeSelectDetail" parameterType="_int" resultType="AdminNoticeVO">
+		select noticeNum, noticeDate, noticeTitle, noticeContent
+		from tbl_notice where noticeNum = #{noticeNum}
+	</select>
+	
+		
+	<!-- 공지글 작성 -->
+	<insert id="insert" parameterType="AdminNoticeVO">
+		insert into tbl_notice (noticeTitle, noticeContent, noticeDate) 
+		values(#{noticeTitle}, #{noticeContent}, now())
+	</insert>
+	
+	
+	</mapper>

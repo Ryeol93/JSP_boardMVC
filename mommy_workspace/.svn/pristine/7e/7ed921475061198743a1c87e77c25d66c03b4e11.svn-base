@@ -1,0 +1,65 @@
+package com.mommy.app.service;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.mommy.action.ActionForward;
+
+public class ServiceFrontController extends HttpServlet{
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doProcess(req, resp);
+	}
+	
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doProcess(req, resp);
+	}
+	protected void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String requestURI = req.getRequestURI();
+		String contextPath = req.getContextPath();
+		String command = requestURI.substring(contextPath.length());
+		ActionForward af = new ActionForward();
+		if(command.equals("/service/SearchJobOk.ser")) {
+			af=new SearchJobOk().execute(req, resp);
+			
+		}else if(command.equals("/service/SearchMomOk.ser")) {
+			af=new SearchMomOk().execute(req, resp);
+		}else if(command.equals("/service/WriteMom.ser")) {
+			af = new WriteMom().execute(req, resp);
+		}else if(command.equals("/service/WriteMomOk.ser")) {
+			af = new WriteMomOk().execute(req, resp);
+		}else if(command.equals("/service/MomDetailModalOk.ser")) {
+			af = new MomDetailModalOk().execute(req, resp);
+		}else if(command.equals("/service/lookSitterProfile2.ser")) {
+			af = new LookSitterProfile2().execute(req, resp);
+		}
+	
+		
+		
+		/*else if(command.equals("/service/WriteSitter.ser")) {
+			af = new WriteSitter().execute(req, resp);
+		}else if(command.equals("/service/WriteSitterOk.ser")) {
+			af = new WriteSitterOk().execute(req, resp);
+		}
+		*/
+
+		if(af != null) {// af가 null이 아니라면
+			if(af.isRedirect()) {//redirect 방식이라면
+				resp.sendRedirect(af.getPath());//redirect로 전송
+				
+			}else {//forward 방식이라면
+				RequestDispatcher dispatcher = req.getRequestDispatcher(af.getPath());
+				dispatcher.forward(req, resp);//forward로 전송
+			}
+		}
+		
+
+	}
+}

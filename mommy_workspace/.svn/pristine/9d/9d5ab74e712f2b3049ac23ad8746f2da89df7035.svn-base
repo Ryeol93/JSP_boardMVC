@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+   <typeAliases>
+      <typeAlias type="com.mommy.app.user.vo.UserVO" alias="UserVO"/>
+      <typeAlias type="com.mommy.app.ask.vo.AskVO" alias="askVO"/>
+      <typeAlias type="com.mommy.app.ask.vo.AskDTO" alias="askDTO"/>
+       
+      <typeAlias type="com.mommy.app.community.vo.CommunityCommentVO" alias="communityCommentVO"/>
+      <typeAlias type="com.mommy.app.community.vo.CommunityCommentDTO" alias="communityCommentDTO"/>
+      
+      <typeAlias type="com.mommy.app.admin.vo.AdminFilesVO" alias="AdminFilesVO"/>
+      <typeAlias type="com.mommy.app.ask.vo.AskFilesVO" alias="AskFilesVO"/>
+      <typeAlias type="com.mommy.app.community.vo.FilesVO" alias="FilesVO"/>
+      <typeAlias type="com.mommy.app.community.vo.CommunityVO" alias="communityVO"/>
+      <typeAlias type="com.mommy.app.community.vo.CommunityDTO" alias="communityDTO"/>
+      <!-- 
+      <typeAlias type="com.mommy.app.myPage.vo.myPageVO" alias="myPageVO"/>
+      <typeAlias type="com.mommy.app.myPage.vo.myPageDTO" alias="myPageDTO"/>
+       -->
+       <typeAlias type="com.mommy.app.notice.vo.NoticeVO" alias="NoticeVO"/>
+       <typeAlias type="com.mommy.app.service.vo.ServiceVO" alias="ServiceVO"/>
+       <typeAlias type="com.mommy.app.service.vo.ServiceDTO" alias="ServiceDTO"/>
+       <typeAlias type="com.mommy.app.admin.vo.AdminQnaVO" alias="AdminQnaVO"/>
+       <typeAlias type="com.mommy.app.admin.vo.AdminQnaDTO" alias="AdminQnaDTO"/>
+       <typeAlias type="com.mommy.app.admin.vo.AdminNoticeVO" alias="AdminNoticeVO"/>
+
+   </typeAliases>
+
+   <environments default="development">
+      <environment id="development">
+         <transactionManager type="JDBC"/>
+         <dataSource type="POOLED">
+            <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="url" value="jdbc:mysql://localhost:3306/mommy"/>
+            <property name="username" value="root"/>
+            <property name="password" value="1234"/>
+         </dataSource>
+      </environment>
+   </environments>
+   
+   <mappers>
+      <mapper resource="com/mommy/mybatis/mapper/user.xml"/>
+      <mapper resource="com/mommy/mybatis/mapper/ask.xml"/>
+      <mapper resource="com/mommy/mybatis/mapper/askFiles.xml"/>
+      <mapper resource="com/mommy/mybatis/mapper/community.xml"/>
+      <mapper resource="com/mommy/mybatis/mapper/files.xml"/>
+      <mapper resource="com/mommy/mybatis/mapper/notice.xml"/>
+      <mapper resource="com/mommy/mybatis/mapper/service.xml"/>
+      <mapper resource="com/mommy/mybatis/mapper/myPage.xml"/>
+      <!--  <mapper resource="com/mommy/mybatis/mapper/myPage.xml"/> -->
+      <mapper resource="com/mommy/mybatis/mapper/admin.xml"/>
+      <mapper resource="com/mommy/mybatis/mapper/adminFiles.xml"/>
+   </mappers>
+   
+</configuration>

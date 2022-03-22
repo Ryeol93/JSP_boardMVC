@@ -1,0 +1,84 @@
+package com.mommy.app.service;
+
+import java.io.IOException;
+import java.security.Provider.Service;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.mommy.action.Action;
+import com.mommy.action.ActionForward;
+import com.mommy.app.service.dao.ServiceDAO;
+import com.mommy.app.service.vo.ServiceVO;
+
+public class WriteSitterOk implements Action{
+
+	@Override
+	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		HttpSession session = req.getSession();
+		ServiceVO serviceVo = new ServiceVO();
+		ServiceDAO serviceDao = new ServiceDAO();
+		req.setCharacterEncoding("UTF-8");
+		resp.setCharacterEncoding("UTF-8");
+		int userNum = (int) session.getAttribute("userNum");
+		serviceVo.setUserNum(userNum);
+		System.out.println("WriteSitterOk 시터 프로필 작성");
+		serviceVo.setCareIndoor(transInt(req.getParameter("inside"))); // n
+		serviceVo.setCareCommit(transInt(req.getParameter("commit")));
+		serviceVo.setCareFood(transInt(req.getParameter("food")));
+		serviceVo.setCareClean(transInt(req.getParameter("clean")));
+		serviceVo.setBabyNewborn(transInt(req.getParameter("newborn")));  // n
+		serviceVo.setBabyChild(transInt(req.getParameter("baby"))); 
+		serviceVo.setBabyKinder(transInt(req.getParameter("kinder")));
+		serviceVo.setBabyElementary(transInt(req.getParameter("elememtary")));
+		serviceVo.setCareEmergency(transInt(req.getParameter("careEmergency")));
+
+		
+		serviceVo.setProfileDescription(req.getParameter("message")); // ?? 
+		
+		//serviceVo.setProfileDate(req.getParameter("startDate"));
+		serviceVo.setP_periodStartDate(req.getParameter("startDate"));
+		System.out.println("startDate : "+serviceVo.getProfileDate());
+		
+		// careEmergency (긴급돌봄) 
+		
+		serviceVo.setP_mon(Integer.parseInt(req.getParameter("P_mon")));
+		serviceVo.setP_tue(Integer.parseInt(req.getParameter("P_tue")));
+		serviceVo.setP_wed(Integer.parseInt(req.getParameter("P_wed")));
+		serviceVo.setP_thu(Integer.parseInt(req.getParameter("P_thu")));
+		serviceVo.setP_fri(Integer.parseInt(req.getParameter("P_fri")));
+		serviceVo.setP_sat(Integer.parseInt(req.getParameter("P_sat")));
+		serviceVo.setP_sun(Integer.parseInt(req.getParameter("P_sun")));
+		
+		serviceVo.setProfileSalary(Integer.parseInt(req.getParameter("profileSalary")));
+		
+		serviceVo.setP_morning(Integer.parseInt(req.getParameter("P_morning")));
+		serviceVo.setP_lunch(Integer.parseInt(req.getParameter("P_lunch")));
+		serviceVo.setP_noon(Integer.parseInt(req.getParameter("P_noon")));
+		serviceVo.setP_week(Integer.parseInt(req.getParameter("P_week")));
+		serviceVo.setP_month(Integer.parseInt(req.getParameter("P_month")));
+		serviceVo.setP_quarter(Integer.parseInt(req.getParameter("P_quarter")));
+		serviceVo.setP_semiAnnual(Integer.parseInt(req.getParameter("P_semiAnnual")));
+		
+		serviceVo.setProfileAttach(req.getParameter("attachQ"));
+		
+		serviceVo.setLocationSido(req.getParameter("transSido"));
+		serviceVo.setLocationSigun(req.getParameter("transSiugun"));
+		serviceVo.setLocationDong(req.getParameter("transDong"));
+		serviceDao.insertProfile(serviceVo);
+		
+		return null;
+	}
+	
+	public int transInt (String data) {
+		if(data == null) {
+			return 0;
+		}
+		if(data.equals("on")) {
+			return 1;
+		}
+		return 0;
+	}
+
+}

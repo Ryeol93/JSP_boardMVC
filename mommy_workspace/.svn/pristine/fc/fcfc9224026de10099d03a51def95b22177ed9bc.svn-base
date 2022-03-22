@@ -1,0 +1,212 @@
+@font-face {
+          font-family: 'GmarketSansMedium';
+          src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+      } 
+
+        @font-face {
+            font-family: 'GmarketSansLight';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        @media(max-width:450px){
+        .media1{    width: 359px !important;
+    height: 70px !important;}
+        .media2{margin-left: 9px !important;
+    line-height: 4.3;}
+   
+        .media4{    width: 350px !important; margin-top: -43px !important;}
+        .media5{font-size: 14px !important;
+    margin-bottom: -18px !important;}
+        .media6{    width: 33px !important;
+    margin-left: -2px !important;    margin-bottom: -10px !important;}
+        .media7{    display: inline-block;
+    font-size: 11px !important;
+    margin-left: 16px !important;
+    margin-right: 23px !important;
+}
+        .media8{}
+        .media9{  font-size: 14px !important;
+    margin-left: -7px !important;
+    margin-bottom: -16px !important;}
+        .media10{margin-left: -41px !important;}
+
+        .media13{    font-size: 14px !important;
+    margin-left: -7px !important;}
+
+        .media18{    font-size: 14px !important;
+    margin-left: -7px !important;}
+  
+        .media21{    font-size: 14px !important;
+    margin-left: -7px !important;}
+
+        .media24{margin-left: 17px !important;
+    margin-right: 14px !important;}
+
+        
+        
+        
+
+
+  .apply{
+position: absolute;
+    width: 56px !important;
+    height: 27px !important;
+    font-size: 12px !important;
+    margin: -34px 45px !important;
+
+  }
+  hr{
+    width: 550px;
+    color:#f6f6f6;
+      
+  }
+
+
+ .content{
+   width: 400px;
+    margin: 0 auto;
+    margin-left: 28px !important;
+ }
+.gradeImgSize{
+ width: 39px; margin-top: 20px;
+}
+ .grade{
+   margin: 0 24px;
+    cursor: pointer;
+   
+ }
+.grade2{
+   margin: 0px 17px;
+    
+    
+}
+
+.time{
+margin: 0 13px !important;
+    font-size: 10px !important;
+    margin-left: 0px !important;
+    margin-right: 38px !important;
+}
+.timeIcon{
+    width: 51px !important;
+    margin-left: 8px !important;
+    margin-right: 27px !important;
+    margin-bottom: -10px !important;
+    margin-top: -1px !important;
+}
+.age{
+ margin: 0px 16px !important;
+    width: 37px !important;
+}
+
+.activity{
+     margin: 0 13px !important;
+}
+
+.days2{
+    width: 30px !important;
+    margin: 6px !important;
+} 
+        
+        
+        }
+        /*-----------------------------------------------------------------------------------------  */
+
+	h3{
+		margin:0px;
+		font-family: GmarketSansMedium;
+		color:#93999A;
+		margin-left: -12px;
+	}
+    .main{
+        text-align: center;
+        margin: 0 auto;
+        width:550px;
+        height: 780px;
+    }
+  .header{
+      width: 500px;
+      height: 100px;
+      text-align: center;
+      margin: 0 auto;
+      position: relative;
+     margin-bottom: 4px;
+     /* background-color: pink; */
+  }
+
+  .apply{
+     position: absolute;
+    background-color: white;
+    color: #ffb61a;
+    font-weight: bold;
+    width: 80px;
+    height: 40px;
+    border: none;
+    border-radius: 15px;
+    font-size: 17px;
+    margin: -46px 162px;
+
+  }
+  hr{
+    width: 550px;
+    color:#f6f6f6;
+      
+  }
+
+
+ .content{
+   width: 400px;
+    margin: 0 auto;
+    
+ }
+.gradeImgSize{
+ width: 39px; margin-top: 20px;
+}
+ .grade{
+   margin: 0 24px;
+    cursor: pointer;
+   
+ }
+.grade2{
+   margin: 0px 17px;
+    
+    
+}
+
+.time{
+   margin: 0 15px;
+ font-size: 12px;
+ margin-top: 20px;
+}
+.timeIcon{
+   margin: 0px 14px;
+    cursor: pointer;
+    width: 70px;
+    margin-top: 16px;
+}
+.age{
+   margin: 0px 10px;
+    width: 50px;
+    cursor: pointer;
+    margin-top:10px;
+}
+
+.activity{
+ width: 41px;
+    margin: 0 14px;
+    cursor: pointer;
+        margin-top: 10px;
+}
+
+.days2{
+width: 40px;
+    margin: 4px;
+cursor: pointer;
+margin-top:9px;
+}
+
+
