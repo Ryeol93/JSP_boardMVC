@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http//mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Chat">
+	<!-- 쪽지 보내기 -->
+	<insert id="insert" parameterType="ChatVO">
+		INSERT INTO tbl_chat
+		(userNum, sendUserName, chatTitle, chatContent, chatDate)
+		VALUES(#{userNum}, #{sendUserName}, #{chatTitle}, #{chatContent}, now());
+	</insert>
+
+	<!-- 전체 목록 -->
+	<select id="selectAll" parameterType="_int" resultType="ChatVO">
+		SELECT chatTitle, chatContent, chatDate, chatNum
+		FROM tbl_chat
+		where userNum = #{userNum};
+	</select>
+		
+	
+	<!-- 요청 전체 개수  -->
+	<select id="getTotal" parameterType="_int"  resultType="_int">
+		select count(chatNum) from tbl_chat
+		where userNum = #{userNum}
+	</select>
+</mapper>

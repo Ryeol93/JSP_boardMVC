@@ -1,0 +1,212 @@
+
+    /*슬라이더 스타일*/
+    .section input[id*="slide"] {display:none;}
+	.section .slidewrap {max-width:1200px;margin:0 auto;}
+	.section .slidelist {white-space:nowrap;font-size:0;overflow:hidden;position:relative;}
+	.section .slidelist > li {display:inline-block;vertical-align:middle;width:100%;transition:all .5s;}
+	.section .slidelist > li > a {display:block;position:relative; text-align: center;}
+	.section .slidelist > li > a img {width:92%;}
+	.section .slidelist label {position:absolute;top:50%;transform:translateY(-50%);padding:50px;cursor:pointer;}
+	.section .slidelist .textbox {position:absolute;top:50%;left:61%;transform:translate(-50%,-50%);line-height:1.6;text-align:center;}
+	.section .slidelist .textbox h3 {font-size:36px;color:#fff;;transform:translateY(30px);transition:all .5s;}
+	.section .slidelist .textbox p {font-size:16px;color:#fff;opacity:0;transform:translateY(30px);transition:all .5s;}
+	
+	/* input에 체크되면 슬라이드 효과 */
+	.section input[id="slide01"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
+	.section input[id="slide02"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
+	.section input[id="slide03"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
+
+	/* input에 체크되면 텍스트 효과 */
+	.section input[id="slide01"]:checked ~ .slidewrap li:nth-child(1) .textbox h3 {opacity:1;transform:translateY(0);transition-delay:.2s;}
+	.section input[id="slide01"]:checked ~ .slidewrap li:nth-child(1) .textbox p {opacity:1;transform:translateY(0);transition-delay:.4s;}
+	.section input[id="slide02"]:checked ~ .slidewrap li:nth-child(2) .textbox h3 {opacity:1;transform:translateY(0);transition-delay:.2s;}
+	.section input[id="slide02"]:checked ~ .slidewrap li:nth-child(2) .textbox p {opacity:1;transform:translateY(0);transition-delay:.4s;}
+	.section input[id="slide03"]:checked ~ .slidewrap li:nth-child(3) .textbox h3 {opacity:1;transform:translateY(0);transition-delay:.2s;}
+	.section input[id="slide03"]:checked ~ .slidewrap li:nth-child(3) .textbox p {opacity:1;transform:translateY(0);transition-delay:.4s;}
+
+	/* 좌,우 슬라이드 버튼 */
+	.slide-control > div {display:none;}
+	.section .left {left:30px;background:url('../../images/left.png') center center / 100% no-repeat;}
+	.section .right {right:30px;background:url('../../images/right.png') center center / 100% no-repeat;}
+	.section input[id="slide01"]:checked ~ .slidewrap .slide-control > div:nth-child(1) {display:block;}
+	.section input[id="slide02"]:checked ~ .slidewrap .slide-control > div:nth-child(2) {display:block;}
+	.section input[id="slide03"]:checked ~ .slidewrap .slide-control > div:nth-child(3) {display:block;}
+
+	/* 페이징 */
+	.slide-pagelist {text-align:center;}
+	.slide-pagelist > li {display:inline-block;vertical-align:middle;}
+	.slide-pagelist > li > label {display:block;padding:8px 30px;border-radius:30px;background:#FFF7CA;margin:20px 10px;cursor:pointer;}
+	.section input[id="slide01"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(1) > label {background:#ffb61a;}
+	.section input[id="slide02"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(2) > label {background:#ffb61a;}
+	.section input[id="slide03"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(3) > label {background:#ffb61a;}
+
+
+
+		@font-face {
+		    font-family: 'GmarketSansMedium';
+		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+
+        @font-face {
+            font-family: 'GmarketSansLight';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+      @media (max-width: 576px){
+      
+      
+      
+    body{
+    overflow-x: hidden
+    }
+    
+    .mainTitle media18{
+    font-size: 26px !important;}
+    
+    #hiddenChange{
+    margin-top: 10px;
+    padding-left :0 !important;
+    text-align: center;
+    height: 60px;
+    
+    }
+    .footerLogo{
+    margin-top: 20px;
+    }
+    
+    
+    #footer{
+    padding: 0 !important;
+    height:165px;
+    margin-top: 15px;
+    }
+    
+    #mediahidden{
+    	display:none !important;
+    }
+  #mediashow{
+  	float: left;
+  	padding: 10px 10px;
+  }
+
+  
+      .media1{width: 193px !important;}
+      .media2{font-size: 12px; left:0 !important;}
+      .media3{   font-size: 10px; margin-top: 10px;}
+      .media4{font-size: 10px;  margin-top: 20px;}
+
+      .media6{display: none !important;}
+
+      .media8{      font-size: 18px !important;
+    margin-top: 26px !important;
+    margin-bottom: 0 !important;}
+    
+    .media9{
+    	display:none;
+    }
+    .media10{
+        width: 120px !important;
+    height: 124px !important;
+    font-size: 16px !important;
+    left: 231px;
+    }
+      .media13{    width: 120px !important;
+    height: 38px !important;
+    font-size: 16px !important;}
+      .media11{font-size: 16px !important;
+    margin-left: -36px !important;}
+      .media12{font-size: 11px !important;
+    margin-left: -36px !important;
+    width: 178px !important;}
+      .media14{    display: none;}
+      .media15{width: 89px !important;
+    font-size: 8px !important;
+    display: block !important;
+    left: 88px !important;}
+
+      .media17{  font-size: 20px !important;
+    margin-bottom: 0 !important;}
+  
+      .media22{    display: none;}
+      
+      
+      
+       #main h1,  #main h2,  #main h3,  #main h4,  #main h5,  #main h6, #main p, #main strong{
+            color:black;
+        }
+
+        #logo{
+            width: 150px;
+        }
+
+        .textOnImg{
+            position: absolute;
+            color: white;
+            left: 20%;
+            top: 14%;
+            font-family: GmarketSansMedium !important;
+        }
+
+        .wave{
+       
+            display: none;
+        }
+
+        .mainTitle{
+            text-align: center;
+            font-family: GmarketSansMedium !important; 
+            color: #ffb61a !important;
+            font-size: 26px;
+        }
+
+        .slideText{
+            font-family: GmarketSansMedium !important;
+        }
+        
+      
+      }
+
+        #main h1,  #main h2,  #main h3,  #main h4,  #main h5,  #main h6, #main p, #main strong{
+            color:black;
+        }
+
+        #logo{
+            width: 150px;
+        }
+
+        .textOnImg{
+            position: absolute;
+            color: white;
+            left: 20%;
+            top: 14%;
+            font-family: GmarketSansMedium !important;
+        }
+
+        .wave{
+            width: 25%;
+            top: 45%;
+            position: absolute;
+            left: 20%;
+        }
+
+        .mainTitle{
+            text-align: center;
+            font-family: GmarketSansMedium !important; 
+            color: #ffb61a !important
+        }
+
+        .slideText{
+            font-family: GmarketSansMedium !important;
+        }
+        
+        
+#banner:after {
+	z-index: -1;
+}
+
+#banner{
+	z-index: 1;
+}
