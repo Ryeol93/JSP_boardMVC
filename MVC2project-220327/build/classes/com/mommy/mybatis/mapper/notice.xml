@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http//mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Notice">
+	<!-- 공지 게시판 목록 -->
+	<select id="selectAll" parameterType="map" resultType="NoticeVO">
+		select noticeNum, noticeDate, noticeTitle, noticeContent from tbl_notice
+		order by 1 desc limit #{startRow}, #{rowCount}
+	</select>
+	
+	<!-- 공지 게시글 총 갯수 -->
+	<select id="getTotal" resultType="_int">
+		select count(noticeNum) from tbl_notice
+	</select>
+	
+	<!-- 공지 게시판 상세보기 -->
+	<select id="selectDetail" parameterType="_int" resultType="NoticeVO">
+		select noticeNum, noticeDate, noticeTitle, noticeContent
+		from tbl_notice where noticeNum = #{noticeNum}
+	</select>
+	
+	<!-- 공지 게시글 추가 -->
+	<insert id="insert" parameterType="NoticeVO">
+		insert into tbl_notice (noticeDate, noticeTitle, noticeContent) 
+		values(now(), #{noticeTitle}, #{noticeContent})
+	</insert>
+</mapper>
+
+

@@ -1,0 +1,185 @@
+
+/* ----------------------------------------------------------------------  */		
+       @media (max-width: 576px){
+       		
+       		h2.notice {
+   				 font-size: 30px !important;
+    			 margin-bottom: 25px !important;
+    			     padding: 0px 0px 0px 15px;
+   			}
+   			
+   			.goBack {
+background-color: black;
+    color: white !important;
+    height: 45px !important;
+    width: 105px !important;
+    border: hidden !important;
+    border-radius: 200px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    font-size: 18px !important;
+			}
+			
+			header.major {
+    			margin: 0 0 -1em 0 !important;
+    			
+			}
+			
+		
+			
+		  .container.medium {
+            width: 90% !important;
+          
+        }
+
+       }
+       
+/* ----------------------------------------------------------------------  */		
+       @media (max-width: 390px){
+       		
+       		h2.notice {
+   				 font-size: 28px !important;
+    			 margin-bottom: 25px !important;
+    			     padding: 0px 0px 0px 15px;
+   			}
+   			
+   			.goBack {
+background-color: black;
+    color: white !important;
+    height: 45px !important;
+    width: 105px !important;
+    border: hidden !important;
+    border-radius: 200px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    font-size: 18px !important;
+			}
+			
+			header.major {
+    			margin: 0 0 -1em 0 !important;
+			}
+			
+		  .container.medium {
+            width: 90% !important;
+          
+        }
+
+       }
+/* ----------------------------------------------------------------------  */
+
+        
+        @font-face {
+		    font-family: 'GmarketSansMedium';
+		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+
+        @font-face {
+            font-family: 'GmarketSansLight';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .container.medium {
+            width: 70% ;
+          
+        }
+		
+        .notice{
+            color:black;
+            text-align: left;
+            font-family: 'GmarketSansMedium';
+        }
+
+
+
+
+
+
+.boardHead{
+    border-top: 2px solid #000;
+    border-bottom: 1px solid #707070;
+    background: white !important;
+    color:black;
+    font-weight: bold;
+    font-size:14px;
+}
+
+.boarderInner{
+    background: white !important;
+    font-size:14px;
+}
+
+
+
+.title{
+    text-align: left;
+    padding-left: 30px;
+    font-size:15px;
+    color:black;
+    font-weight: bold;
+    font-size: 18px;
+    
+}
+
+.date{
+    padding-right:30px;
+    text-align: right;
+    font-weight: lighter;
+    color: #b7b7b7 !important;
+}
+
+
+
+.innerText{
+    background-color: white;
+    border: hidden;
+    padding: 0 30px !important;
+    color: black;
+    resize: none;
+    min-height: 50px; 
+
+}
+
+.next{
+    border-top: 2px solid #000;
+    background: white !important;
+    color:#b7b7b7;
+    font-size:13px;
+}
+
+.before{
+background: white !important;
+color:#b7b7b7;
+font-size:13px;
+}
+
+.titleBelow{
+    color:black;
+    font-size:14px;
+}
+
+.goBack{
+    background-color: black;
+    color:white;
+    height: 50px;
+    width:112px;
+    border:hidden;
+    border-radius: 200px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+  
+
+textarea.innerText:focus, textarea:focus {
+    box-shadow: 0 0 0 0px #ffb61a;
+    border:0px !important;
+}
+
+.notice{
+	font-size:40px; 
+	margin-bottom:-10px;
+}

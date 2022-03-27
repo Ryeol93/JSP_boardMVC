@@ -1,0 +1,448 @@
+/* askInsert css(문의하기(신고하기) 포함) */
+/* ---------------------------------------------------------------- */
+      @media (max-width: 576px){
+
+        .container.medium {
+            width: 90% !important;
+           padding: 45px 0 !important;
+        }
+
+      div#main p{
+         font-size: 14px !important;
+         letter-spacing: -0.3px !important;
+         color: black !important;
+      }
+
+      .necessary{
+         font-size: 14px !important;
+         letter-spacing: -0.3px !important;
+         color: black !important;
+         font-weight: bold !important;
+      }
+
+
+.label{
+   position: relative !important;
+   margin-bottom: 10px !important;
+}
+
+.input{
+   top:0px !important;
+   width: 70% !important;
+   margin-left: 150px !important;
+   position: absolute !important;
+   font-size: 14px !important;
+   color:black !important;
+   border-radius: 0% !important;
+   
+}
+
+.inputTextarea{
+   width:70% !important; 
+   background: white !important; 
+   border: solid 1px #e2eaec !important;
+   top:0px !important;
+   margin-left: 150px !important;
+   position: absolute !important;
+   font-size: 14px !important;
+   color:black !important;
+   border-radius: 0% !important;
+   height: 234px !important;
+    resize: none !important;
+    overflow-y : scroll !important;
+}
+
+.innerLabel{
+   margin-bottom: 35px !important;
+   font-size: 16px !important;
+   padding-top: 4px !important;
+   color:black !important;
+}
+
+p#msgAttach{
+    margin-top: -28px !important;
+    margin-left: 150px !important;
+    font-size: 14px !important;
+    color:#d4cfcf !important;
+}
+
+.input-file-button{
+  padding: 6px 25px !important;
+  margin-left: 301px !important;
+  margin-top:5px !important;
+  margin-bottom:10px !important;
+  background-color:#b7b7b7 !important;
+  border-radius: 4px !important;
+  color: white !important;
+  cursor: pointer !important;
+  float:left !important;
+  height:30px !important;
+  z-index: 3 !important;
+  font: menu !important;
+    font-weight: bold !important;
+}
+
+div.uploadBar{
+       margin-top: -107px !important;
+}
+
+input.uploadButton{
+font-size: 14px !important; 
+height: 45px !important; 
+line-height: 1.2em !important; 
+color:white !important !important; 
+background:#ffb61a !important;  
+box-shadow: inset 0 0 0 1px #ffb61a !important; 
+width:130px !important;
+}
+
+}
+
+/* ---------------------------------------------------------------- */   
+      @media (max-width: 390px){
+
+        .container.medium {
+            width: 90% !important;
+           padding: 45px 0 !important;
+        }
+
+      div#main p{
+         font-size: 14px !important;
+         letter-spacing: -0.3px !important;
+         color: black !important;
+      }
+
+      .necessary{
+         font-size: 14px !important;
+         letter-spacing: -0.3px !important;
+         color: black !important;
+         font-weight: bold !important;
+      }
+
+
+.label{
+   position: relative !important;
+   margin-bottom: 10px !important;
+}
+
+.input{
+   top:0px !important;
+   width: 70% !important;
+   margin-left: 150px !important;
+   position: absolute !important;
+   font-size: 14px !important;
+   color:black !important;
+   border-radius: 0% !important;
+   
+}
+
+.inputTextarea{
+   width:70% !important; 
+   background: white !important; 
+   border: solid 1px #e2eaec !important;
+   top:0px !important;
+   margin-left: 150px !important;
+   position: absolute !important;
+   font-size: 14px !important;
+   color:black !important;
+   border-radius: 0% !important;
+   height: 234px !important;
+    resize: none !important;
+    overflow-y : scroll !important;
+}
+
+.innerLabel{
+   margin-bottom: 35px !important;
+   font-size: 16px !important;
+   padding-top: 4px !important;
+   color:black !important;
+}
+
+p#msgAttach{
+    margin-top: -28px !important;
+    margin-left: 150px !important;
+    font-size: 14px !important;
+    color:#d4cfcf !important;
+}
+
+.input-file-button{
+  padding: 6px 25px !important;
+  margin-left: 301px !important;
+  margin-top:5px !important;
+  margin-bottom:10px !important;
+  background-color:#b7b7b7 !important;
+  border-radius: 4px !important;
+  color: white !important;
+  cursor: pointer !important;
+  float:left !important;
+  height:30px !important;
+  z-index: 3 !important;
+  font: menu !important;
+    font-weight: bold !important;
+}
+
+div.uploadBar{
+       margin-top: -107px !important;
+    	flex-wrap: wrap !important;
+}
+
+input.uploadButton{
+font-size: 14px !important; 
+height: 45px !important; 
+line-height: 1.2em !important; 
+color:white !important !important; 
+background:#ffb61a !important;  
+box-shadow: inset 0 0 0 1px #ffb61a !important; 
+width:130px !important;
+}
+
+.bButton{
+margin-top: 199px;
+}
+
+}
+
+/* ---------------------------------------------------------------- */	
+		@media (max-width: 390px){
+
+        .container.medium {
+            width: 90% !important;
+           padding: 45px 0 !important;
+        }
+
+		div#main p{
+			font-size: 13px !important;
+			letter-spacing: -0.3px !important;
+			color: black !important;
+		}
+
+		.necessary{
+			font-size: 14px !important;
+			letter-spacing: -0.3px !important;
+			color: black !important;
+			font-weight: bold !important;
+		}
+
+
+.label{
+	position: relative !important;
+	margin-bottom: 10px !important;
+}
+
+.input{
+    top: 0px !important;
+    width: 57% !important;
+    /* margin-left: 150px !important; */
+    position: absolute !important;
+    font-size: 14px !important;
+    color: black !important;
+    border-radius: 0% !important;
+    margin-left: 31px;
+    margin: 0px 0 0 120px;
+	
+}
+
+.inputTextarea{
+    width: 100% !important;
+    background: white !important;
+    border: solid 1px #e2eaec !important;
+    top: 0px !important;
+    margin-left: 150px !important;
+    position: absolute !important;
+    font-size: 14px !important;
+    color: black !important;
+    border-radius: 0% !important;
+    height: 234px !important;
+    resize: none !important;
+    overflow-y: scroll !important;
+    margin: 40px 0 0 0 !important;
+}
+
+.innerLabel{
+	margin-bottom: 35px !important;
+	font-size: 16px !important;
+	padding-top: 4px !important;
+	color:black !important;
+}
+
+p#msgAttach{
+    margin-top: 2px !important;
+    margin-left: 1px !important;
+    font-size: 14px !important;
+    color: #d4cfcf !important;
+}
+
+.input-file-button{
+padding: 6px 25px !important;
+    margin-left: 266px !important;
+    margin-top: 5px !important;
+    margin-bottom: 10px !important;
+    background-color: #b7b7b7 !important;
+    border-radius: 4px !important;
+    color: white !important;
+    cursor: pointer !important;
+    float: left !important;
+    height: 30px !important;
+    z-index: 3 !important;
+    font: menu !important;
+    font-weight: bold !important;
+    margin: 0px 0 0 219px;
+}
+
+div.uploadBar{
+	    margin-top: -107px !important;
+}
+
+input.uploadButton{
+font-size: 14px !important; 
+height: 45px !important; 
+line-height: 1.2em !important; 
+color:white !important !important; 
+background:#ffb61a !important;  
+box-shadow: inset 0 0 0 1px #ffb61a !important; 
+width:130px !important;
+}
+
+.bButton{
+    margin-top: -63px;
+}
+
+.inputTitle{
+	margin: 32px 0 0 0;
+	width:100% !important;
+	    margin: 31px 0 0 0px !important;
+}
+.inner-A{
+margin-bottom: 55px !important;
+}
+.uploadFile{
+    margin: 44px 0 0 0;
+}
+.file-select{
+	    margin: 8px 0 0 56px;
+    position: absolute;
+    font-size: 12px;
+}
+.file-p{
+position: absolute;
+}
+}
+/* ---------------------------------------------------------------- */		
+		@font-face {
+		    font-family: 'GmarketSansMedium';
+		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+
+
+
+        @font-face {
+            font-family: 'GmarketSansLight';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+            
+
+        .textOnImg{
+            position: absolute;
+            color: black;
+            left: 50%;
+            top: 50%;
+         transform:translate(-50%, -50%);
+            font-family: GmarketSansMedium !important;
+         font-size: 2em;
+        }
+   
+      
+        .container.medium {
+            width: 70%;
+           padding: 45px 0;
+        }
+
+      div#main p{
+         font-size: 18px;
+         letter-spacing: -0.3px;
+         color: black;
+      }
+
+      .necessary{
+         font-size: 14px;
+         letter-spacing: -0.3px;
+         color: black;
+         font-weight: bold;
+      }
+
+
+.label{
+   position: relative;
+   margin-bottom: 10px;
+}
+
+.input{
+   top:0px;
+   width:90%;
+   margin-left:240px;
+   position: absolute;
+   font-size: 14px;
+   color:black !important;
+   border-radius: 0% !important;
+   
+}
+
+.inputTextarea{
+   width:79%; 
+   background: white; 
+   border: solid 1px #e2eaec;
+   top:0px;
+   margin-left:240px;
+   position: absolute;
+   font-size: 14px;
+   color:black !important;
+   border-radius: 0% !important;
+   height: 234px !important;
+    resize: none;
+    overflow-y : scroll !important;
+}
+
+.innerLabel{
+   margin-bottom: 35px;
+   font-size: 16px;
+   padding-top: 4px;
+   color:black;
+}
+
+p#msgAttach{
+    margin-top: -28px;
+    margin-left: 240px;
+    font-size: 14px !important;
+    color:#d4cfcf !important;
+}
+
+.input-file-button{
+  padding: 6px 25px;
+  margin-left: 180px;
+  margin-top:5px;
+  margin-bottom:10px;
+  background-color:#b7b7b7;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  float:left;
+  height:30px;
+  z-index: 3;
+  font: menu;
+    font-weight: bold;
+}
+
+input.uploadButton{
+font-size: 16px; 
+height: 45px; 
+line-height: 1.2em; 
+color:white !important; 
+background:#ffb61a; 
+box-shadow: inset 0 0 0 1px #ffb61a !important; 
+width:200px;
+}

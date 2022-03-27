@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+  @font-face {
+		    font-family: 'GmarketSansMedium';
+		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+
+        @font-face {
+            font-family: 'GmarketSansLight';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+#content {
+	width: 400px;
+    height:600px;
+    margin: 0 0;
+	position: relative;
+
+	background: white;
+}
+div.kakao {
+	width: 394px;
+	height: 665px;
+	border: 8px solid #fff;
+	background:#e8f0f3;
+	overflow: hidden;
+	position: relative;
+	left: 5px;
+	top: -8px;
+}
+
+#all{
+    float: right !important;
+    margin-right: 9px;
+    margin-top: 1px;
+    padding: 5px;
+    cursor:pointer;
+}
+
+#all:hover{
+    float: right !important;
+    margin-right: 9px;
+    margin-top: 1px;
+    padding: 5px;
+    cursor:pointer;
+    background-color: #ff8247;
+}
+
+.friend-name{
+    font-family: 'GmarketSansMedium';
+}
+
+h1 {
+	font-size: 1.375rem;
+    font-weight: bold;
+    display: inline;
+    position: relative;
+    left: 20px;
+    font-family:GmarketSansMedium;
+}
+
+.chat-status {
+	flex-basis: 4.5rem;
+    flex-shrink: 0;
+    text-align: right;
+    position: relative;
+    right: 24px;
+}
+
+.profile-img {
+	width: 3.125rem;
+	position: relative;
+	left: 6px;
+    border-radius: 15px;
+}
+
+	.me {
+		display: inline-block;
+		background-image: url(../pic/me_balloon.png);
+		background-repeat: no-repeat;
+		background-size: contain;
+		padding: 0.125rem;
+		margin-right: 0.125rem;
+		vertical-align: middle;
+		font-size: 0.625rem;
+		color:#ffb61a;
+	}
+	
+	li .talk {
+		margin-left: 0.9375rem;
+    	flex-grow: 1;
+    	position: relative;
+    	left: 7px;
+	}
+	
+	    .boldButton{
+            font-size: 13px;
+		    color: white;
+		    background: pink;
+		    height: 27px;
+		    border: hidden;
+		    margin-top: 11px;
+		    border-radius: 8px;
+		    width: 87px;
+		    margin-right: 20px;
+		    float: right;
+		    font-family: 'GmarketSansMedium';
+		    cursor: pointer;
+		    line-height: inherit;
+        }
+        
+         .boldButton:hover{
+         	border: 1px solid #ffb61a;
+         }
+         
+         
+         
+         
+         
+         

@@ -1,0 +1,107 @@
+
+/* ----------------------------------------------------------------------  */        
+        @media (max-width: 576px){
+            #main {
+            width: 100%;
+            }
+            
+            #btn{
+				position: absolute !important;
+    			margin-top: 70em !important;
+    			margin-left: -9em !important;
+
+            }
+			
+			#title {
+    font-size: 20px !important;
+    background-color: white !important;
+    border: none !important;
+    margin-bottom: -35px !important;
+    margin-top: 61px !important;
+    padding: 17px !important;
+    color: black !important;
+			}
+			
+						.note-editable {
+				height: 600px !important;
+				
+			}
+
+		}
+		
+/* ----------------------------------------------------- */
+
+		@font-face {
+		    font-family: 'GmarketSansMedium';
+		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+
+        @font-face {
+            font-family: 'GmarketSansLight';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+		.textOnImg{
+            position: absolute;
+            color: white;
+            left: 50%;
+            top: 50%;
+			transform:translate(-50%, -50%);
+            font-family: GmarketSansMedium !important;
+			font-size: 2em;
+        }
+
+		div#main{
+			padding: 1em 0 3.5em 0;
+		}
+
+		img#img{
+			width:160px;
+			height:70px;
+		}
+		
+		.whiteBack{
+			background-color: white;
+		}
+		
+		#title{
+			font-size:30px;
+			background-color:white; 
+			border: none;
+			margin-bottom: -35px;
+			margin-top: 61px;
+			padding: 0;
+			color:black;
+		}
+		input[type="text"]:focus{
+			box-shadow: none !important;
+		}
+
+		#select{
+
+			width: 14%;
+			font-size: 12px !important;
+			background-color: white;
+			}
+
+			#btn{
+				background-color: #ffb61a;
+			    box-shadow: none;
+			    color: white !important;
+			    font-size: 12px !important;
+			    height: 2.75em;
+			    line-height: 1.75em;
+			}
+		
+			.note-editable {
+				height: 444.045px;
+				
+			}
+
+			.note-editor .note-editable {
+    			line-height: 10%; 
+		}

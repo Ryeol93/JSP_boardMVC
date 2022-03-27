@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http//mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AdminFiles">
+	<!-- 첨부파일 추가 -->
+	<insert id="insert" parameterType="adminFilesVO">
+		insert into tbl_askFiles (fileName, askNum, fileNameOriginal) 
+		values(#{fileName}, #{askNum}, #{fileNameOriginal})
+	</insert>
+	
+	<!-- 첨부파일 삭제 -->
+	<delete id="delete" parameterType="_int">
+		delete from tbl_askFiles where askNum = #{askNum}
+	</delete>
+	
+	<!-- 첨부파일 가져오기 -->
+	<select id="select" parameterType="_int" resultType="adminFilesVO">
+		select fileName, askNum, fileNameOriginal from tbl_askFiles 
+		where askNum = #{askNum}
+	</select>
+</mapper>

@@ -1,0 +1,169 @@
+
+         
+         .caption {
+            margin-left: 1em;
+         }
+         
+         body, #main, .twoBox, .row{
+            height: 100%;
+         }
+         
+         body {
+            background-color: #f6f6f6;
+           	height: 900px;
+         }
+      
+         div.mainBox {
+            background-color: #fff;
+             border-bottom: 1px solid #d3d3d3;
+             width: 100%;
+             
+         }
+         
+         
+         div#main {
+            /* background-color: #eeeeee; */
+            padding: 0 0 0 0;
+           	width: 100%;
+         	height: 800px;
+         }
+         
+         div.col-6.col-12-small{
+            color: black !important;
+            padding: 0 1em 1em 1em;
+            margin-left: 1em;
+            margin-bottom: 1em;
+         }
+         
+         div.col-6.col-12-small span.s-title{
+            font-size: 1.3em;
+            text-decoration: none !important;
+            font-weight: bold;
+         }
+         
+         div.col-6.col-12-small a{
+            border-bottom: dotted 0px;
+         }
+         
+         div.col-6.col-12-small span, a{
+            color: black;
+            
+         }
+         
+         a.button.primary.small{
+            background-color: #fff !important;
+            color : black !important;
+            margin-left: -2.1em;
+            margin-bottom: 0 !important;
+         }
+         hr {
+             margin: 0 0 1em 0;
+             border-bottom: solid 1px #fff;
+         }
+         
+         div.twoBox{
+            width: 60%;
+            background-color: #fff;
+            padding-top: 1em;
+            border-left: 1px solid #bbb;
+            border-right: 1px solid #bbb;
+            height: 781px;
+         }
+         
+         div.link-list a{
+            display: block;
+         }
+         
+         div.row.gtr-uniform.gtr-50{
+               margin-top: 0.5em;
+               margin-bottom: 0.5em;
+            }
+            
+            div.row {
+               margin-left: -5em;
+            }
+            
+            span.float-right{
+               float:right !important;
+               /* background-color: black; */
+               /* color: #fff !important; */
+               border-radius: 0.3rem;
+               font-size: .73rem;
+            }
+            
+            section#three {
+               margin-left: 18em;
+             width: 70%;
+             padding: 0 0 0 0 !important;
+            }
+            
+            ul {
+               margin: 0 0 0 -1.8em;
+            }
+            
+            ul.actions li {
+             margin: 0 0 0 2.8em;
+             padding: 0 0.5em 0.3em 0.5em;
+             font-weight: bold;
+            }
+            
+            .v-total{
+             width: 25%;
+             display: table;
+             margin-left: 1.5em;
+             margin-bottom: 1em;
+             height: 483px;
+             border: 1px solid #fff;
+             border-radius: 3px;
+             background-color: #fff;
+             margin-top: 1em;
+         }
+         
+         li span.s-title {
+            color: black;
+    font-size: 18.6667px;
+         }
+         
+         div.h-row{
+            padding: 0 0 0 0;
+            width: 100%;
+         }
+         
+         div.h-col {
+            width: 100% !important;
+         }
+         
+         li.bYellow{
+            color: #ffb61a !important;
+            border-bottom: 1px solid #ffb61a;
+         }
+         
+         li.bGray{
+            color: #93999a !important;
+         }
+         
+         li a{
+            border-bottom: dotted 0px;
+         }
+         
+         div.side-header{
+         	width: 18%;
+    		margin-left: -22em;
+    		text-align: center;
+    		    padding: 0 2em 0 3.65em;
+         }  		
+   		
+         div.side-header p{
+         	padding: 1em;
+         	margin: 0 0 0 0;
+         	font-weight: bold;
+         }
+         
+         div.twoBox td{
+         	padding: 0.25em 0.25em;
+         }
+         
+         textarea {
+         	resize: none; 
+         }
+         
