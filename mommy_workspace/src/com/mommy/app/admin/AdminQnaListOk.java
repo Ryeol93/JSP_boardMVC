@@ -87,10 +87,10 @@ public class AdminQnaListOk implements Action{
 //			boardDTO_list.get(i).setMemberId(memberIdList.get(i));
 //		}
 
-		int userStatus = uDao.getInfo((Integer)session.getAttribute("userStatus")).getUserStatus();
+/*		int userStatus = uDao.getInfo((Integer)session.getAttribute("userStatus")).getUserStatus();
 		
 
-		req.setAttribute("userStatus", userStatus);
+		req.setAttribute("userStatus", userStatus);*/
 		
 		//시작 인덱스와, 개수를 전달하여 게시글 목록을 가져온 뒤 requestScope에 담아준다.
 		req.setAttribute("qnaList", dao.qnaSelectAll(qnaMap));
@@ -105,7 +105,6 @@ public class AdminQnaListOk implements Action{
 		req.setAttribute("total1", total1);
 		
 		System.out.println(dao.qnaSelectAll(qnaMap));
-		System.out.println(userStatus);
 		
 		af.setRedirect(false);
 		af.setPath("/app/admin/adminQna.jsp");

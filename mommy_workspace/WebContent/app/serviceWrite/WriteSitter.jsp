@@ -14,10 +14,9 @@
       <link rel="preconnect" href="${pageContext.request.contextPath}/https://fonts.gstatic.com" >
       <link href="${pageContext.request.contextPath}/https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
         <link href="${pageContext.request.contextPath}/assets/css/WriteSitter.css" rel="stylesheet" type="text/css">
-    
+    <link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
 		<script src="https://code.jquery.com/jquery-latest.min.js" type="application/javascript"></script>
   <script type="application/javascript" src="https://zelkun.tistory.com/attachment/cfile8.uf@99BB7A3D5D45C065343307.js"></script>
-      
     <title>시터 글 작성 및 수정</title>
 
 </head>
@@ -34,28 +33,34 @@
          <!-- 모달창 -->
 		   <div id="my_modal">
 	
-	<iframe id="modalIframe" src="${pageContext.request.contextPath}/app/modal/periodModal2.jsp" style="
+	<iframe id="modalIframe" src="${pageContext.request.contextPath}/app/modal/periodModal.jsp" style="
       position: absolute;
     width: 106%;
     margin-left: -69px;
     height: 100%;
-    margin-top: -38px;
+    margin-top: -28px;
+    margin-left: -62px;
 			"
 	class="mediaModal1"
 			>대체 내용</iframe>  
-			  <a class="modal_close_btn" style="border:none;"><img src="${pageContext.request.contextPath}/images/whiteX.png" style="width:20px;"></a>
+			  <a class="modal_close_btn" style="border:none;" id="close"></div></a> 
         </div>
 			
 		<!-- Main -->
 		<div id="main" class="container medium" style = "display:flex;">
-			 <form id="sitterForm" action="${pageContext.request.contextPath}/service/WriteSitterOk.ser" method="post" enctype="multipart/form-data"> - 
+			 <form id="writeProfileForm" action="${pageContext.request.contextPath}/service/WriteSitterOk.ser" method="post" enctype="multipart/form-data"> - 
 			 <%-- <form id="sitterForm" action="${pageContext.request.contextPath}/service/WriteSitterOk.ser" method="post"> --%> -
 			<!-- profile header -->
             <div style = "width: 100%; background: white; position:relative;" class="mediaMain" >
+            <span class="caution" style="float: right;font-size: 12px;color: #93999A; "><img style="max-width: 15px;" src="https://cdn.discordapp.com/attachments/954273372760571914/956558128898519090/aed53ff36d53bb73.jpg">
+                	글 저장후 프로필 수정은 불가능하오니 주의하시기 바랍니다.
+                </span>
                 <div style="text-align: left; display:inline-block; margin-left:15px;">
+                	<div class="profile">
                     <label><input type="file" name ="profilePicture"style="display:none;">
-                    <img src="${pageContext.request.contextPath}/images/유저.png" style="width: 100px; border-radius: 150px; cursor: pointer; ">
+                    <img class="profileImg"src="https://cdn.discordapp.com/attachments/954273372760571914/955479398054772796/unknown.png" style="width: 100px; border-radius: 150px; cursor: pointer; ">
                     </label>
+                    </div>
                     <div style = "position:absolute; top: 19px; left: 136px;">
                           <h3 style="margin-bottom: 3px; font-size: 18px;">${userVO.getUserName()}</h3><span style = "margin-top: 20px; font-size:16px;">${userAge}세,                                    
 	                           <c:choose>
@@ -66,7 +71,7 @@
                            </span>
                      </div>
                      <div  style = "position:absolute; top: 30px; left: 76%;">
-                            <button type="button" class = "button" onclick="sitterFormSend()">글 저장하기</button>
+                            <button type="button" class = "button" onclick="writeProfileFormSend2()">글 저장하기</button>
                      </div>
                 </div>
                 
@@ -91,8 +96,8 @@
                                 <label for="clean" style = "font-size:16px;">청소</label>
                             </div>
                             <div>
-                                <input type="checkbox" id="teach" name="teach"  >
-                                <label for="teach" style = "font-size:16px;">학습 지도</label>
+                                <input type="checkbox" id="careStudy" name="careStudy"  >
+                                <label for="careStudy" style = "font-size:16px;">학습 지도</label>
                             </div>
                             <div>
                                 <input type="checkbox" id="careEmergency" name="careEmergency"  >
@@ -149,7 +154,7 @@
                 <hr style = "margin: 0px; width: 95%; padding: 10px 0;" >
                 <div class = "innerContent" style = "position:relative;">
                     <p class ="innerTitle">자기소개</p>             
-                    <textarea name="message" id="message" placeholder="자기소개를 작성해주세요." rows="4"></textarea>
+                    <textarea name="message" id="message" placeholder="자기소개를 작성해주세요." rows="4" required></textarea>
                 </div>
 
                 <hr style = "margin: 0px; width: 95%; padding: 10px 0;" >
@@ -183,11 +188,11 @@
                          </div>
                     <div style = "display:flex;">     
                     <label class="input-file-button" for="attachQ" id = "upload">업로드</label>
-                    <input type="file" accept="" name="attachQ" id="attachQ" style= "display:none; margin-top:8px; margin-left: -72px; font-size:13px;" class = "input" onchange="checkFile(this)"> 
+                    <input type="file" accept="" name="attachQ" id="attachQ" style= "display:none; margin-top:8px; margin-left: -72px; font-size:13px;" class = "input" onchange="checkFile(this)" required> 
                 
         
                     </div>
-                     <p style = "font-size: 16px; color:#d4cfcf !important;">- 첨부파일은 10MB를 초과할 수 없으며, 최대 1개까지 가능합니다.</p>
+                    <p style = "font-size: 16px; color:#d4cfcf !important;">인증서 업로드는 <span style="color: #ffb61a;">zip파일만 가능</span>하며, 최대 1개까지 가능합니다.</p>
                 </div>
 
    
@@ -199,9 +204,8 @@
                 
                       
             </div>
+				<!-- 모달 데이터를 받기위해 생성되는 히든 인풋영역 -->				
 				<div id="formDataFromIf">
-				
-				
 				</div>
 <!--             	<input type="hidden" name="startDate" id="startDate" value="">
             
@@ -237,7 +241,7 @@
             <div>
                 <h5 style = "font-weight:500">시터 게시글 목록</h5>
                 <p style = "font-size:16px;">마미랑 시터들의 프로필을 참고해서 나의 프로필을 더 멋지게 꾸며보세요! 멋진 프로필은 높은 매칭률에 도움이 됩니다!</p>
-                <a href = "${pageContext.request.contextPath}/app/serviceSearch/searchMom.jsp;"><button class = "buttonAside">시터 게시글 목록</button></a>
+                <a href = "${pageContext.request.contextPath}/service/SearchMomOk.ser"><button class = "buttonAside">시터 게시글 목록</button></a>
             </div>
         </div>
         <br>
@@ -251,7 +255,7 @@
             <div>
                 <h5 style = "font-weight:500">일자리 찾기</h5>
                 <p style = "font-size:16px;">어디서 일을 구해야할 지 모르겠다면, 부모님들과 손쉽게 만날 수 있는 마미랑을 이용해보세요.</p>
-                <a href = "${pageContext.request.contextPath}/app/serviceSearch/searchJob.jsp;"><button class = "buttonAside">일자리 찾기</button></a>
+                <a href = "${pageContext.request.contextPath}/service/SearchJobOk.ser"><button class = "buttonAside">일자리 찾기</button></a>
             </div>
             
         </div>
@@ -270,8 +274,8 @@
 			<script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
-			  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-          <script src="${pageContext.request.contextPath}/assets/js/WriteSitter.js"></script>
+			<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="${pageContext.request.contextPath}/assets/js/WriteProfile.js"></script>
           
 </body>
 

@@ -4,15 +4,20 @@
 	<!-- 쪽지 보내기 -->
 	<insert id="insert" parameterType="ChatVO">
 		INSERT INTO tbl_chat
-		(userNum, sendUserName, chatTitle, chatContent, chatDate)
-		VALUES(#{userNum}, #{sendUserName}, #{chatTitle}, #{chatContent}, now());
+		(userNum, sendUserName, chatTitle, chatContent, chatDate, chatStatus)
+		VALUES(#{userNum}, #{sendUserName}, #{chatTitle}, #{chatContent}, now(), 0);
 	</insert>
 
 	<!-- 전체 목록 -->
-	<select id="selectAll" parameterType="_int" resultType="ChatVO">
-		SELECT chatTitle, chatContent, chatDate, chatNum
+	<select id="selectAll" parameterType="_int" resultType="ChatDTO">
+	<!-- 	SELECT chatTitle, chatContent, chatDate, chatNum, chatStatus 
 		FROM tbl_chat
-		where userNum = #{userNum};
+		where userNum = #{userNum}; -->
+			SELECT chatTitle, chatContent, chatDate, chatNum, chatStatus, profilePicture, c.sendUserName
+		FROM tbl_chat c left
+		join tbl_profile p on c.sendUserName = p.userNum 
+		where c.userNum = #{userNum}
+		order by 4 desc
 	</select>
 		
 	
@@ -21,4 +26,34 @@
 		select count(chatNum) from tbl_chat
 		where userNum = #{userNum}
 	</select>
+	
+	<!-- 읽음 개별 업데이트 -->
+	<update id="updateOne" parameterType="map">
+		update tbl_chat
+		  set chatStatus= 1
+		   where userNum= #{userNum} and chatNum = #{chatNum}
+	</update>
+	
+	<!-- 읽음 일괄 업데이트 -->
+	<update id="updateAll" parameterType="_int">
+	 update tbl_chat
+		  set chatStatus= 1
+		   where userNum= ${userNum} and chatStatus = 0
+	</update>
+	
+	<!-- 알림 활성화 : 0 이 아니면 새 알람이 있는 것 -->
+	<select id="countNew" parameterType="_int" resultType="_int">
+	 select count(*) from tbl_chat
+		   where userNum= ${userNum} and chatStatus = 0
+	</select>
+	
+	<!-- userName 가져오기 -->
+	<select id ="userName" parameterType="_int" resultType="string"> 
+	select userName from tbl_user
+	where userNum= ${userNum}
+	</select>
+	
+	<delete id="delete" parameterType="_int" >
+		delete from tbl_chat where userNum = #{userNum}
+	</delete>
 </mapper>

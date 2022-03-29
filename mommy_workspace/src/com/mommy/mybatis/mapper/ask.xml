@@ -6,12 +6,13 @@
 		select askNum, userNum, categoryNum, askTitle, askContent,
 		askDate, askStatus, askAnswer, askAttach
 		from tbl_ask
+		where userNum = #{userNum}
 		order by 1 desc limit #{startRow}, #{rowCount}
 	</select>
 
 	<!-- 게시글 전체 개수  -->
-	<select id="getTotal" resultType="_int">
-		select count(askNum) from tbl_ask
+	<select id="getTotal" parameterType="_int" resultType="_int">
+		select count(askNum) from tbl_ask where userNum = #{userNum}
 	</select>
 	
 	<!-- 게시글 상세보기(전체 정보 조회) -->
@@ -42,5 +43,8 @@
    <select id="selectCategoryNum" parameterType="_int" resultType="_int">
       select categoryNum from tbl_ask where askNum=#{askNum}
    </select>
-
+   <!--  삭제  -->
+	<delete id="delete" parameterType="_int" >
+			delete from tbl_ask where userNum = #{userNum}
+	</delete>
 </mapper>

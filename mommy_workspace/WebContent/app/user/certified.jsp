@@ -14,6 +14,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 		<link href="${pageContext.request.contextPath}/assets/css/findIdPw.css" rel="stylesheet" type="text/css">
 		<link href="${pageContext.request.contextPath}/assets/css/certified.css" rel="stylesheet" type="text/css">
+		<link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
 </head>
 
 <body>
@@ -28,7 +29,7 @@
 			
 			<div id="main" class="container">
 				<header class="major">
-					<a href="${pageContext.request.contextPath}/app/etc/main.jsp"><h2 class="logo-location" style="position: relative; top: -60px;"><img alt="" src="${pageContext.request.contextPath}/images/로고1.png"></h2></a>
+					<a href="${pageContext.request.contextPath}/user/UserMainOk.user"><h2 class="logo-location" style="position: relative; top: -60px;"><img alt="" src="${pageContext.request.contextPath}/images/로고1.png"></h2></a>
 				
 				<div class="first">
 					<div>
@@ -53,11 +54,11 @@
 							</div>
 							<div><p id="idFaildText"></p></div>
 							<div><p class='text_error'></p></div>
-							<div style=" width: 60%; text-align: center; margin: 0 auto; margin-top: 5px; display:none;"id="second_warp">
-								<input id="input_number2" type="text"placeholder="인증번호 6자리를 입력하세요" maxlength='6' class="number_two"  >
-								<button  class=input_btn onclick="checkCode();">인증번호 확인</button>
+							<div style=" width: 60%; text-align: center; margin: 0 auto; margin-top: 5px; margin-left:472px; display:none;"id="second_warp">
+								<span><input id="input_number2" type="text"placeholder="인증번호 6자리를 입력하세요" maxlength='6' class="number_two"  style="float: left;top: 0px !important; width: 33% !important" >
+								<button  class=input_btn onclick="checkCode();" style="float: left">인증번호 확인</button></span>
 							</div>
-							<div id="success_find" style="display:none;">
+							<div id="success_find" style="display:none; margin-top: 70px">
 								<button onclick="showid();" class=input_Click_btn >아이디 전체 확인</button><br>      <button  id="FEEID" class="input_Click_btn">비밀번호 찾기</button>
 							
 							</div>

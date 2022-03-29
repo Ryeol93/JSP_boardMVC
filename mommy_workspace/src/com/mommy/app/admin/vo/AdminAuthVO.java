@@ -10,7 +10,10 @@ public class AdminAuthVO {
 	private int checkTeacher;
 	private int checkCitizen;
 	private int checkUniversity;
+	private int profileProcess;
 	
+	
+
 	public AdminAuthVO() {;}
 
 	public int getProfileNum() {
@@ -85,6 +88,12 @@ public class AdminAuthVO {
 		this.checkUniversity = checkUniversity;
 	}
 	
-	
+	public int getProfileProcess() {
+		return profileProcess;
+	}
+
+	public void setProfileProcess(int profileProcess) {
+		this.profileProcess = profileProcess;
+	}
 	
 }

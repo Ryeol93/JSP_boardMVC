@@ -22,6 +22,7 @@
    <style>
    		td{
    			background-color: white;
+   			font-size: 14px;
    		}
    		
 		a { text-decoration: none;
@@ -51,10 +52,10 @@
          <div id="main" class="container">
                <!-- 배너 -->
          <div class="mainBox" style="padding-top: 3.5em;">
-         	<a href="${pageContext.request.contextPath}/app/admin/admin.jsp"><img src="https://cdn.discordapp.com/attachments/954273372760571914/955478975797403648/1.png" style="width: 9%; position: absolute; margin: -50px 0px 0 26px;"></a>
+         	<a href="${pageContext.request.contextPath}/admin/AdminMainOk.ad"><img src="https://cdn.discordapp.com/attachments/954273372760571914/955478975797403648/1.png" style="width: 9%; position: absolute; margin: -50px 0px 0 26px;"></a>
             <h3 class="caption" style="position: absolute; margin: -46px 0px -1px 207px; padding-left: 20px;">관리자 페이지</h3>
             <ul class="actions small">
-               <li><span id="memberList" class="s-title text bGray" style="padding: 0em 0 0 10em;" >통계</span></li>
+               <li><span id="memberList" class="s-title text bGray" style="padding: 0em 0 0 10em;" >메인</span></li>
 
             </ul>
          </div>
@@ -62,11 +63,11 @@
 					<section id="three" class="feature">
 						<div class="row row-total main-total" style="display: flex; justify-content: center; margin-right: 0em;">
 								<div class="side-header">
-               <a href="${pageContext.request.contextPath}/admin/AdminMainOk.ad" style="border-bottom:2px solid #ffb61a;"><p id="total" class="s-title text bYellow">통계 </p></a>
+               <a href="${pageContext.request.contextPath}/admin/AdminMainOk.ad" style="border-bottom:2px solid #ffb61a;"><p id="total" class="s-title text bYellow">메인 </p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminQnaListOk.ad"><p id="qna" class="s-title text bGray" >문의</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminReportListOk.ad"><p id="report" class="s-title bGray" >신고</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminAuthListOk.ad"><p id="auth" class="s-title bGray">인증</p></a>
-               <a href="${pageContext.request.contextPath}/app/admin/adminMList.jsp"><p id="memberList" class="s-title bGray" >회원목록</p></a>
+               <a href="${pageContext.request.contextPath}/admin/AdminMemberListOk.ad"><p id="memberList" class="s-title bGray" >회원목록</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminNoticeListOk.ad"><p id="inform" class="s-title bGray" >공지</p></a>
 			</div>
 			<!-- 메인페이지 -->
@@ -77,16 +78,20 @@
 					<!-- 문의 테이블 -->
 						<div>
 							<a href="${pageContext.request.contextPath}/admin/AdminQnaListOk.ad">
-								<span style="margin-right: 22em; font-size: 20px; position: fixed; margin-top: 0.6em;">문의</span>
+								<span style="margin-right: 22em; font-weight: bold; position: fixed; margin-top: 0.6em;">문의</span>
 								<img src="${pageContext.request.contextPath}/images/right.png" style="width:5%; margin-left: 26em;">
 							</a>
 						</div>
-				<div style="width: 45%; margin-right: 3em; height: 261.88px; border:1px solid;">
+				<div style="width: 45%; margin-right: 3em; height: 244.94px; border:1px solid #d3d3d3;">
 					<table>
 						<c:choose>
 							<c:when test="${qnaList != null}">
 								<c:forEach var="qna" items="${qnaList}">
 						<tr>
+							<c:choose>
+                     			<c:when test="${qna.getAskStatus() eq 0}"><td class="qa-result" style="color:red;">대기중</td></c:when>
+                     			<c:when test="${qna.getAskStatus() eq 1}"><td class="qa-result" style="color:blue;">완료</td></c:when>
+                     		</c:choose>
 							<td colspan = "4" style="width: 16em; padding-left: 2em;"><a href="${pageContext.request.contextPath}/admin/AdminQnaUpdate.ad?askNum=${qna.getAskNum()}&page=${page}" class = "titleTag">${qna.getAskTitle()}</a></td>
 							<td>${qna.getAskDate()}</td>
 						</tr>
@@ -101,18 +106,22 @@
 					</table>
 				</div>
 				<!-- 신고 테이블 -->
-						<div style="position: absolute; margin-top: -17.65em; margin-left: 31.8em;">
+						<div style="position: absolute; margin-top: -16.65em; margin-left: 31.8em;">
 							<a href="${pageContext.request.contextPath}/admin/AdminReportListOk.ad">
-								<span style="margin-right: 22em; font-size: 20px; position: fixed; margin-top: 0.6em;">신고</span>
+								<span style="margin-right: 22em; font-weight: bold; position: fixed; margin-top: 0.6em;">신고</span>
 								<img src="${pageContext.request.contextPath}/images/right.png" style="width:8.051%; margin-left: 25.96em;">
 							</a>
 						</div>
-				<div style="width: 45%; margin-right: 3em; height: 261.88px; border:1px solid; float: right; margin-top: -14em;">
+				<div style="width: 45%; margin-right: 3em; height: 244.94px; border:1px solid #d3d3d3; float: right; margin-top: -13.1em;">
 					<table>
 						<c:choose>
 							<c:when test="${reportList != null}">
 								<c:forEach var="report" items="${reportList}">
 						<tr>
+							<c:choose>
+                     			<c:when test="${report.getAskStatus() eq 0}"><td class="qa-result" style="color:red;">대기중</td></c:when>
+                     			<c:when test="${report.getAskStatus() eq 1}"><td class="qa-result" style="color:blue;">완료</td></c:when>
+                     		</c:choose>
 							<td colspan = "4" style="width: 16em; padding-left: 2em;"><a href="${pageContext.request.contextPath}/admin/AdminReportUpdate.ad?askNum=${report.getAskNum()}&page=${page}" class = "titleTag">${report.getAskTitle()}</a></td>
 							<td>${report.getAskDate()}</td>
 						</tr>
@@ -132,18 +141,18 @@
 					<!-- 인증 테이블 -->
 						<div>
 							<a href="${pageContext.request.contextPath}/admin/AdminAuthListOk.ad">
-								<span style="margin-right: 22em; font-size: 20px; position: fixed; margin-top: 0.6em;">인증</span>
+								<span style="margin-right: 22em; font-weight: bold; position: fixed; margin-top: 0.6em;">인증</span>
 								<img src="${pageContext.request.contextPath}/images/right.png" style="width:5%; margin-left: 26em;">
 							</a>
 						</div>
-				<div style="width: 45%; margin-right: 3em; height: 261.88px; border:1px solid;">
+				<div style="width: 45%; margin-right: 3em; height: 244.94px; border:1px solid #d3d3d3;">
 					<table>
 						<c:choose>
 							<c:when test="${authList != null}">
 								<c:forEach var="auth" items="${authList}">
 						<tr>
-							<td colspan = "4" style="width: 0em; padding-left: 2em;">${auth.getProfileNum()}</td>
-							<td colspan = "4" style="width: 12em; padding-left: 2em;">${auth.getUserId()}</td>
+							<td colspan = "4" style="width: 3.6em;">&nbsp;&nbsp;&nbsp;&nbsp;${auth.getProfileNum()}</td>
+							<td colspan = "4" style="width: 15.6em; padding-left: 1em;">${auth.getUserId()}</td>
 							<td>${auth.getProfileDate()}</td>
 						</tr>
 								</c:forEach>
@@ -157,19 +166,19 @@
 					</table>
 				</div>
 					<!-- 공지 테이블 -->
-						<div style="position: absolute; margin-top: -17.65em; margin-left: 31.8em;">
+						<div style="position: absolute; margin-top: -16.65em; margin-left: 31.8em;">
 							<a href="${pageContext.request.contextPath}/admin/AdminNoticeListOk.ad">
-								<span style="margin-right: 22em; font-size: 20px; position: fixed; margin-top: 0.6em;">공지</span>
+								<span style="margin-right: 22em; font-weight: bold; position: fixed; margin-top: 0.6em;">공지</span>
 								<img src="${pageContext.request.contextPath}/images/right.png" style="width:8.051%; margin-left: 25.96em;">
 							</a>
 						</div>
-				<div style="width: 45%; margin-right: 3em; height: 261.88px; border:1px solid; float: right; margin-top: -14em;">
+				<div style="width: 45%; margin-right: 3em; height: 244.94px; border:1px solid #d3d3d3; float: right; margin-top: -13.1em;">
 					<table>
 						<c:choose>
 							<c:when test="${noticeList != null}">
 								<c:forEach var="notice" items="${noticeList}">
 									<tr>
-										<td colspan = "4" style="width: 16em; padding-left: 2em;">${notice.getNoticeTitle()}</td>
+										<td colspan = "4" style="width: 19em; padding-left: 2em;">${notice.getNoticeTitle()}</td>
 										<td>${notice.getNoticeDate()}</td>
 									</tr>
 								</c:forEach>

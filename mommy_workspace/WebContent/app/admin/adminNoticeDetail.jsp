@@ -30,7 +30,7 @@
          <div id="main" class="container">
                <!-- 배너 -->
          <div class="mainBox" style="padding-top: 3.5em;">
-         	<a href="${pageContext.request.contextPath}/admin.jsp"><img src="https://cdn.discordapp.com/attachments/954273372760571914/955478975797403648/1.png" style="width: 9%; position: absolute; margin: -50px 0px 0 26px;"></a>
+         	<a href="${pageContext.request.contextPath}/admin/AdminMainOk.ad"><img src="https://cdn.discordapp.com/attachments/954273372760571914/955478975797403648/1.png" style="width: 9%; position: absolute; margin: -50px 0px 0 26px;"></a>
             <h3 class="caption" style="position: absolute; margin: -46px 0px -1px 207px; padding-left: 20px;">관리자 페이지</h3>
             <ul class="actions small">
                <li><span id="memberList" class="s-title text bGray" style="padding: 0em 0 0 10em;" >문의 <span class="auth-num" style="color:red;">4</span></span></li>
@@ -41,11 +41,11 @@
 					<section id="three" class="feature">
 						<div class="row row-total main-total" style="display: flex; justify-content: center; margin-right: 0em;">
 								<div class="side-header">
-               <a href="${pageContext.request.contextPath}/admin/AdminMainOk.ad"  style="border-bottom:2px solid #ffb61a;"><p id="total" class="s-title text bYellow">통계 </p></a>
+               <a href="${pageContext.request.contextPath}/admin/AdminMainOk.ad"  style="border-bottom:2px solid #ffb61a;"><p id="total" class="s-title text bYellow">메인 </p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminQnaListOk.ad"><p id="qna" class="s-title text bGray" >문의</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminReportListOk.ad"><p id="report" class="s-title bGray" >신고</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminAuthListOk.ad"><p id="auth" class="s-title bGray">인증</p></a>
-               <a href="${pageContext.request.contextPath}/app/admin/adminMList.jsp"><p id="memberList" class="s-title bGray" >회원목록</p></a>
+               <a href="${pageContext.request.contextPath}/admin/AdminMemberListOk.ad"><p id="memberList" class="s-title bGray" >회원목록</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminNoticeListOk.ad"><p id="inform" class="s-title bGray" >공지</p></a>
 			</div>
 	<div class="twoBox" style="width: 91.5%;">

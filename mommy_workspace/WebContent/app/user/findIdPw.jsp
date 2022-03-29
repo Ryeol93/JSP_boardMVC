@@ -11,6 +11,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 		<link href="${pageContext.request.contextPath}/assets/css/findIdPw.css" rel="stylesheet" type="text/css">
+		<link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
 	</head>
 
 	<body>

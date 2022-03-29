@@ -1,6 +1,6 @@
 package com.mommy.app.service;
 
-import java.io.IOException;
+import java.io.IOException; 
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -16,6 +16,7 @@ import org.json.simple.JSONObject;
 import com.mommy.action.Action;
 import com.mommy.action.ActionForward;
 import com.mommy.app.service.dao.ServiceDAO;
+import com.mommy.app.service.vo.ParameterDTO;
 import com.mommy.app.service.vo.ServiceDTO;
 
 public class SearchMomOk2 implements Action{
@@ -26,10 +27,16 @@ public class SearchMomOk2 implements Action{
 		resp.setCharacterEncoding("UTF-8");
 		HashMap<String, Integer> searchDetailMap = new HashMap<>();
 		HashMap<String, Integer> modalInput = new HashMap<>();
-		HashMap<String, String> areaMap = new HashMap<>();
+		ParameterDTO param = new ParameterDTO();
+//		HashMap<String,Object> param = new HashMap<>();
 		ServiceDAO dao = new ServiceDAO();
 		int userStatus=2;
-
+	
+		
+		
+		
+		
+		
 		List<ServiceDTO> momList = new ArrayList<ServiceDTO>();
 		
 		LocalDate now = LocalDate.now();
@@ -55,11 +62,16 @@ public class SearchMomOk2 implements Action{
 		searchDetailMap.put("startRow", startRow);
 		searchDetailMap.put("rowCount", rowCount);
 		searchDetailMap.put("profileProcess", 1);
+		searchDetailMap.put("userStatus", userStatus);
 		modalInput.put("startRow", startRow);
 		modalInput.put("rowCount", rowCount);
 		modalInput.put("userStatus", userStatus);
 		modalInput.put("profileProcess", 1);
-		
+		param.setStartRow(startRow);
+		param.setRowCount(rowCount);
+		/*param.put("startRow",startRow);
+		param.put("rowCount",rowCount);*/
+		 
 		//화면에 출력되는 페이지 번호 중
 		//시작 페이지(1, 11, 21, ....)
 	/*	int startPage = ((page - 1) / pageSize) * pageSize + 1;
@@ -74,11 +86,12 @@ public class SearchMomOk2 implements Action{
 		//14페이지를 endPage에 담아준다. 
 		/*endPage = endPage > realEndPage ? realEndPage : endPage;*/
 		
-		searchDetailMap.put("userStatus", userStatus);
 		if( req.getParameter("check")!=null) {
 	
 		searchDetailMap.put("babyNewborn", Integer.parseInt(req.getParameter("babyNewborn")));
+		System.out.println(req.getParameter("babyNewborn"));
 		searchDetailMap.put("babyKinder", Integer.parseInt(req.getParameter("babyKinder")));
+		System.out.println(req.getParameter("babyKinder"));
 		searchDetailMap.put("babyChild", Integer.parseInt(req.getParameter("babyChild")));
 		searchDetailMap.put("babyElementary", Integer.parseInt(req.getParameter("babyElementary")));
 		searchDetailMap.put("P_mon", Integer.parseInt(req.getParameter("P_mon")));
@@ -104,34 +117,71 @@ public class SearchMomOk2 implements Action{
 			switch (req.getParameter("careType")) {
 			
 			case "1": momList = dao.careTypeSchool(modalInput);
-			System.out.println("맘리스트"+momList);
+			System.out.println("1번 맘리스트 사이즈"+momList.size());
 			System.out.println("1번들어옴!");
 				break;
 			case "2": momList = dao.teach(modalInput);
+			System.out.println("2번 맘리스트 사이즈"+momList.size());
+			System.out.println("2번들어옴!");
 				break;
 			case "3": momList = dao.fullTime(modalInput);
+			System.out.println("3번 맘리스트 사이즈"+momList.size());
+			System.out.println("3번들어옴!");
 				break;
 			case "4": momList = dao.shortTime(modalInput);
+			System.out.println("4번 맘리스트 사이즈"+momList.size());
+			System.out.println("4번들어옴!");
 				break;
 			case "5": momList = dao.careEmergency(modalInput);
+			System.out.println("5번 맘리스트 사이즈"+momList.size());
+			System.out.println("5번들어옴!");
 				break;
 			case "6": momList = dao.searchDetail(searchDetailMap);
+			System.out.println("6번 맘리스트 사이즈"+momList.size());
+			System.out.println("6번들어옴!");
 				break;
 			}
 //		돌봄지역모달------------------------------- 
-		}else if(req.getParameter("sido")!=null) {
-			 areaMap.put("sido", req.getParameter("sido"));
-			 areaMap.put("sigugun", req.getParameter("sigugun"));
-			 areaMap.put("dong", req.getParameter("dong"));
-			 momList = dao.searchArea(areaMap);
+		}else if(req.getParameter("locationSido")!=null) {
+//			System.out.println("지역모달 들어왔따");
+			
+			if(req.getParameter("locationSido").contains("선택")) {
+				param.setLocationSido(req.getParameter(null));
+			}else {
+				param.setLocationSido(req.getParameter("locationSido"));
+			}
+			if(req.getParameter("locationSigun").contains("선택")) {
+//				System.out.println("시군 선택시 들어와따");
+				param.setLocationSigun(null);
+			}else {
+				param.setLocationSigun( req.getParameter("locationSigun"));
+			}
+			if(req.getParameter("locationDong").contains("선택")) {
+//				System.out.println("동 선택들어와따");
+				param.setLocationDong(null);
+			}else {
+				param.setLocationDong( req.getParameter("locationDong"));
+			}
+			
+		
+//			System.out.println("시도 파라미터:"+req.getParameter("locationSido"));
+//			System.out.println("시군구 파라미터:"+req.getParameter("locationSigun"));
+//			System.out.println("동 파라미터:"+req.getParameter("locationDong"));
+//			
+//			 System.out.println("시도"+param.getLocationSido());
+//			 System.out.println("시군구"+param.getLocationSigun());
+//			 System.out.println("동"+param.getLocationDong());
+			param.setUserStatus(userStatus);
+			 momList = dao.searchArea(param); 
+			 System.out.println("리스트사이즈" +momList.size());
+	
 //		상세검색모달-------------------------------
 		 }else {
 			 momList = dao.searchDetail(searchDetailMap);
 		 }
 				
 		JSONArray moms = new JSONArray();
-		System.out.println("서치맘컨트롤러");
-		System.out.println("나와따2");
+		System.out.println("리스트:"+momList.size());
 		for(ServiceDTO s : momList) {
 			JSONObject mom = new JSONObject();
 			mom.put("userNum", s.getUserNum());
@@ -164,8 +214,8 @@ public class SearchMomOk2 implements Action{
 			mom.put("CheckMom", s.getCheckMom());
 			mom.put("CheckTeacher", s.getCheckTeacher());
 			mom.put("CheckUniversity", s.getCheckUniversity());
-		
-			
+			mom.put("ProfilePicture", s.getProfilePicture());
+			mom.put("profileNum", s.getProfileNum());
 		
 			
 			moms.add(mom);

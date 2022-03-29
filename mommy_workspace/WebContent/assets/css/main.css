@@ -3057,10 +3057,10 @@ input, select, textarea {
 				
 				.aside{
 				    width: 33px !important;
-    z-index: 1 !important;
-    top: 84% !important;
-    left: 79% !important;
-    margin-bottom: 5px !important;
+   					 z-index: 1 !important;
+ 				   top: 84% !important;
+ 				   left: 79% !important;
+  					margin-bottom: 5px !important;
 				}
 				
 				#chatAside{

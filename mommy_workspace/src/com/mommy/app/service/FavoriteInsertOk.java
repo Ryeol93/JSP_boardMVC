@@ -16,13 +16,21 @@ public class FavoriteInsertOk implements Action{
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
 	
+		System.out.println("찜 등록~");
 		FavoriteVO favorite = new FavoriteVO();
 		FavoriteDAO dao = new FavoriteDAO();
 	
-		favorite.setUserNum((Integer)req.getSession().getAttribute("userNum"));
-		favorite.setProfileNum((Integer)req.getSession().getAttribute("profileNum"));
+		favorite.setUserNum(Integer.parseInt(req.getParameter("userNum")));
 	
+		favorite.setProfileUserNum(Integer.parseInt(req.getParameter("profileUserNum")));
+		favorite.setProfileNum(req.getParameter("profileNum"));
+	System.out.println("//////////////////////");
+		System.out.println(favorite.getUserNum());
+		System.out.println(favorite.getProfileUserNum());
+		System.out.println(favorite.getProfileNum());
 		dao.insert(favorite);
+		
+	
 		
 		return null;
 	}

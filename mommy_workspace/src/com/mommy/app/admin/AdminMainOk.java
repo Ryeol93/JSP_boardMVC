@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 import com.mommy.action.Action;
 import com.mommy.action.ActionForward;
 import com.mommy.app.admin.dao.AdminDAO;
-import com.mommy.app.user.dao.UserDAO;
 
 public class AdminMainOk implements Action {
 
@@ -19,7 +18,6 @@ public class AdminMainOk implements Action {
 		
 		ActionForward af = new ActionForward();
 		AdminDAO dao = new AdminDAO();
-		UserDAO uDao = new UserDAO();
 		
 		HashMap<String, Integer> qnaMap = new HashMap<>();
 		HashMap<String, Integer> reportMap = new HashMap<>();
@@ -91,6 +89,9 @@ public class AdminMainOk implements Action {
 		req.setAttribute("startPage", startPage);
 		req.setAttribute("endPage", endPage);
 		req.setAttribute("realEndPage0", realEndPage0);
+		req.setAttribute("total3", total3);
+		
+		req.setAttribute("total3", total3);
 		req.setAttribute("total3", total3);
 		
 		af.setRedirect(false);

@@ -84,13 +84,6 @@ public class AdminReportListOk implements Action{
 //		for (int i = 0; i < boardDTO_list.size(); i++) {
 //			boardDTO_list.get(i).setMemberId(memberIdList.get(i));
 //		}
-		String userId = uDao.getInfo((Integer)session.getAttribute("userNum")).getUserId();
-		String userName = uDao.getInfo((Integer)session.getAttribute("userNum")).getUserName();
-		int userStatus = uDao.getInfo((Integer)session.getAttribute("userStatus")).getUserStatus();
-		
-		req.setAttribute("userId", userId);
-		req.setAttribute("userName", userName);
-		req.setAttribute("userStatus", userStatus);
 		
 		//시작 인덱스와, 개수를 전달하여 게시글 목록을 가져온 뒤 requestScope에 담아준다.
 		req.setAttribute("reportList", dao.reportSelectAll(reportMap));
@@ -105,9 +98,6 @@ public class AdminReportListOk implements Action{
 		req.setAttribute("total1", total1);
 		
 		System.out.println(dao.reportSelectAll(reportMap));
-		System.out.println(userId);
-		System.out.println(userName);
-		System.out.println(userStatus);
 		
 		af.setRedirect(false);
 		af.setPath("/app/admin/adminReport.jsp");

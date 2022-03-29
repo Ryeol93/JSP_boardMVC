@@ -2,50 +2,8 @@
 
 
 
-
 const $heart = $('#heart');
 
-
-/*
- * $heart.on("click", function(){
-	if($(this).attr('src')=='../images/emptyHeart.png'){
-		
-		
-		console.log("찜하기");
-		  $.ajax({
-		        url: contextPath + "/service/FavoriteInsertOk.com",
-		        type: "post",
-		        data: {"userNum": userNum, "profileNum": profileNum},
-		        
-		        success: function(){
-		        	$(this).attr('src', '../images/heart.png');
-		            console.log("찜하기 완료");
-		        },
-		        error: function(){
-		            console.log("찜하기 오류");
-		        }
-		    });
-	}else{
-		
-		
-		 $.ajax({
-		        url: contextPath + "/service/FavoriteDeleteOk.com",
-		        type: "post",
-		        data: {"userNum": userNum, "profileNum": profileNum},
-		        
-		        success: function(){
-		        	$(this).attr("src", '../images/heart.png');
-		            console.log("찜하기 완료");
-		        },
-		        error: function(){
-		            console.log("찜하기 오류");
-		        }
-		    });
-		$(this).attr('src', '../images/emptyHeart.png');
-	}
-	
-});
- * */
 
 $heart.on("click", function(){
 	console.log("userNum: " + userNum);
@@ -57,14 +15,9 @@ $heart.on("click", function(){
 		  $.ajax({
 		        url: contextPath + "/service/FavoriteInsertOk.ser",
 		        type: "post",
-		        data: {"userNum": userNum, "profileNum": userNum2},
+		        data: {"userNum": userNum, "profileUserNum": userNum2,"profileNum":profileNum},
 		        
-		        success: function(){
-		            console.log("찜하기 완료");
-		        },
-		        error: function(){
-		            console.log("찜하기 오류");
-		        }
+		      
 		    });
 	}else{
 		/*찜하기 삭제*/
@@ -72,15 +25,9 @@ $heart.on("click", function(){
 		 $.ajax({
 		        url: contextPath + "/service/FavoriteDeleteOk.ser",
 		        type: "post",
-		        data: {"userNum": userNum, "profileNum": userNum2},
+		        data: {"userNum": userNum, "profileUserNum": userNum2,"profileNum":profileNum},
 		        
-		        success: function(){
-		        	$(this).attr("src", '../images/heart.png');
-		            console.log("찜하기 삭제");
-		        },
-		        error: function(){
-		            console.log("찜하기 오류");
-		        }
+		     
 		    });
 	
 	}
@@ -88,44 +35,44 @@ $heart.on("click", function(){
 });
 
 
-/*
+const open = () => {
+    document.querySelector(".modal").classList.remove("hidden");
+    console.log("check");
+  }
 
-$(function(){
+  const close = () => {
+    document.querySelector(".modal").classList.add("hidden");
+  }
+
+  
+  document.querySelector(".openBtn").addEventListener("click", open);
+  document.querySelector(".submitBtn").addEventListener("click", close);
+  document.querySelector(".bg").addEventListener("click", close);
+  
+  
+
+// 인서트하기  
+function insert(){
 	
-	$("#heart").on("click", function(){
-			console.log("들어모");
-
-		   if($(this).attr("src") == "${pageContext.request.contextPath}/images/heart.png"){
-
-		      $(this).attr("src", "${pageContext.request.contextPath}/images/emptyHeart.png");
-		   }else{
-
-		      $(this).attr("src", "${pageContext.request.contextPath}/images/heart.png");
-		   }
-
-		   
-		});
-	
-})
-*/
-
-
-/*
- * const $heart = $("#heart");
-
-$heart.on("click", function(){
-
-   if($heart.attr("src")=='images/heart.png'){
-
-      $heart.attr("src", "images/emptyHeart.png");
-   }else{
-
-      $heart.attr("src", "images/heart.png");
-   }
-
-   
-});
- * */
+	var chatTitle = $('#chatTitle').val();
+	var chatContent = $('#chatContent').val();
+	console.log("요청");
+	$.ajax({
+	       url: contextPath + "/chat/ChatInsertOk.chat",
+	       type: "get",
+	       dataType: "json",
+	       data: {"userNum": userNum , "userNum2": userNum2,
+	    	   "chatTitle": chatTitle, "chatContent": chatContent},
+	   	success:function(data){
+			console.log(data);
+		},
+		error:function(){
+			console.log("실패");
+		}
+	  
+	});
+	alert("요청 전송 완료!");
+}
 
 
 
@@ -158,4 +105,10 @@ const handleSelect = (label, item) => {
     label.innerHTML = item.textContent;
     label.parentNode.classList.remove('active');
 }
+
+
+$( '.activity:empty' ).css('display','none');
+
+
+
 

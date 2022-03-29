@@ -100,6 +100,35 @@ time{
     padding-right:0.25rem;
 }
 
+.chat-balloon2{
+    /* 안읽은 메시지 수(count) 표시 스타일 지정 */    
+    display:inline-block;
+    border: 1px solid tomato;
+    background-color: tomato;
+    border-radius: 0.625rem;
+    font-size: 0.3125rem;
+    color: white;
+    font-weight: bold;
+    padding-top: 0.0625rem; /* 16 브라우저 기준 1px */
+    padding-bottom: 0.0625rem;
+    padding-left: 0.25rem; /* 16 브라우저 기준 4px */
+    padding-right:0.25rem;
+}
 
+
+.chat-balloon3{
+    /* 안읽은 메시지 수(count) 표시 스타일 지정 */    
+    display:inline-block;
+    border: 1px solid #c0c0c0;
+    background-color: #c0c0c0;
+    border-radius: 0.625rem;
+    font-size: 0.3125rem;
+    color: white;
+    font-weight: bold;
+    padding-top: 0.0625rem; /* 16 브라우저 기준 1px */
+    padding-bottom: 0.0625rem;
+    padding-left: 0.25rem; /* 16 브라우저 기준 4px */
+    padding-right:0.25rem;
+}
 
 /* 광고 안의 컨텐츠 스타일 지정 = main-layout.css 참고 */

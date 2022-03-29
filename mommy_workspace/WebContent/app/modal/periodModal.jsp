@@ -23,21 +23,21 @@
     line-height: 2.3;
     padding-bottom: 19px;
     color: white;
-    font-size: 19px;"> <h3 style="display: inline; color:white;">원하는 활동 기간/시간 입력</h3>
+    font-size: 19px;"> <h3 style="display: inline; color:white;">돌봄 기간</h3>
     </div> 
-   
+   	<button id="iframeBtn" class="ok">완료</button>
      <br>
      <div class = "wrapper" style = "text-align:center;">
       <h4 style="display: inline-block; width: 150px;">활동 시작일</h4>
         
        <div class="input_date_box" style="display: inline-block;">
-        <input type="date" placeholder="날짜를 입력해주세요">
+        <input type="date" placeholder="날짜를 입력해주세요" id="startDate">
      </div>
   
         <hr>
-         <div style = "text-align:center; height: 153px" class = "first" >
-                  <p class ="innerTitle">활동 요일</p>
-                       <div style = "text-align: center;">
+         <div style = "text-align:center; height: 100px" class = "first" >
+                  <p class ="innerTitle">활동 가능 요일</p>
+                       <div style = "text-align: center; margin-left: 29px;">
                             <div class = "days">
                                 <input type="checkbox" id="P_mon" value="P_mon" name="P_mon">
                                 <label for="P_mon" style = "font-size:16px;">월</label>
@@ -70,57 +70,67 @@
             </div>
 		
         
-	
+	<hr>
 		  
 			
 			 <div style = "text-align:center;" class ="second">
-                  <p class ="innerTitle">활동 시간</p>
-                       <div>
-                            <div style = "float:left; margin-right:30px;">
+                  <p class ="innerTitle">활동 가능 시간</p>
+                       <div style="margin-left: 30px;">
+                            <div style = "float:left;  " class="morning">
                                 <input type="checkbox" id="P_morning" value="P_morning" name="P_morning">
                                 <label for="P_morning" style = "font-size:16px;">09:00~12:00</label>
                             </div>
-                            <div style = "float:left;  margin-right:30px;">
+                            <div style = "float:left;  margin-left: 24px;" class="lunch">
                                 <input type="checkbox" id="P_lunch" value="P_lunch" name="P_lunch" >
-                                <label for="P_lunch" style = "font-size:16px;">12:00~15:00</label>
+                                <label for="P_lunch" style = "font-size:16px; ">12:00~15:00</label>
                             </div>
-                            <div style = "float:left;  margin-right:30px;">
+                            <div style = "float:left;  margin-left: 24px;" class="noon">
                                 <input type="checkbox" id="P_noon" value="P_noon" name="P_noon" >
                                 <label for="P_noon" style = "font-size:16px;">15:00~18:00</label>
                             </div>
                          </div>
               	</div>
 			
-		</div>
+		
 		<hr>
-
+	<br>
+	<hr>
 	<div>
         <p>활동 가능 기간 </p>
         	<div class="week">
 				<input type="checkbox" id="P_week" name="P_week" value="P_week">
-				<label>1주일 이상</label>
+				<label for ="P_week">1주일 이상</label>
 			</div>
         	<div class="month">
 				<input type="checkbox" id="P_month" name="P_month" value="P_month">
-				<label>1개월 이상</label>
+				<label for="P_month">1개월 이상</label>
 			</div>
         	<div class="quarter">
 				<input type="checkbox" id="P_quarter" name="P_quarter" value="P_quarter">
-				<label>3개월 이상</label>
+				<label for="P_quarter">3개월 이상</label>
 			</div>
         	<div class="semiAnnual">
 				<input type="checkbox" id="P_semiAnnual" name="P_semiAnnual" value="P_semiAnnual">
-				<label>6개월 이상</label>
+				<label for="P_semiAnnual">6개월 이상</label>
 			</div>
 			
-        <button style="background-color: #ffb61a; color: white; font-weight: bold; font-size: 20px;
+        <!-- <button style="background-color: #ffb61a; color: white; font-weight: bold; font-size: 20px;
             width: 300px; height: 50px; border: none; margin-top: 35px; border-radius: 25px;
             cursor: pointer;
-        ">완료</button>
+        ">완료</button> -->
 	</div>
 	
     </div>
+    </div>
 
 </body>
+	<!-- Scripts -->
+			<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+			<script src="${pageContext.request.contextPath}/assets/js/jquery.scrolly.min.js"></script>
+			<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
+			<script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
+			<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
+			<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
+			  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/periodModal.js"></script>
 </html>

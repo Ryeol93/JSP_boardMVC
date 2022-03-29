@@ -26,18 +26,17 @@ public class CommunityDeleteOk implements Action{
 		
 		System.out.println("확인 :" + req.getParameter("communityNum"));
 		
-		List<FilesVO> files = fDao.select(communityNum);
+		String files = fDao.select(communityNum);
 	
 		cDao.delete(communityNum);
-		fDao.delete(communityNum);
 		
 		System.out.println(communityNum);
-		for (int i = 0; i < files.size(); i++) {
-			File f = new File(uploadFolder, files.get(i).getFileName());
+		
+			File f = new File(uploadFolder, files);
 			if(f.exists()) {
 				f.delete();
 			}
-		}
+		
 		
 		af.setRedirect(true);
 		af.setPath(req.getContextPath()+"/community/CommunityListOk.com");

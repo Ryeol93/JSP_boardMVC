@@ -49,10 +49,19 @@ public class CommunityDAO {
 		public void delete(int communityNum) {
 			sqlSession.delete("Community.delete", communityNum);
 		}
+		//게시글 전체 삭제
+		public void allDelete(int userNum) {
+			sqlSession.delete("Community.allDelete", userNum);
+		}
 		
 		//게시글 수정
 		public void update(CommunityVO Community) {
 			sqlSession.update("Community.update", Community);
+		}
+		
+		//글쓴이 유저넘 조회 
+		public int getUserNum(int communityNum) {
+			return sqlSession.selectOne("Community.getUserNum", communityNum);
 		}
 	
 }

@@ -2,17 +2,26 @@ package com.mommy.app.service.vo;
 
 public class FavoriteVO {
 	
-	public FavoriteVO() {;}
-	
 	private int favoriteNum;
 	 private int userNum;
-	 private int profileNum;
+	 private int profileUserNum;
+	 private String profileNum;
 	 
-	 public int getProfileNum() {
+	 public String getProfileNum() {
 		return profileNum;
 	}
-	public void setProfileNum(int profileNum) {
+
+	public void setProfileNum(String profileNum) {
 		this.profileNum = profileNum;
+	}
+
+	public FavoriteVO() {;}
+	 
+	 public int getProfileUserNum() {
+		return profileUserNum;
+	}
+	public void setProfileUserNum(int profileUserNum) {
+		this.profileUserNum = profileUserNum;
 	}
 	public int getFavoriteNum() {
 		return favoriteNum;

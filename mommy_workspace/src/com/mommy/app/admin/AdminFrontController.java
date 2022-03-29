@@ -103,14 +103,15 @@ public class AdminFrontController extends HttpServlet
 		}else if(command.equals("/admin/AdminAuthListOk.ad")) {
 			af = new AdminAuthListOk().execute(req, resp);
 			System.out.println("adAuthListOk FC");
-		}else if(command.equals("/admin/AdminAuthChange.ad")) {
-			af = new ActionForward();
-			af.setRedirect(false);
-			af.setPath("/app/admin/adminAuth_Detail.jsp");
-			//체크 승인데이터 보내기
-		}else if(command.equals("/admin/AdminAuthChangeOk.ad")) {
-			af = new adminAuth_DetailOk().execute(req, resp);
-		}	
+		}
+		else if(command.equals("/admin/AdminAuthChangeOk.ad")) {
+			 new adminAuth_DetailOk().execute(req, resp);
+		
+		}else if(command.equals("/admin/AdminDownloadOk.ad")) {
+			 new AdminDownloadOk().execute(req, resp);
+				System.out.println("다운로드 들어옴");
+		}
+		
 		
 		
 		

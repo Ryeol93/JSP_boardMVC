@@ -35,7 +35,7 @@ $('#phone_ok').click(function() {
 	  	      
 	  	      
 	  	      } else {
-	  	        $(".error_text").text("번호없음");
+	  	        $(".error_text").text("일치하는 정보가 없습니다.");
 	  	        $(".error_text").css("color", "red");
 	  	    
 	  	      }
@@ -64,6 +64,8 @@ function checkCode(){
 	if ($userCode == code){
 		$(".text_error").text("인증번호가 일치합니다.");
 		$(".text_error").css("color", "#03c75a");
+		
+		$(".error_text").css("display", "none");
 		$('#second_warp').css('display','none')
 		$("#success_find").css("display", "block");
 		

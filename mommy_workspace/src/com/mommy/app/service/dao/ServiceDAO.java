@@ -1,12 +1,13 @@
 package com.mommy.app.service.dao;
 
-import java.util.List; 
+import java.util.List;  
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.mommy.app.service.vo.LookProfileDTO;
+import com.mommy.app.service.vo.ParameterDTO;
 import com.mommy.app.service.vo.SearchDetailDTO;
 
 import com.mommy.app.service.vo.ServiceDTO;
@@ -46,7 +47,6 @@ public class ServiceDAO {
 	
 
 	
-//	userStatus=2일때 -----------------------------------------------------------------------------
 	//상세검색 필터링
 	public List<ServiceDTO> searchDetail(Map<String, Integer> modalInput) {
 		return sqlSession.selectList("Service.searchDetail", modalInput);  
@@ -61,77 +61,45 @@ public class ServiceDAO {
 	}
 	
 	//돌봄유형 주5일등하원
-	public List<ServiceDTO> careTypeSchool(){
-		return sqlSession.selectList("Service.careTypeSchool");
+	public List<ServiceDTO> careTypeSchool(Map<String,Integer> modalInput){
+		return sqlSession.selectList("Service.careTypeSchool",modalInput);
 	}
 	//돌봄유형 놀이/학습시터
-	public  List<ServiceDTO> teach(){
-		return sqlSession.selectList("Service.teach");
+	public  List<ServiceDTO> teach(Map<String,Integer> modalInput){
+		return sqlSession.selectList("Service.teach",modalInput);
 	}
 	
 	//돌봄유형 풀타임
-	public List<ServiceDTO> fullTime(){
-		return sqlSession.selectList("Service.fullTime");
+	public List<ServiceDTO> fullTime(Map<String,Integer> modalInput){
+		return sqlSession.selectList("Service.fullTime",modalInput);
 	}
 	
 	//돌봄유형 짧은시간
-	public List<ServiceDTO> shortTime(){
-		return sqlSession.selectList("Service.shortTime");
+	public List<ServiceDTO> shortTime(Map<String,Integer> modalInput){
+		return sqlSession.selectList("Service.shortTime",modalInput);
 	}
 	
 	//돌봄유형 긴급
-	public List<ServiceDTO> careEmergency(){
-		return sqlSession.selectList("Service.careEmergency");
+	public List<ServiceDTO> careEmergency(Map<String,Integer> modalInput){
+		return sqlSession.selectList("Service.careEmergency",modalInput);
 	}
 	
 	//돌봄지역 
-	public List<ServiceDTO> searchArea(Map<String, String> areaMap){
-		return sqlSession.selectList("Service.searchArea", areaMap);
+	public List<ServiceDTO> searchArea(ParameterDTO param){
+		return sqlSession.selectList("Service.searchArea", param);
 	}
-//	userStatus=1일때 -----------------------------------------------------------------------------
-	//상세검색 필터링
-	public List<ServiceDTO> searchDetail2(Map<String, Integer> modalInput) {
-		return sqlSession.selectList("Service.searchDetail2", modalInput);  
-	}
-	//상세검색 게시글 총 갯수
-	public int searchDetailGetTotal2(Map<String, Integer> modalInput) {
-		return sqlSession.selectOne("Service.searchDetailGetTotal2", modalInput);  
-	}
-	
-	//돌봄유형 주5일등하원
-	public List<ServiceDTO> careTypeSchool2(){
-		return sqlSession.selectList("Service.careTypeSchool2");
-	}
-	//돌봄유형 놀이/학습시터
-	public  List<ServiceDTO> teach2(){
-		return sqlSession.selectList("Service.teach2");
-	}
-	
-	//돌봄유형 풀타임
-	public List<ServiceDTO> fullTime2(){
-		return sqlSession.selectList("Service.fullTime2");
-	}
-	
-	//돌봄유형 짧은시간
-	public List<ServiceDTO> shortTime2(){
-		return sqlSession.selectList("Service.shortTime2");
-	}
-	
-	//돌봄유형 긴급
-	public List<ServiceDTO> careEmergency2(){
-		return sqlSession.selectList("Service.careEmergency2");
-	}
-	
-	//돌봄지역 
-	public List<ServiceDTO> searchArea2(Map<String, String> areaMap){
-		return sqlSession.selectList("Service.searchArea2", areaMap);
-	}
+
+
 	
 	//시터프로필 상세보기
 	public LookProfileDTO lookSitterProfile(int userNum) {
 		return sqlSession.selectOne("Service.lookSitterProfile", userNum);
 	}
 	
+	//맘프로필 상세보기
+	public LookProfileDTO lookMomProfile(int userNum) {
+		return sqlSession.selectOne("Service.lookMomProfile", userNum);
+	}
 	// 최근 게시글 번호 
 	public int getSeq() {
 		return sqlSession.selectOne("Service.getSeq");
@@ -141,5 +109,14 @@ public class ServiceDAO {
 		sqlSession.delete("Service.delete", userNum);
 	}	
 	
-	
+	// 프로필 번호 가져오기 
+	public int selectProfileNum(int userNum) {
+			if(sqlSession.selectOne("Service.selectProfileNum",userNum) == null) {
+				return -1;
+			}
+		return sqlSession.selectOne("Service.selectProfileNum",userNum);
+	}
+	public void inFavoriteDelete(int userNum) {
+		sqlSession.delete("Service.inFavoriteDelete",userNum);
+	}
 }

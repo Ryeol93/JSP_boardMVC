@@ -45,9 +45,7 @@ public class CommunityFrontController extends HttpServlet {
 			af = new CommunityUpdate().execute(req, resp);
 		} else if (command.equals("/community/CommunityUpdateOk.com")) {
 			af = new CommunityUpdateOk().execute(req, resp);
-		} else if (command.equals("/community/FileDownloadOk.com")) {
-			af = new FileDownloadOk().execute(req, resp);
-		} else if (command.equals("/community/CommunityCommentListOk.com")) {
+		}  else if (command.equals("/community/CommunityCommentListOk.com")) {
 			new CommunityCommentListOk().execute(req, resp);
 		} else if (command.equals("/community/CommunityCommentUpdateOk.com")) {
 			new CommunityCommentUpdateOk().execute(req, resp);

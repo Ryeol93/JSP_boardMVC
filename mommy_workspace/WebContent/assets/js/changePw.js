@@ -1,17 +1,18 @@
 var userId = localStorage.getItem('userId')
-var regpw =  /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{7,16}$/;
+var regpw =  /^(?=.*?[a-zA-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.]).{8,}$/;
+
 
 check = false;
 $('#user_new_pw').blur(function () {
 	if(!regpw.test($('#user_new_pw').val())){
 		  $("#list3").text("규정에 맞지않는 비밀번호입니다.");
-	        $("#list3").css("color", "red");
+	        $("#list3").css("color", "#ffb61a");
 	        $('#user_new_pw').focus();
 	        check = false;
 	}
 	else{
 		$("#list3").text("확인되었습니다");
-        $("#list3").css("color", "blue");
+        $("#list3").css("color", "#03c75a");
         
         check = true;
 	}
@@ -20,13 +21,13 @@ $('#user_new_pw').blur(function () {
 $('#user_new_pwre').blur(function () {
 	if(($('#user_new_pw').val())  !==($('#user_new_pwre').val()) ){
 		  $("#list4").text("비밀번호가 일치하지 않음");
-	        $("#list4").css("color", "red");
+	        $("#list4").css("color", "#ffb61a");
 	        $('#user_new_pwre').focus();
 	        check = false;
 	}
 	else{
 		$("#list4").text("확인되었습니다");
-        $("#list4").css("color", "blue");
+        $("#list4").css("color", "#03c75a");
         check = true; 
 	}
 });

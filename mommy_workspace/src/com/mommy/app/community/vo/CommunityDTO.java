@@ -10,6 +10,7 @@ public class CommunityDTO {
 	private int communityCategory;
 	private int userStatus;
 	private String userId;
+	private String fileName;
 	
 	public CommunityDTO() {;}
 
@@ -21,6 +22,7 @@ public class CommunityDTO {
 		this.communityCategory = communityVO.getCommunityCategory();
 		this.userNum = communityVO.getUserNum();
 		this.boardDate = communityVO.getBoardDate();
+		this.fileName = communityVO.getFileName();
 	}
 	
 	public int getUserStatus() {
@@ -86,6 +88,14 @@ public class CommunityDTO {
 
 	public void setBoardDate(String boardDate) {
 		this.boardDate = boardDate;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 	
 	

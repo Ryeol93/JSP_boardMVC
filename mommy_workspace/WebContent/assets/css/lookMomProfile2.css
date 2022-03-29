@@ -19,8 +19,23 @@
             font-weight: normal;
             font-style: normal;
         }
-        
-        
+         
+   .area{
+   margin-left: 7px;
+   }
+       
+       
+       
+   .days{
+    background-color: white;
+    width: 29px;
+    border-radius: 30px;
+    color: #ffb61a;
+    font-weight: bold;
+    border: 1.5px solid #ffb61a;
+    height: 29px;
+    margin-left: 9px;
+   }     
         
 .heart{
 width: 25px;
@@ -53,7 +68,7 @@ width: 25px;
         }
         .innerContent2{
             padding: 1.5rem 0 0 0;
-            width: 167px;
+           width: 96%;
 
         }
         .innerTitle{
@@ -78,10 +93,11 @@ width: 25px;
 
         hr.split{
             margin: 0px;
-            padding-bottom:10px;
-            width: 95%;
-          
+		    padding-bottom: 10px;
+		    width: 115%;
+		    margin-left: -21px !important;
         }
+          
 
         .innerModify
         {position: absolute;
@@ -185,12 +201,13 @@ input::-moz-focus-inner, input::-moz-focus-outer {
 .imgIcon{
     width: 20px;
     margin-right: 10px;
+    float: left;
 }
 
 .liCss{
-    margin-bottom: 16px;
     font-size: 15px;
     display: inline-block;
+    width: 145%;
 }
 .reviewText{
     font-weight: bold;
@@ -232,6 +249,7 @@ aside.aside2{
     position: fixed;
     left: 64%;
     top: 13%;
+    
 }
 
 .outer {
@@ -256,7 +274,7 @@ aside.aside2{
 }
 aside.aside2{
     position: fixed;
-    left: 67% !important;
+    left: 75% !important;
     top: 14% !important;
 }
 
@@ -273,7 +291,7 @@ aside.aside2{
             font-weight: bold;
             font-size:16px;
             margin-top: 7px;
-            cursor: pointer;
+			cursor: pointer;
         }
 
 
@@ -287,26 +305,60 @@ aside.aside2{
    
 
 @media (max-width: 576px){
-#header{width: 74%;}
-.mobileWant{
-    width: 132%;
+	   div.activity2{
+	width: 76px !important;
+}    
+#header{width: 100%;}
+#main{
+	padding: 1.5em 0 4.5em 0 !important;
+    width: 94% !important;
+    overflow: hidden;
+    margin-top: 18px !important;
+    margin-left: 10px;
 }
 
+.moMain{
+	width: 347px !important;
+}
 
+.mobileWant{
+    width: 132%;
+ }
 
-#main{
-    padding: 3em 0 1em 0;
-       width: 85% !important;
-    margin-top: -21px !important;
+.activity{
+	font-size: 10px !important;
+    width: 45px !important;
+}
 
+.subContent{
+	margin-top: 32px;
+    margin-left: 18px;
+    position: absolute;
+    display: block !important;
+    width: 332px !important;
+}
+
+a.b{
+	margin-bottom: 31px !important;
 }
 
 aside.aside2{
-display: none;
+
+	margin-left: 137px;
+    position: absolute !important;
 }
+
 
 .mobileP{
 padding-bottom: 10px !important;
+}
+
+.apply{
+	position: absolute;
+    left: -313px;
+    width: 105px !important;
+    font-size: 13px !important;
+    top: -108px;
 }
 
 .mobileMoney{
@@ -316,6 +368,11 @@ padding-bottom: 10px !important;
     margin-left: -65%;
     width: 100px;
 	}
+
+.modalBox{
+	left: 36px;
+    width: 335px !important;
+}
 
    .container.medium {
             width: 70% !important;
@@ -342,6 +399,7 @@ padding-bottom: 10px !important;
         .innerContent2{
             padding: 1.5rem 0 0 0;
             width: 167px;
+            margin-left: 10px;
 
         }
         .innerTitle{
@@ -367,8 +425,8 @@ padding-bottom: 10px !important;
         hr.split{
             margin: 0px;
             padding-bottom:10px;
-            width: 95%;
-          margin-left: -21px !important;
+            width: 107%;
+         	margin-left: -21px !important;
         }
 
         .innerModify
@@ -475,12 +533,13 @@ input::-moz-focus-inner, input::-moz-focus-outer {
 .imgIcon{
     width: 20px;
     margin-right: 10px;
+    float: left;
 }
 
 .liCss{
-    margin-bottom: 16px;
     font-size: 15px;
     display: inline-block;
+    width: 145%;
 }
 .reviewText{
     font-weight: bold;
@@ -547,9 +606,9 @@ aside.aside2{
 
 
 .add{
-    margin-top: 73px;
-    margin-left: -6px !important;
-   width: 335px !important;
+    margin-top: 5px;
+    margin-left: 10px !important;
+    width: 335px !important;
     overflow: hidden;
 }
 
@@ -578,10 +637,119 @@ margin-left: 5px !important;
 
 
 .buttonAside{
-width: 70%;
-    margin-left: 8px;
+	/* display: none; */
+    width: 70%;
+    margin-left: 177px;
+}
+
+.container.medium{
+	padding: 4.5em 0 4.5em 0 !important;
+}
+        
 }
 
 
+
+
+/*모달*/
+ .modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow:hidden;
+        }
+
+        .modal .bg {
+          width: 100%;
+          height: 100%;
+        }
+
+        .modalBox {
+          position: absolute;
+          background-color: #fff3f0;
+          width: 400px;
+          height: 350px;
+          padding: 15px;
+          border-radius: 6px;
+          text-align: center;
+          top: 249px;
+         right: 160px;
+         box-shadow: 4px 4px 20px rgb(51 51 51 / 15%);
+        }
+
+        .modalBox button {
+          display: block;
+          width: 80px;
+          margin: 0 auto;
+        }
+
+        .hidden {
+          display: none;
+        }
         
+        .modalText{
+            margin: 18px 0;
+            font-family: 'GmarketSansMedium';
+            color:black;
+
+        }
+
+        .modalSubText{
+            font-size:14px;
+            line-height: initial;
+            margin: -10px 0 2em 0 !important; 
+            
+        }
+
+        button.submitBtn {
+          background-color: #ff7065 ;
+          padding: 5px 10px;
+          border-radius: 4px;
+          border:hidden;
+          cursor: pointer;font-family: 'GmarketSansMedium';
+            width:50%;
+            height:50px;
+            color:white;
+        }
+
+        .quit{
+            font-size: 14px;
+            color: #d4cfcf;
+
+        }
+        
+div.activity{
+    border-radius: 9px !important;
+    color: #ffb61a !important;
+    width: 70px;
+    height: 26px;
+    text-align: center;
+    margin: 0 2px 0 5px;
+    float: left;
+    box-shadow: 1px 1px #ffb61a;
+    font-size: 12px;
+    font-weight: bold;
+ }
+ 
+ a.a{
+	color: gray;
+    border: none;
+    cursor: pointer;
+}
+
+#main{
+	padding: 1.5em 0 4.5em 0 !important;
+    width: 85%;
+}
+
+a.b{
+	color: gray;
+    border: none;
+    float: left;
+    margin-bottom: 10px;
 }

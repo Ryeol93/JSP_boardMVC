@@ -35,8 +35,8 @@ public class UserPhoneOk implements Action{
 				String userPhone = req.getParameter("userPhone");
 			
 						//휴대폰 번호 인증
-				   String api_key = "NCSTLDI4YOFAFBDH"; // 내 API key
-				       String api_secret = "N1FVJOXIPM0XU7KHPPHDEH9DPMMLFADS"; // 내 API secret key 		
+				   String api_key = "NCSXZD4ABOBVQMBT"; // 내 API key
+				       String api_secret = "TM83MDJUTJHUP1UDNBY2RGU4IHAHKAGD"; // 내 API secret key 		
 /*					String api_key = "NCSTFZGSGACJE9SI"; // 자신의API 키 
 					String api_secret = "WW3ZOL6NAB2G0XATZRY0OFNXJDZBRAMF"; // API SECRET KEY 
 				*/
@@ -49,7 +49,7 @@ public class UserPhoneOk implements Action{
 				       HashMap<String, String> params = new HashMap<String, String>();
 				       params.put("to", userPhone);
 //				       params.put("from", "01042872040");
-				       params.put("from", "01045665789");
+				       params.put("from", "01077939256");
 				   /*    System.out.println(userPhone);*/
 				       params.put("type", "SMS");
 				       params.put("text", "귀하의 인증번호는 ["+ code +"] 입니다.");

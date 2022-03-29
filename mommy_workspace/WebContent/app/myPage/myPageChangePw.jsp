@@ -33,13 +33,13 @@
                              </div>
                                  <br>
                                  <div>
-                                    <p class="p-font-color">새로운 비밀번호 </p>
+                                    <p class="p-font-color" id="result2">새로운 비밀번호 </p>
                                     <input type="password" name="newPw" id="newPw" class="input-font" style="width: 95%;" placeholder="새 비밀번호를 입력해주세요.">
                                 </div>
-                                <div id="result2">테스트</div>
+                                <div></div>
                                     <br>
                                  <div id="newPwCkWrap">
-                                        <p class="p-font-color">새로운 비밀번호 확인</p>
+                                        <p class="p-font-color" id="list4">새로운 비밀번호 확인</p>
                                         <input type="password" name="newPwCK" id="newPwCK" class="input-font" style="width: 95%;" placeholder="새 비밀번호를 입력해주세요.">
                                         <div id="newPwCkText"></div>
                                     </div>
@@ -65,6 +65,7 @@
 		<script>
 			 var context = '${pageContext.request.contextPath}'; 
 			 var userNum = '${userNum}';
+			 var pwCheck = /^(?=.*?[a-zA-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.]).{8,}$/;
 			var newPw = document.getElementById('newPw').value;
 			var newPwCK = document.getElementById('newPwCK').value;
 
@@ -75,7 +76,7 @@
 					var $newPw = $('input[name=newPw]').val();
 					var $newPwCK = $('input[name=newPwCK]').val();
 	
-					if($newPw == $newPwCK){
+					if($newPw == $newPwCK && pwCheck.test($('input[name=newPwCK]').val())) {
 						var param = { "beforePw":$beforePw ,
 								"newPw":$newPw	 
 									};
@@ -104,7 +105,7 @@
 					var text ="";
 						$("#newPwCkText").html(text);
 			 }else{
-					var text ="<p>비밀번호가 일치하지 않습니다.</p>"
+					var text ="<p style = 'margin: 0px 0px -4em; font-size:14px;'>비밀번호가 일치하지 않거나 유효한 비밀번호가 아닙니다.<br> 8자리 이상이어야 하며, 영문/숫자/특수문자 모두 포함해야 합니다.</p>"
 					$("#newPwCkText").html(text);
 			 }
 				 

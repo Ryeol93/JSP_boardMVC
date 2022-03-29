@@ -7,6 +7,7 @@ public class CommunityVO {
 	private int communityCategory;
 	private int userNum;
 	private String boardDate;
+	private String fileName;
 	
 	
 	public CommunityVO() {;}
@@ -57,6 +58,14 @@ public class CommunityVO {
 
 	public void setBoardDate(String boardDate) {
 		this.boardDate = boardDate;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 	
 	

@@ -31,6 +31,10 @@ public class CommunityCommentDAO {
 		public void deleteComment(int commentNum) {
 			sqlSession.delete("Community.deleteComment", commentNum);
 		}
+		//댓글 전체 삭제
+		public void deleteAllComment(int userNum) {
+			sqlSession.delete("Community.deleteAllComment", userNum);
+		}
 		
 		//댓글 수정
 		public void updateComment(CommunityCommentVO comment) {

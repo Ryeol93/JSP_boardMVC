@@ -16,6 +16,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" >
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 		<link href="${pageContext.request.contextPath}/assets/css/join.css" rel="stylesheet" >
+		<link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
 	</head>
 
 	<body class="is-preload">
@@ -34,7 +35,7 @@
 		<form method="post" action="${pageContext.request.contextPath }/user/UserJoinOk.user" name="joinForm">
 			<div id="main" class="container" style="min-height: 1850px;">
 				<header class="major">
-					<a href="${pageContext.request.contextPath}/app/etc/main.jsp"><h2><img alt="" src="${pageContext.request.contextPath}/images/로고1.png"></h2></a>
+					<a href="${pageContext.request.contextPath}/user/UserMainOk.user"><h2><img alt="" src="${pageContext.request.contextPath}/images/로고1.png"></h2></a>
 				</header>
 					<div>
 					<div>
@@ -63,7 +64,7 @@
 			<div class="col-12" style="display:flex; justify-content:space-between; position: relative; top: 21px;">
 				<div>
 					<input type="checkbox" id="term1" name="term1" class="terms">
-					<label for="term1"><a href="${pageContext.request.contextPath}/app/member/joinInfo.jsp">마미랑 이용약관</a> 에 동의합니다.</label>
+					<label for="term1"><a href="${pageContext.request.contextPath}/user/joinInfo.user">마미랑 이용약관</a> 에 동의합니다.</label>
 				</div>
 				
 			</div>
@@ -71,7 +72,7 @@
 			<div class="col-12" style="display:flex; justify-content:space-between;">
 				<div>
 					<input type="checkbox" id="term2" name="term2" class="terms">
-					<label for="term2"><a href="${pageContext.request.contextPath}/app/member/joinInfo.jsp">개인정보 수집 및 이용에 동의</a> 합니다.</label>
+					<label for="term2"><a href="${pageContext.request.contextPath}/user/joinInfo.user">개인정보 수집 및 이용에 동의</a> 합니다.</label>
 				</div>
 			</div>
 			</div>
@@ -152,24 +153,13 @@
 						<div> 
                         <p class="p-font-color">생년월일</p>
                            <div class="col-1" style = "display:flex;">
-                           		<input type = "text"  class="input-font" placeholder ="년 (ex. 1998)" name="userBirthYear" style="width: 30%; margin-right:10px;height:40px; position: relative; left: -17px;">
-                                	<select name = "userBirthMonth" style="width: 95px;height: 41px; margin-right: 10px;
-                                	position: relative; left: -15px; top: -6px; border-radius: 0px; border: hidden; border-bottom: 3px solid #f6f6f6; background-color:white;">
-                                    	 <option value = "월"> 월</option>
-                                   	 	 <option value = "1"> 1</option>
-                                   	 	 <option value = "2"> 2</option>
-                                   		 <option value = "3"> 3</option>
-                                   		 <option value = "4"> 4</option>
-                                  		 <option value = "5"> 5</option>
-                                 		 <option value = "6"> 6</option>
-                                 		 <option value = "7"> 7</option>
-                                    	 <option value = "8"> 8</option>
-                                    	 <option value = "9"> 9</option>
-                                    	 <option value = "10"> 10</option>
-                                    	 <option value = "11"> 11</option>
-                                    	 <option value = "12"> 12</option>
-                                	</select>
-                                <input class="col-2" type = "text" placeholder ="일 (ex. 24)" name="userBirthDate" required style="width: 30%; margin-right:10px;height:40px; position: relative; left: -15px;">
+                           		<input type = "text"  class="input-font" placeholder ="년 (ex. 1998)" name="userBirthYear" id="yy" style="width: 30%; margin-right:10px;height:40px; position: relative; left: -17px;" maxlength="4">
+                           		
+                                <input type = "text" name = "userBirthMonth" placeholder ="월(ex. 1)"
+                                 	style="width: 95px;height: 41px; margin-right: 10px; position: relative; left: -15px; top: -16px; border-radius: 0px; border: hidden; border-bottom: 3px solid #f6f6f6; background-color:white;">
+                                    
+                                    
+                                <input class="col-2" type = "text" placeholder ="일 (ex. 24)" name="userBirthDate" required style="width: 30%; margin-right:10px;height:40px; position: relative; left: -15px;" maxlength="2">
                             </div>
                         </div>
 					</div>

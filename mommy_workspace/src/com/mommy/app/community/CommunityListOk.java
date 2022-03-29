@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.mommy.action.Action;
 import com.mommy.action.ActionForward;
 import com.mommy.app.community.dao.CommunityDAO;
+import com.mommy.app.community.dao.FilesDAO;
 
 
 
@@ -21,6 +22,7 @@ public class CommunityListOk implements Action{
 		CommunityDAO dao = new CommunityDAO();
 //		BoardDAO bDao = new BoardDAO();
 //		MemberDAO mDao = new MemberDAO();
+		FilesDAO filesDao = new FilesDAO();
 
 		//전체 게시글 개수
 		int total = dao.getTotal();
@@ -83,6 +85,8 @@ public class CommunityListOk implements Action{
 //			boardDTO_list.get(i).setMemberId(memberIdList.get(i));
 //		}
 		
+		
+		
 		//시작 인덱스와, 개수를 전달하여 게시글 목록을 가져온 뒤 requestScope에 담아준다.
 		System.out.println(dao.selectAll(communityMap).size());
 		req.setAttribute("communityList", dao.selectAll(communityMap));
@@ -93,6 +97,7 @@ public class CommunityListOk implements Action{
 		req.setAttribute("endPage", endPage);
 		req.setAttribute("realEndPage", realEndPage);
 		req.setAttribute("total", total);
+		req.setAttribute("userNum", (Integer)req.getSession().getAttribute("userNum"));
 		 
 		
 		af.setRedirect(false);

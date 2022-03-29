@@ -50,6 +50,8 @@
         border-top: white 1px solid;
         border-bottom: #f6f6f6 1px solid;
 	}
+	.input_number2{
+	top: 0px !important; }
 
 	.col-6 .col-12-xsmall {
 		position: relative;

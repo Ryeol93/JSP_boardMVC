@@ -20,15 +20,18 @@
       <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin.css"  type="text/css"/>
    </head>
    <body class="is-preload" style="display:block; padding-top: 0; overflow-y: hidden">
-     <c:set var="members" value="${members}" />
+     <c:set var="userList" value="${userList}" />
      <c:set var="membersTotal" value="${membersTotal}" />
      <c:set var="membersMom" value="${membersMom}" />
-     <c:set var="membersSiter" value="${membersSitter}" />
+     <c:set var="membersSitter" value="${membersSitter}" />
+     		<c:set var="startPage" value="${startPage}"/>
+		<c:set var="endPage" value="${endPage}"/>
+		<c:set var="realEndPage" value="${realEndPage}"/>
      <!-- Main -->
          <div id="main" class="container">
                <!-- 배너 -->
          <div class="mainBox" style="padding-top: 3.5em;">
-         	<a href="${pageContext.request.contextPath}/app/admin/admin.jsp"><img src="https://cdn.discordapp.com/attachments/954273372760571914/955478975797403648/1.png" style="width: 9%; position: absolute; margin: -50px 0px 0 26px;"></a>
+         	<a href="${pageContext.request.contextPath}/admin/AdminMainOk.ad"><img src="https://cdn.discordapp.com/attachments/954273372760571914/955478975797403648/1.png" style="width: 9%; position: absolute; margin: -50px 0px 0 26px;"></a>
             <h3 class="caption" style="position: absolute; margin: -46px 0px -1px 207px; padding-left: 20px;">관리자 페이지</h3>
             <ul class="actions small">
                <li><span id="memberList" class="s-title text bGray" style="padding: 0em 0 0 10em;" >회원목록</span></li>
@@ -39,7 +42,7 @@
 					<section id="three" class="feature">
 						<div class="row row-total main-total" style="display: flex; justify-content: center; margin-right: 0em;">
 								<div class="side-header">
-               <a href="${pageContext.request.contextPath}/admin/AdminMainOk.ad" style="border-bottom:2px solid #ffb61a;"><p id="total" class="s-title text bYellow">통계 </p></a>
+               <a href="${pageContext.request.contextPath}/admin/AdminMainOk.ad" style="border-bottom:2px solid #ffb61a;"><p id="total" class="s-title text bYellow">메인 </p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminQnaListOk.ad"><p id="qna" class="s-title text bGray" >문의</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminReportListOk.ad"><p id="report" class="s-title bGray" >신고</p></a>
                <a href="${pageContext.request.contextPath}/admin/AdminAuthListOk.ad"><p id="auth" class="s-title bGray">인증</p></a>
@@ -50,12 +53,11 @@
 									<div class="col-6 col-12-small" style=" margin-left: -3em; ">
 										<section id="content" style="width: 100%; padding: 0 0 0 0; font-size: 14px;">
           								<div class="col-12" style="width:12%; margin-bottom: 1em;">
-									<select name="category" id="category" style="font-size: 14px; margin: -7px 0 0px 0;">
-										<option value="">선택</option>
+<!-- 									<select name="category" id="category" style="font-size: 14px; margin: -7px 0 0px 0;">
 										<option value="1">전체</option>
 										<option value="2">맘</option>
 										<option value="3">시터</option>
-									</select>
+									</select> -->
 								</div>
                                 <table>
                   						<tr>
@@ -65,8 +67,8 @@
                      						<td>분류</td>
                   						</tr>
                                           <c:choose>
-                                                <c:when test="${members != null}" >
-                                          	 <c:forEach var="members" items="${members}" >
+                                                <c:when test="${userList != null}" >
+                                          	 <c:forEach var="members" items="${userList}" >
                                                                  <tr>
                                                                     <td>${members.getUserNum()}</td>
                                                                     <td>${members.getUserId()}</td>
@@ -90,21 +92,39 @@
                                                        </tr>
                                                 </c:when>
                                           </c:choose>
-                				</table>
-               					<!-- 페이징 처리 -->	
-               															<!-- 페이징 처리 -->	
-					<table style="text-align:center;">
-						<tr>
-							<td >1 2 3 4 5 6 7 8 9 10 </td>
-						</tr>	
-					</table>
+                                  </table>        
+                				<!-- 페이징 처리 -->   
+                              <table style="font-size:1.3rem">
+											<tr align="center" valign="middle" style="background-color: white;">				
+												<td class="web-view">
+													<c:if test="${startPage > 1}">
+														<a href="${pageContext.request.contextPath}/admin/AdminMemberListOk.ad?page=${startPage - 1}">&lt;</a>
+													</c:if>
+												
+													<c:forEach var="i" begin="${startPage}" end="${endPage}">
+														<c:choose>
+															<c:when test="${i eq page}">
+																<c:out value="${i}"/>&nbsp;&nbsp;
+															</c:when>
+															<c:otherwise>
+																<a href="${pageContext.request.contextPath}/admin/AdminMemberListOk.ad?page=${i}"><c:out value="${i}"/></a>&nbsp;&nbsp;
+															</c:otherwise>
+														</c:choose>
+													</c:forEach>
+													
+													<c:if test="${endPage < realEndPage}">
+														<a href="${pageContext.request.contextPath}/admin/AdminMemberListOk.ad?page=${endPage + 1}">&gt;</a>
+													</c:if>
+												</td>
+											</tr>
+										</table>                           
 									</section>
 									</div>
 									</div>
 									<div class="col-6 col-12-small v-total" style="width: 30%; display:table; height: 400px; border: 1px solid #bbb; border-radius: 3px; padding-top:1em;">
 									<div class="oneBox" style="margin-bottom: 3%; width: 35%; display: contents;">
 										<a class="title" href="#">
-											<span class="s-title link-title" >통계</span>
+											<span class="s-title link-title" >메인</span>
 										</a>
 										<hr>
 										<hr>
@@ -124,11 +144,12 @@
 										</div>
 										<div style="width: 50%; padding-left:1em">
 											<span class="s-title link-title" >시터</span>
-											<p><c:set var="sitterCount" value="${membersSitter}" /></p>
+											<p>${membersSitter}</p>
 										</div>
 									</div>
 									
 								</div>
+							</div>
 							</div>
 						</section>
 					</div>

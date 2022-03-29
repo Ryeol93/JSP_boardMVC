@@ -1,6 +1,7 @@
 package com.mommy.app.service.vo;
                   
 public class ServiceDTO {
+	private int userBirthYear;
 	private int profileNum;
 	private int userStatus;
 	private int userNum;
@@ -46,6 +47,18 @@ public class ServiceDTO {
 	public ServiceDTO() {;}
 	
 	
+
+	public int getUserBirthYear() {
+		return userBirthYear;
+	}
+
+
+
+	public void setUserBirthYear(int userBirthYear) {
+		this.userBirthYear = userBirthYear;
+	}
+
+
 
 	public int getUserStatus() {
 		return userStatus;

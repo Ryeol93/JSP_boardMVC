@@ -51,8 +51,8 @@ public class AskDAO {
 		}
 		
 		//게시글 전체 개수
-		public int getTotal() {
-			return sqlSession.selectOne("Ask.getTotal");
+		public int getTotal(int userNum) {
+			return sqlSession.selectOne("Ask.getTotal", userNum);
 		}
 		
 		//게시글 정보 조회
@@ -70,11 +70,12 @@ public class AskDAO {
 			sqlSession.insert("Ask.insert", Ask);
 		}
 
+
 		
-/*		//게시글 삭제
-		public void delete(int askNum) {
-			sqlSession.delete("Board.delete", askNum);
-		}*/
+		//게시글 삭제
+		public void delete(int userNum) {
+			sqlSession.delete("Ask.delete", userNum);
+		}
 		
 /*		//게시글 수정
 		public void update(AskVO ask) {

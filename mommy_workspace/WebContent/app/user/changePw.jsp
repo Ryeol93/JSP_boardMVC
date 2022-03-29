@@ -12,6 +12,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" >
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 		<link href="${pageContext.request.contextPath}/assets/css/changePw.css" rel="stylesheet" >
+		<link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
 	</head>
 	
 	<body>
@@ -28,7 +29,7 @@
 		<!-- Main -->
 			<div id="main" class="container">
 				<header class="major">
-					<a class="logo-location" href="${pageContext.request.contextPath}/app/etc/main.jsp"><h2 style="position: relative; top: -60px;"><img alt="" src="${pageContext.request.contextPath}/images/로고1.png"></h2></a>
+					<a class="logo-location" href="${pageContext.request.contextPath}/user/UserMainOk.user"><h2 style="position: relative; top: -60px;"><img alt="" src="${pageContext.request.contextPath}/images/로고1.png"></h2></a>
 				
 				<div class="first">
 					<div>

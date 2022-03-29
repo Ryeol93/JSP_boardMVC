@@ -5,6 +5,7 @@ import java.util.Enumeration;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.mommy.app.service.vo.LookProfileDTO;
 import com.mommy.app.service.vo.ProfileFilesVO;
 import com.mommy.mybatis.config.MyBatisConfig;
 import com.oreilly.servlet.MultipartRequest;
@@ -52,4 +53,18 @@ public class ProfileFilesDAO {
 				insert(file);
 			}
 		}	   
+		//첨부파일 삭제
+		public void delete(int profileNum) {
+			sqlSession.delete("ProfileFiles.delete", profileNum);
+		}	   
+		
+		// 프로파일 번호로 이미지 파일 선택
+		public String selectFileName(int profileNum) {
+			return sqlSession.selectOne("ProfileFiles.selectFileName",profileNum);
+		}
+		
+		// 유저 번호로 이미지 파일 선택
+		public String selectUserImg(int userNum) {
+			return sqlSession.selectOne("ProfileFiles.selectUserImg",userNum);
+		}
 }

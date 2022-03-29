@@ -27,36 +27,63 @@ public class adminAuth_DetailOk  implements Action{
 		
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
-	
-	 	if(req.getParameter("CheckMedi")!=null) {
-		aDto.setCheckMedi(Integer.parseInt(req.getParameter("CheckMedi")));
-			}else if(req.getParameter("CheckMedi")==null) {
+		
+		
+		
+		System.out.println(req.getParameter("checkMedi")+"checkMedi");
+		System.out.println(req.getParameter("checkUniversity")+"checkUniversity");
+		System.out.println(req.getParameter("checkCitizen")+"checkCitizen");
+		System.out.println(req.getParameter("checkMom")+"checkMom");
+		System.out.println(req.getParameter("checkTeacher")+"checkTeacher");
+		System.out.println(req.getParameter("profileNum")+"profileNum");
+		
+		
+		if(req.getParameter("checkCitizen")!=null) {
+			aDto.setCheckCitizen(Integer.parseInt(req.getParameter("checkCitizen")));
+		}else if(req.getParameter("checkCitizen")==null) {
+			aDto.setCheckCitizen(0); 
+		}
+		System.out.println(req.getParameter("checkCitizen")+"checkCitizen");
+ 	if(req.getParameter("checkMedi")!=null) {
+ 		aDto.setCheckMedi(Integer.parseInt(req.getParameter("checkMedi")));
+			}else if(req.getParameter("checkMedi")==null) {
 			aDto.setCheckMedi(0); 
 			}
+ 	System.out.println(req.getParameter("checkMedi")+"checkMedi");
+ 	if(req.getParameter("checkMom")!=null) {
+ 		aDto.setCheckMom(Integer.parseInt(req.getParameter("checkMom")));
+ 	}else if(req.getParameter("checkMom")==null) {
+ 		aDto.setCheckMom(0); 
+ 	}
+ 	if(req.getParameter("checkTeacher")!=null) {
+ 		aDto.setCheckTeacher(Integer.parseInt(req.getParameter("checkTeacher")));
+ 	}else if(req.getParameter("checkTeacher")==null) {
+ 		aDto.setCheckTeacher(0); 
+ 	}
+	aDto.setPofileNum(Integer.parseInt(req.getParameter("profileNum")));
+	
+ 	
+ 	
+ 	
 			
-			if(req.getParameter("CheckUniversity")!=null) {
-		aDto.setCheckUniversity(Integer.parseInt(req.getParameter("CheckUniversity")));
-			}else if(req.getParameter("CheckUniversity")==null) {
+			if(req.getParameter("checkUniversity")!=null) {
+				aDto.setCheckUniversity(Integer.parseInt(req.getParameter("checkUniversity")));
+			}else if(req.getParameter("checkUniversity")==null) {
 				aDto.setCheckUniversity(0); 
-			}
-			if(req.getParameter("CheckCitizen")!=null) {
-		aDto.setCheckCitizen(Integer.parseInt(req.getParameter("CheckCitizen")));
-			}else if(req.getParameter("CheckCitizen")==null) {
-				aDto.setCheckCitizen(0); 
-			}
-			if(req.getParameter("CheckMom")!=null) {
-		aDto.setCheckMom(Integer.parseInt(req.getParameter("CheckMom")));
-			}else if(req.getParameter("CheckMom")==null) {
-				aDto.setCheckMom(0); 
-			}
-			if(req.getParameter("CheckTeacher")!=null) {
-		aDto.setCheckTeacher(Integer.parseInt(req.getParameter("CheckTeacher")));
-			}else if(req.getParameter("CheckTeacher")==null) {
-				aDto.setCheckTeacher(0); 
-			}
-		aDto.setPofileNum(Integer.parseInt(req.getParameter("ProfileNum")));
+			}System.out.println(req.getParameter("checkUniversity")+"checkUniversity");
+			
+			
+	
+
 		
-	aDao.CheckBox_Update(aDto);
+		
+		
+	
+		
+		
+	
+		
+		aDao.CheckBox_Update(aDto);
 		
 	
 		
@@ -69,7 +96,7 @@ public class adminAuth_DetailOk  implements Action{
 //        req.setAttribute("sitterInfo", dto);
 
 
-		return af;
+		return null;
 	}
 
 }

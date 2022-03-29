@@ -1,11 +1,11 @@
 package com.mommy.app.community.dao;
 
 import java.util.Enumeration;
-import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.mommy.app.community.vo.CommunityVO;
 import com.mommy.app.community.vo.FilesVO;
 import com.mommy.mybatis.config.MyBatisConfig;
 import com.oreilly.servlet.MultipartRequest;
@@ -26,38 +26,52 @@ public class FilesDAO {
 	//첨부파일 추가(로직)
 	public void insert(MultipartRequest multi, int communityNum) {
 		FilesVO file = new FilesVO();
+		//CommunityDTO dto = new CommunityDTO()
 		Enumeration<String> files = multi.getFileNames();
+		CommunityVO community = new CommunityVO();
 		
 		//type="file"인 태그의 개수만큼 반복
-		while(files.hasMoreElements()) {
+		//while(files.hasMoreElements()) {
 			//사용자가 업로드한 파일 태그의 name값
 			String name = files.nextElement();
 			
 			//사용자가 업로드한 원본 파일 이름
 			String fileNameOriginal = multi.getOriginalFileName(name);
 			
+			
+			
 			//중복 시 변경된 이름
 			String fileName = multi.getFilesystemName(name);
 			
 			//첨부파일이 업로드되지 않았다면
-			if(fileName == null) {continue;}
+			if(fileName == null) {;}
+			else {
 
 			file.setFileName(fileName);
-			file.setFileNameOriginal(fileNameOriginal);
 			file.setCommunityNum(communityNum);
 			
 			insert(file);
-		}
+			}
+		//}
 	}
 	
 	//첨부파일 삭제
 	public void delete(int communityNum) {
 		sqlSession.delete("Files.delete", communityNum);
 	}
+	//첨부파일 삭제
+	public void allDelete(int userNum) {
+		sqlSession.delete("Files.allDelete", userNum);
+	}
 	
 	//첨부파일 가져오기
-	public List<FilesVO> select(int communityNum){
-		return sqlSession.selectList("Files.select", communityNum);
+	public String select(int communityNum){
+		return sqlSession.selectOne("Files.select", communityNum);
+	}
+	
+	// 커뮤니티 넘으로 파일 이름 선택
+			public String selectUserImg(int communityNum) {
+				return sqlSession.selectOne("Files.selectImg",communityNum);
 	}
 	
 }

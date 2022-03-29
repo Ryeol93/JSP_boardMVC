@@ -2,20 +2,37 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http//mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Files">
 	<!-- 첨부파일 추가 -->
-	<insert id="insert" parameterType="FilesVO">
-		insert into tbl_communityFiles (fileName, communityNum, fileNameOriginal) 
-		values(#{fileName}, #{communityNum}, #{fileNameOriginal})
-	</insert>
+	<update id="insert" parameterType="FilesVO">
+	  update tbl_community
+		  set fileName = #{fileName}
+		   where communityNum = #{communityNum};
+	
+	</update>
 	
 	<!-- 첨부파일 삭제 -->
 	<delete id="delete" parameterType="_int">
-		delete from tbl_communityFiles where communityNum = #{communityNum}
+	  update tbl_community 
+  	set fileName = null 
+  	where communityNum = #{communityNum}
+	</delete>
+	<!-- 첨부파일 전체 삭제 -->
+	<delete id="allDelete" parameterType="_int">
+	  update tbl_community 
+  	set fileName = null 
+  	where userNum = #{userNum};
 	</delete>
 	
 	<!-- 첨부파일 가져오기 -->
-	<select id="select" parameterType="_int" resultType="FilesVO">
-		select fileName, communityNum, fileNameOriginal from tbl_communityFiles 
+	<select id="select" parameterType="_int" resultType="string">
+		select fileName, communityNum from tbl_community
 		where communityNum = #{communityNum}
+	</select>
+	
+	
+	<!--  communityNum 으로 이미지파일 조회 -->
+	<select id="selectImg" parameterType="_int" resultType="string">
+	select fileName from tbl_community
+	where communityNum = #{communityNum}
 	</select>
 </mapper>
 

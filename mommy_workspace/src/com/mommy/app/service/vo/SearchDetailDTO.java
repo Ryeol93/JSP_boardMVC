@@ -26,6 +26,49 @@ public class SearchDetailDTO {
 	private int babyChild; 
 	private int babyKinder;
 	private int babyElementary;
+	
+	private int checkMedi;
+	private int checkUniversity;
+	private int checkMom;
+	private int checkTeacher;
+	private int checkCitizen ;
+	
+	
+	
+	
+	
+	
+	
+	public int getCheckMedi() {
+		return checkMedi;
+	}
+	public void setCheckMedi(int checkMedi) {
+		this.checkMedi = checkMedi;
+	}
+	public int getCheckUniversity() {
+		return checkUniversity;
+	}
+	public void setCheckUniversity(int checkUniversity) {
+		this.checkUniversity = checkUniversity;
+	}
+	public int getCheckMom() {
+		return checkMom;
+	}
+	public void setCheckMom(int checkMom) {
+		this.checkMom = checkMom;
+	}
+	public int getCheckTeacher() {
+		return checkTeacher;
+	}
+	public void setCheckTeacher(int checkTeacher) {
+		this.checkTeacher = checkTeacher;
+	}
+	public int getCheckCitizen() {
+		return checkCitizen;
+	}
+	public void setCheckCitizen(int checkCitizen) {
+		this.checkCitizen = checkCitizen;
+	}
 	public int getP_mon() {
 		return P_mon;
 	}

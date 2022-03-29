@@ -1,4 +1,4 @@
-
+const body = document.querySelector('body');
     function open(){
       document.querySelector(".modal").classList.remove("hidden");
     }
@@ -256,215 +256,95 @@
     
     
     $('#close').on("click",function(){
+    	careType=false;
     	check=1;
     	console.log(check);
     	if($("#baby").hasClass("on")==true){
     		baby=1; 
     		console.log("베이비 찍힘");
-    	}
+    	}else{baby=0;}
     	
     	if($("#newbornBaby").hasClass('on')==true){
     		newbornBaby=1;
     		console.log("신생아 찍힘");
-    	}
+    	}else{newbornBaby=0;}
     	if($("#kinder").hasClass('on')==true){
     		kinder=1;
     		console.log("유치원 찍힘");
      		
-    	}
+    	}else{kinder=0;}
     	if($("#elementary").hasClass('on')==true){
     		elementary =1; 
     		console.log("초등학생 찍힘");
      		
-    	}
+    	}else{elementary=0;}
     	if($("#monday").hasClass('on')==true){
     		monday=1; 
      		
-    	}
+    	}else{monday=0;}
     	if($("#tuesday").hasClass('on')==true){
     		tuesday =1; 
-    	}
+    	}else{tuesday=0;}
     	if($("#wednesday").hasClass('on')==true){
     		wednesday =1; 
-    	}
+    	}else{wednesday=0;}
     	if($("#thursday").hasClass('on')==true){
     		thursday =1;
-    	}
+    	}else{thursday=0;}
     	if($("#friday").hasClass('on')==true){
     		friday =1; 
-    	}
+    	}else{friday=0;}
     	if($("#saturday").hasClass('on')==true){
     		saturday =1;
-    	}
+    	}else{saturday=0;}
     	if($("#sunday").hasClass('on')==true){
     		sunday =1; 
-    	}
+    	}else{sunday=0;}
     	if($("#morning").hasClass('on')==true){
     		morning =1;
-    	}
+    	}else{morning=0;}
     	if($("#lunch").hasClass('on')==true){
     		lunch =1; 
-    	}
+    	}else{lunch=0;}
     	if($("#dinner").hasClass('on')==true){
     		dinner =1; 
-    	}
+    	}else{dinner=0;}
     	
     	if($("#play").hasClass('on')==true){
     		play =1; 
-    	}
+    	}else{play=0;}
     	if($("#goingSchool").hasClass('on')==true){
     		goingSchool =1; 
-    	}
+    	}else{goingSchool=0;}
     	if($("#makeEat").hasClass('on')==true){
     		makeEat  =1; 
-    	}
+    	}else{makeEat=0;}
     	if($("#cleaning").hasClass('on')==true){
     		cleaning  =1; 
-    	}
+    	}else{cleaning=0;}
     	if($("#study").hasClass('on')==true){
     		study  =1;  
-    	}
+    	}else{study=0;}
     	
-    	submit();
+//    	submit();
+    	
+    	// 리스트 초기화
+    	$(".userAll").empty();
+    	
+    	// 필터 초기화
+    	page = 1;
+    	isLast = false;
+    	
+    	// 리스트 조회
+    	getList();
+    	
+    	// 모달 팝업 닫기
+    	close();
 
     });
 
     
-    
-    function submit(){
-    	
-    	var form = document.createElement("form");
-    	form.setAttribute("charset", "UTF-8");
-        form.setAttribute("method", "Post");  //Post 방식
-        form.setAttribute("action", "/mommy_workspace/service/SearchMomOk.ser"); //요청 보낼 주소
-        
-
-        var hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", "babyNewborn");
-        hiddenField.setAttribute("value", newbornBaby);
-        form.appendChild(hiddenField);
-        
-        hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", "check");
-        hiddenField.setAttribute("value", check);
-        form.appendChild(hiddenField);
-        
-        hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", "babyKinder");
-        hiddenField.setAttribute("value", baby);
-        form.appendChild(hiddenField);
-        
-        
-        hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", "babyChild");
-        hiddenField.setAttribute("value", kinder);
-        form.appendChild(hiddenField);
-        
-        hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", "babyElementary");
-        hiddenField.setAttribute("value", elementary );
-        form.appendChild(hiddenField);
-        
-        hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", "P_mon");
-        hiddenField.setAttribute("value", monday);
-        form.appendChild(hiddenField);
-        
-        hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", "P_tue");
-        hiddenField.setAttribute("value", tuesday );
-        form.appendChild(hiddenField);
-        
-        hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", "P_wed");
-        hiddenField.setAttribute("value", wednesday );
-        form.appendChild(hiddenField);
-        
-        hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", "P_thu");
-        hiddenField.setAttribute("value", thursday );
-        form.appendChild(hiddenField);
-        
-        hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", "P_fri");
-        hiddenField.setAttribute("value", friday );
-        form.appendChild(hiddenField);
-        
-        hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", "P_sat");
-        hiddenField.setAttribute("value", saturday );
-        form.appendChild(hiddenField);
-        
-        hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", "P_sun");
-        hiddenField.setAttribute("value", sunday );
-        form.appendChild(hiddenField);
-        
-        hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", "P_morning");
-        hiddenField.setAttribute("value", morning );
-        form.appendChild(hiddenField);
-        
-        hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", "P_lunch");
-        hiddenField.setAttribute("value", lunch );
-        form.appendChild(hiddenField);
-        
-        hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", "P_noon");
-        hiddenField.setAttribute("value", dinner );
-        form.appendChild(hiddenField);
-       
-        
-        hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", "careIndoor");
-        hiddenField.setAttribute("value", play);
-        form.appendChild(hiddenField);
-        
-        hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", "careCommit");
-        hiddenField.setAttribute("value", goingSchool);
-        form.appendChild(hiddenField);
-        
-        hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", "careFood");
-        hiddenField.setAttribute("value", makeEat );
-        form.appendChild(hiddenField);
-        
-        hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", "careClean");
-        hiddenField.setAttribute("value", cleaning );
-        form.appendChild(hiddenField);
-        
-        hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", "careStudy");
-        hiddenField.setAttribute("value", study );
-        form.appendChild(hiddenField);
-
-        document.body.appendChild(form);
-        form.submit();
-    	
-    }
+   
     
 //	돌봄유형 모달창--------------------------------------------------------------------------
 		const $goToSchool=$('#goToSchool');
@@ -473,37 +353,130 @@
 		const $assistance=$('#assistance');
 		const $emergency=$('#emergency');
 		const $fullType=$('#fullType');
-		
+		var careType=false;
+		var careNum=0;
 		
 		$goToSchool.on("click",function(){
-			location.href='/mommy_workspace/service/SearchMomOk.ser?careType=1';
+			careType=true;
+			careNum=1;
+				// 리스트 초기화
+		    	$(".userAll").empty();
+		    	
+		    	// 필터 초기화
+		    	page = 1;
+		    	isLast = false;
+
+		    	getList1();
+		    	// 모달 팝업 닫기
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
+			 
 		})
+		
 		$teach.on("click",function(){
-			location.href='/mommy_workspace/service/SearchMomOk.ser?careType=2';
+			careType=true;
+			careNum=2;
+
+				// 리스트 초기화
+		    	$(".userAll").empty();
+		    	
+		    	// 필터 초기화
+		    	page = 1;
+		    	isLast = false;
+
+		    	getList2();
+		    	// 모달 팝업 닫기
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
 		})
+		
 		$fullTime.on("click",function(){
-			location.href='/mommy_workspace/service/SearchMomOk.ser?careType=3';
+			careType=true;
+			careNum=3;
+			
+			
+			
+				// 리스트 초기화
+		    	$(".userAll").empty();
+		    	
+		    	// 필터 초기화
+		    	page = 1;
+		    	isLast = false;
+
+		    	getList3();
+		    	// 모달 팝업 닫기
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
 		})
+		
 		$assistance.on("click",function(){
-			location.href='/mommy_workspace/service/SearchMomOk.ser?careType=4';
+			careType=true;
+			careNum=4;
+	
+				// 리스트 초기화
+		    	$(".userAll").empty();
+		    	
+		    	// 필터 초기화
+		    	page = 1;
+		    	isLast = false;
+
+				getList4();
+		    	// 모달 팝업 닫기
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
 		})
+		
 		$emergency.on("click",function(){
-			location.href='/mommy_workspace/service/SearchMomOk.ser?careType=5';
+			careType=true;
+			careNum=5;
+
+				// 리스트 초기화
+		    	$(".userAll").empty();
+		    	
+		    	// 필터 초기화
+		    	page = 1;
+		    	isLast = false;
+
+				getList5();
+		    	// 모달 팝업 닫기
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
 		})
+		
 		$fullType.on("click",function(){
-			location.href='/mommy_workspace/service/SearchMomOk.ser?careType=6';
+			careType=true;
+			careNum=6;
+		
+
+				// 리스트 초기화
+		    	$(".userAll").empty();
+		    	
+		    	// 필터 초기화
+		    	page = 1;
+		    	isLast = false;
+				getList6();
+		    	// 모달 팝업 닫기
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
 		})
 		
 // 돌봄지역 모달창-------------------------------------------------------------------------
-
+		var areaModal=false;
 		$('#areaButton').on("click",function(){
-			var sido=$("#sido option:selected").text();
-			var sigugun=$("#sigugun option:selected").text();
-			var dong=$("#dong option:selected").text();
-				if(dong=="선택"){
-					dong="";
-				}
-			location.href='/mommy_workspace/service/SearchMomOk.ser?sido='+sido+'&sigugun='+sigugun+'&dong='+dong;
+			areaModal=true;
+			careType=true;
+		
+				// 리스트 초기화
+		    	$(".userAll").empty();
+		    	
+		    	// 필터 초기화
+		    	page = 1;
+		    	isLast = false;
+		    	
+		    	getList7();
+		    	// 모달 팝업 닫기
+		    	document.querySelector(".modal3").classList.add("hidden");
+//		    	close();
 		})
 
 	
@@ -567,56 +540,364 @@
 	
 //	무한스크롤---------------------------------------------------------------------------------------
 
-	const contents = document.querySelector(".userAll") // tbody 태그
-/*	let paraIndex = 1;
-	async function fetchLorem() {
-	    const response = await fetch("https://baconipsum.com/api/?type=meat-and-filler&paras=18");
-	    const data = await response.json();
-	    
-	    for(let i = 0; i < 6; i++) {
-	        const $tr = document.createElement("tr");
-	        $tr.innerHTML = `<td width='50' align='center'>${paraIndex++}</td>
-	                            <td>${data[(i * 3)]}<br>${data[(i * 3) + 1]}<br>${data[(i * 3) + 2]}</td>`
-	        contents.appendChild($tr);
-	    }
-	    
-	}*/
+	/*	$(window).scroll(function(){
+		alert('스크롤 동작 감지')
+	});*/
+
+	var page = 1; // 페이지 번호
+	var isLast = false; // 마지막 페이지 여부
 	
+	$(window).scroll(function(){
+		console.log("스크롤이벤트들어옴");
+		var scrT = $(window).scrollTop();
+//		console.log(scrT + "스크롤값");
+		/*  console.log(scrT); //스크롤 값 확인용*/		
+		//document.height=문서의 높이
+		//window.heigth=보여지는 창의 높이 
+	/*	console.log($(document).height() + "문서높이");
+		console.log($(window).height() + "보여지는 창의 높이");*/
+		if(scrT +1>= $(document).height() - $(window).height())
+		{
+			//스크롤이 끝에 도달했을때 실행될 이벤트
+//			console.log("스크롤끝에 닿았다");
+//			$(".userAll").append(userProfile);
+			if (!isLast) { // 마지막 페이지가 아닐 경우 리스트 조회
+				 if(!careType){
+					 ++page; // 페이지 번호 1증가
+				getList();	// 리스트 조회
+				 }else if(careNum==1){++page; getList1();}
+				 else if(careNum==2){++page; getList2();}
+				 else if(careNum==3){++page; getList3();}
+				 else if(careNum==4){++page; getList4();}
+				 else if(careNum==5){++page; getList5();}
+				 else if(careNum==6){++page; getList6();}
+				 else if(areaModal){++page; getList7();}
+			} else { // 마지막 페이지일 경우
+			}
+		} else {
+//			console.log("스크롤아직 끝에 안닿았다");
+			//아닐때 이벤트
+		}
+		
+	});
 	
-	function debounce(callback, limit = 100) {
-	    let timeout
-	    return function(...args) {  
-	        clearTimeout(timeout)
-	        timeout = setTimeout(() => {
-	            callback.apply(this, args)
-	        }, limit)
-	    } 
+	// 리스트 조회
+	 function getList() {
+		 // 페이지 파라미터 (필터링 값, 페이지 번호)
+		 const data = {
+				 "page": page,
+				 "babyNewborn": newbornBaby,
+				 "babyKinder": kinder,
+				 "babyChild": baby,
+				 "babyElementary": elementary,
+				 "P_mon": monday,
+				 "P_tue": tuesday,
+				 "P_wed": wednesday,
+				 "P_thu": thursday,
+				 "P_fri": friday,
+				 "P_sat": saturday,
+				 "P_sun": sunday,
+				 "P_morning": morning,
+				 "P_lunch": lunch,
+				 "P_noon": dinner,
+				 "careIndoor": play,
+				 "careCommit": goingSchool,
+				 "careFood": makeEat,
+				 "careClean": cleaning,
+				 "careStudy": study,
+				 "check":check
+		 }
+	     
+	     // 컨트롤러 호출
+		 $.ajax({
+			 type: "GET",
+			 url: "/mommy_workspace/service/SearchMomOk2.ser",
+			 data: data,
+	         contentType: "application/json;charset=utf-8", // 보내는 타입
+			 dataType: "json", // 받는 타입
+			 success: function(result) { // 조회 성공일 경우
+				 if (result.length > 0) { // 조회 결과가 있을 경우
+					 addList(result); // 페이지에 리스트 추가
+				 } else { // 조회 결과가 없을 경우
+					 isLast = true; // 마지막 페이지
+				 }
+			 },
+			 error: function(err) { // 조회 에러일 경우
+				 console.log("error : ", err);
+			 }
+		 })
+	 }
+	
+	 // 페이지 리스트 추가
+	function addList(result) {
+		// result 개수만큼 반복
+		
+		for (var i = 0; i < result.length; i++) {
+			var num=0;
+			var userProfile="<div class='userPf'>";
+		
+			userProfile+="<div class='userImg'>";
+			if(result[i].ProfilePicture=="" || result[i].ProfilePicture==null ){
+				console.log("픽쳐 널일때 들어옴")
+				userProfile+="<img src='../images/기본 이미지.png'class='userImgDetail medi2'>";
+			}else{
+				console.log("픽쳐 널아님")
+				userProfile+="<img src='/profileData/"+result[i].ProfilePicture+"'class='userImgDetail  medi2'>";
+			}
+			userProfile+="<div>";
+			userProfile+="</div>";
+			userProfile+="<div class='certify'>";
+			userProfile+="<p class='p'>확인된 인증 <span class='span' style='color: rgb(247, 87, 87); font-weight: bold;'>";
+			
+			userProfile+=result[i].CheckMedi+result[i].CheckCitizen+result[i].CheckMom+result[i].CheckTeacher+result[i].CheckUniversity+"</span>개</p>";
+			if(result[i].CheckMedi==1){
+				
+				userProfile+="<input type='button' value='건강인증' class='certifyList medi5' style='color:white !important' >";
+			}
+			if(result[i].CheckCitizen==1){
+				
+				userProfile+="<input type='button' value='본인인증' class='certifyList medi5' style='color:white !important' >";
+			}
+			if(result[i].CheckMom==1){
+				
+				userProfile+="<input type='button' value='부모님인증' class='certifyList medi5' style='color:white !important' >";
+			}
+			if(result[i].CheckTeacher==1){
+				
+				userProfile+="<input type='button' value='선생님인증' class='certifyList medi5' style='color:white !important' >";
+			}
+			if(result[i].CheckUniversity==1){
+				
+				userProfile+="<input type='button' value='학력인증' class='certifyList medi5' style='color:white !important' >";
+			}
+			
+			userProfile+="</div>";
+			userProfile+="</div>";
+			userProfile+="<div class='userName'>";
+			userProfile+="<h4 style='margin-bottom: 4px;' class='h4'><a href='"+contextPath+"/service/LookSitterProfileOk.ser?userNum="+result[i].userNum+"&profile="+result[i].profileNum+"' style='border:none;'>";                                                  
+			userProfile+=result[i].ProfileDescription+"</a></h4>";
+			userProfile+="<div class='infoDetail medi7'>"+result[i].LocationSido+" "+result[i].LocationSigun+"</div>&nbsp;";
+			userProfile+="<div class='infoDetail medi7'>"+result[i].age+"세</div>";
+			userProfile+="&nbsp;&nbsp;<div class='infoDetail medi7 medi13'>희망시급 "+result[i].getProfileSalary+"원</div>";
+			
+			userProfile+="<div class='day' style='margin-top: 7px; margin-left: -1px;'>";
+			userProfile+="<div class='days medi9' style='margin-left: -3.5px;' class='medi10'>";				
+				if(result[i].mon==1){
+					userProfile+="<img src='../images/월1.png' style='width: 35px;'  class='medi10'>";
+				}else{
+					userProfile+="	<img src='../images/월.png' style='width: 35px;' class='medi10'>";
+				}
+				if(result[i].tue==1){
+					userProfile+="<img src='../images/화1.png' style='width: 35px;' class='medi10'>";
+				}else{
+					userProfile+="	<img src='../images/화.png' style='width: 35px;'  class='medi10'>";
+				}
+				if(result[i].wed==1){
+					userProfile+="<img src='../images/수1.png' style='width: 35px;'  class='medi10'>";
+				}else{
+					userProfile+="	<img src='../images/수.png' style='width: 35px;' class='medi10'>";
+				}
+				if(result[i].thu==1){
+					userProfile+="<img src='../images/목1.png' style='width: 35px;'  class='medi10'>";
+				}else{
+					userProfile+="	<img src='../images/목.png' style='width: 35px;' class='medi10'>";
+				}
+				if(result[i].fri==1){
+					userProfile+="<img src='../images/금1.png' style='width: 35px;'  class='medi10'>";
+				}else{
+					userProfile+="	<img src='../images/금.png' style='width: 35px;' class='medi10'>";
+				}
+				if(result[i].sat==1){
+					userProfile+="<img src='../images/토1.png' style='width: 35px;'  class='medi10'>";
+				}else{
+					userProfile+="	<img src='../images/토.png' style='width: 35px;' class='medi10'>";
+				}
+				if(result[i].sun==1){
+					userProfile+="<img src='../images/일1.png' style='width: 35px;'  class='medi10'>";
+				}else{
+					userProfile+="	<img src='../images/일.png' style='width: 35px;' class='medi10'>";
+				}
+
+			userProfile+="</div>";
+			userProfile+="</div>";
+			userProfile+="</div>";
+			userProfile+="</div>";
+
+			$(".userAll").append(userProfile); // userAll에 div 추가
+		}
 	}
-	   
-	document.addEventListener("scroll", debounce(e => {
-	    
-	    // clientHeight : 웹 브라우저 창의 높이
-	    // scrollTop : 현재 스크롤된 부분의 맨 위의 높이
-	    // scrollHeight : 문서의 총 높이 (= 스크롤의 총 높이)
-	    // 스크롤의 마지막에 도달 : clientHeight + scrollTop >= scrollHeight
-	    
-	    const { clientHeight, scrollTop, scrollHeight } = e.target.scrollingElement
-	    if(clientHeight + scrollTop >= scrollHeight) {
-	    	contents
-	    }
-	}, 200))
 	
-	       
+    
+
+				
+				
+	function getList1(){
+		$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchMomOk2.ser",
+		 data: {"careType":1, "page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result);
+			 if (result.length > 0) { 
+				 addList(result); 
+				 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+}
+
+
+
+function getList2(){
+	$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchMomOk2.ser",
+		 data: {"careType":2, "page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result);
+			 if (result.length > 0) { 
+				 addList(result); 
+				 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+	 }
+
+
+
+
+function getList3(){
+	$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchMomOk2.ser",
+		 data: {"careType":3,"page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result);
+			 if (result.length > 0) { 
+				 addList(result); 
+				 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+	}
+
+
+function getList4(){
+	$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchMomOk2.ser",
+		 data: {"careType":4,"page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result);
+			 if (result.length > 0) { 
+				 addList(result); 
+				 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+	}
+
+
+function getList5(){
+	$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchMomOk2.ser",
+		 data: {"careType":5,"page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result.length);
+			 
+			 if (result.length > 0) { 
+				 addList(result); 
+				 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+	}
+
+
+function getList6(){ 
+	$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchMomOk2.ser",
+		 data: {"careType":6,"page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result);
+			 if (result.length > 0) { 
+				 addList(result); 
+				 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+function getList7(){ 
+	var locationSido=$("#sido option:selected").text();
+	var locationSigun=$("#sigugun option:selected").text();
+	var locationDong=$("#dong option:selected").text();
+
+	$.ajax({
+	 type: "GET",
+	 url: "/mommy_workspace/service/SearchMomOk2.ser",
+	 data: {"locationSido":locationSido, "locationSigun":locationSigun, "locationDong":locationDong,"page":page},
+     contentType: "application/json;charset=utf-8",
+	 dataType: "json", // 받는 타입
+	 success: function(result) { 
+		 console.log(result);
+		 if (result.length > 0) { 
+			 addList(result); 
+			 
+		 } else {
+			 isLast = true;
+		 }
+	 },
+	 error: function(err) {
+		 console.log("error : ", err);
+	 }
+ })
+}
 	
 	
 	

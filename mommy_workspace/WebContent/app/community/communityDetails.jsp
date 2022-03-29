@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+
+|<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -16,6 +17,7 @@
 	
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/communityDetails.css" />
+		<link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
 	
 	</head>
 
@@ -24,6 +26,7 @@
 		<c:set var="community" value="${community}"/>
 		<c:set var="files" value="${files}"/>
    		<c:set var="page" value="${page}"/>
+   		<c:set var="fileName" value="${fileName}"/>
    		<c:set var="communityNum" value="${communityNum}"/>
 			<!-- Aside -->
   <div class="wrapper">
@@ -78,8 +81,15 @@
                                
                                 <!--작성자, 시간, 수정 삭제-->
                                 <div style ="padding-top:15px; " class="media5">
-                                    <img class="profile" src="https://cdn.discordapp.com/attachments/954273372760571914/955485997880209468/d3a7d5b9f5ad22d2.jpg" style = "float:left;">
-                                    <!-- 프로필 이미지 아직 연결 안됐습니다. -->
+                                 <c:choose>
+			                    	<c:when test="${empty fileName}">
+			                       		 <img class="profile" src="https://cdn.discordapp.com/attachments/954273372760571914/955479398054772796/unknown.png" style = "float:left; height: 28px;">
+			                    	</c:when>
+			                    	<c:otherwise>
+			                       		 <img class="profile" src="/profileData/${fileName}" style = "float:left;">
+			                    	</c:otherwise>
+			                    </c:choose>
+                                   
                                         <p>&nbsp;<span id = "nickname" class="media6">${community.getUserId()}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class ="gray">${community.getBoardDate()}</span>
                                                    <c:if test="${userNum eq community.getUserNum()}">
                                             <a class = "gray " style ="float:right; margin-left:12px; cursor:pointer;" onclick="location.href='${pageContext.request.contextPath}/community/CommunityDeleteOk.com?communityNum=${communityNum}'">삭제</a>
@@ -104,13 +114,19 @@
                                    
                                   	
 				
-				<!-- 댓글 ㅣ 댓글 작성 했을 때 자동으로 열리게 구현 -->
 				  <!-- 댓글 글쓰기 -->
                                     <div style = "margin-top:30px;">
+                                     <c:choose>
+              				 <c:when test="${userNum eq null}">
+                       			
+                    		</c:when>
+                    		<c:otherwise>
                                         <form method="post" action="#" class="combined" style="width:auto;">	                        
                                             <textarea name="content" id="content" class = "commentBox" placeholder="커뮤니티가 더 훈훈해지는 댓글 부탁드립니다." class="invert" rows="5"></textarea>
                                             <input type="button" value="등록하기" class = "submitButton" id = "register" onclick="regist()"/>
                                         </form>
+                                        </c:otherwise>
+                    	</c:choose>
                                        
                                     </div>
 				<div id="replyBackground" style = "margin: 80px 0 30px 0 !important;"> 

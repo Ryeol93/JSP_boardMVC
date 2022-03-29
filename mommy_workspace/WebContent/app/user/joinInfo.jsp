@@ -11,6 +11,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" >
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 		<link href="${pageContext.request.contextPath}/assets/css/joinInfo.css" rel="stylesheet" type="text/css">
+		<link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
 	</head>
 
 	<body>
@@ -27,7 +28,7 @@
 		<!-- Main -->
 			<div id="main" class="container">
 				<header class="major">
-					<a href="${pageContext.request.contextPath}/app/member/join.jsp"><h2><img alt="" src="${pageContext.request.contextPath}/images/로고1.png"></h2></a>
+					<a href="${pageContext.request.contextPath}/user/UserMainOk.user"><h2><img alt="" src="${pageContext.request.contextPath}/images/로고1.png"></h2></a>
 				</header>
 				<h3><이용약관></h3>
 				<p>제1조 (목적)<br><br>

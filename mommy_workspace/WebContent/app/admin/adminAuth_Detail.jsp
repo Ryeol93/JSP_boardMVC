@@ -53,11 +53,8 @@
  			<c:set var="ProfileNum" value="${param.ProfileNum}"/>
  			<c:set var="name" value="${param.name}"/>
 			<c:set var="id" value="${param.id}"/>
- 			<script>
- 			var ProfileNum = "${ProfileNum}";
- 			
- 			</script>
-	<form method="post" action="${pageContext.request.contextPath }/admin/AdminAuthChangeOk.ad?ProfileNum=${ProfileNum}">
+ 		
+	
 		 <table class="cotain_warp" >
 		 
 		<div> 
@@ -66,7 +63,6 @@
                    <td   >프로필번호</td>
                    <td  >이름</td>
                    <td  >아이디</td>
-                   <td>
                 </tr>
 		</div>
 
@@ -91,33 +87,33 @@
 				<tr>
 					<td>
 					<div class="CheckMedi">
-					<input type="checkbox" id="CheckMedi" name="CheckMedi" >
+					<input type="checkbox" id="checkMedi" name="checkMedi" value=0 >
 					
-					<label for="CheckMedi" class="text">건강인증</label>
+					<label for="checkMedi" class="text">건강인증</label>
 					</div>
 					</td>
 					
 					
 					<td>
 					<div class="CheckMom">
-					<input type="checkbox" id="CheckMom" name="CheckMom"  >
+					<input type="checkbox" id="checkMom" name="checkMom"  >
 					
-		            <label for="CheckMom"  class= "text">부모님인증</label>
+		            <label for="checkMom"  class= "text">부모님인증</label>
                     </div>
 		            </td>
 		            
 		            <td>
 		            <div class="CheckTeacher">
-	                <input type="checkbox" id="CheckTeacher" name="CheckTeacher" >
+	                <input type="checkbox" id="checkTeacher" name="checkTeacher" value=0>
 	                
-		            <label for="CheckTeacher" class="text">교사인증</label> 
+		            <label for="checkTeacher" class="text">교사인증</label> 
 	                </div>
 	                </td>
 	                
 	                <td>
 		            <div class="CheckCitizen">
-		            <input type="checkbox" id="CheckCitizen" name="CheckCitizen" >
-		            <label for="CheckCitizen" class="text">본인인증</label>
+		            <input type="checkbox" id="checkCitizen" name="checkCitizen" value=0>
+		            <label for="checkCitizen" class="text">본인인증</label>
 		            </div>
 		            </td>
 		            
@@ -125,8 +121,8 @@
 		            <td>
 		            <div class="CheckUniversity">
 		           	
-					<input type="checkbox" id="CheckUniversity" name="CheckUniversity"  >
-					<label for="CheckUniversity" class="text">학력인증</label>
+					<input type="checkbox" id="checkUniversity" name="checkUniversity" value=0 >
+					<label for="checkUniversity" class="text">학력인증</label>
 													
 		            </div>
 		            </td>
@@ -139,15 +135,18 @@
 					<td></td>
 					<td>
 					<div>				
-		            <input type="submit" value="수정하기" id="btnn">
+		            <input type="button" value="수정하기" id="btnn">
 					</div>
 					</td>
 				</tr>
 	
 			</table>
-</form>		
+		
 </body>
 
+<script>
+var profileNum='${ProfileNum}'
+</script>
 
 <script> var context = '${pageContext.request.contextPath}'</script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -33,6 +33,5 @@ public class ChatListOk implements Action{
 		af.setPath("/app/chat/chatLog.jsp");
 		
 		return af;
-		
 	}
 }

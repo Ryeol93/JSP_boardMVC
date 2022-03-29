@@ -75,7 +75,7 @@ public class UserFrontController extends HttpServlet{
 		}else if(command.equals("/user/UserMainOk.user")) {
 			af = new ActionForward();
 			af.setRedirect(false);
-			af.setPath("/app/etc/main.jsp");
+			af.setPath("/main.jsp");
 		}else if(command.equals("/user/UserLogout.user")) {
 	         af = new UserLogout().execute(req, resp);
 	         
@@ -95,6 +95,18 @@ public class UserFrontController extends HttpServlet{
 			af = new UserLoginOk().execute(req, resp);	
 			af.setRedirect(false);
 			af.setPath("/app/user/loginFail.jsp");
+		}else if(command.equals("/user/findIdPw.user")) {
+			af = new ActionForward();
+			af.setRedirect(false);
+			af.setPath("/app/user/findIdPw.jsp");
+		}else if(command.equals("/user/joinInfo.user")) {
+			af = new ActionForward();
+			af.setRedirect(false);
+			af.setPath("/app/user/joinInfo.jsp");
+		}
+		else if(command.equals("/user/LoginCancelUser.user")) {
+			af = new LoginCancelUser().execute(req, resp);
+	
 		}
 		
 		//전송안할지

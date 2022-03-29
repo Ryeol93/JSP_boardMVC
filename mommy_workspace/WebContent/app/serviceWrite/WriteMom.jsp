@@ -15,8 +15,8 @@
       <link href="${pageContext.request.contextPath}/https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
       
         <link href="${pageContext.request.contextPath}/assets/css/WriteSitter.css" rel="stylesheet" >
-	
-	
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/etcMain.css" />
+	<link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
 	<script src="https://code.jquery.com/jquery-latest.min.js" type="application/javascript"></script>
   <script type="application/javascript" src="https://zelkun.tistory.com/attachment/cfile8.uf@99BB7A3D5D45C065343307.js"></script>
       
@@ -44,27 +44,31 @@
          
          <!-- 모달창 -->
 		   <div id="my_modal">
-	<iframe src="${pageContext.request.contextPath}/app/modal/periodModal2.jsp" style="
-      position: absolute;
+	<iframe id="modalIframe"  src="${pageContext.request.contextPath}/app/modal/periodModal2.jsp" style="
+       position: absolute;
     width: 106%;
     margin-left: -69px;
     height: 100%;
-    margin-top: -38px;
+    margin-top: -28px;
+    margin-left: -62px;
 			">대체 내용</iframe>  
-			  <a class="modal_close_btn"><img src="${pageContext.request.contextPath}/images/whiteX.png" style="width:20px;"></a>
+		  <a class="modal_close_btn"></a>  
         </div>
 			
 		<!-- Main -->
 		<div id="main" class="container medium" style = "display:flex;">
 			<!-- profile header -->
-			<form action="${pageContext.request.contextPath}/service/WriteMomOk.ser" name="writeForm" method="post" enctype="multipart/form-data">
+			<form action="${pageContext.request.contextPath}/service/WriteMomOk.ser" name="writeProfileForm" method="post" enctype="multipart/form-data">
             <div style = "width: 100%; background: white; position:relative;" class="mediaMain">
-           
+           <span class="caution" style="float: right;font-size: 12px;color: #93999A; "><img style="max-width: 15px;" src="https://cdn.discordapp.com/attachments/954273372760571914/956558128898519090/aed53ff36d53bb73.jpg">
+                	글 저장후 프로필 수정은 불가능하오니 주의하시기 바랍니다.
+                </span>
                 <div style="text-align: left; display:inline-block; margin-left:15px;">
-                    <label><input type="file" style="display:none;">
-                    <!--  유저테이블 정보 뿌려야함 -->
-                    <img src="${pageContext.request.contextPath}/images/유저.png" style="width: 100px; border-radius: 150px; cursor: pointer; ">
+                	<div class="profile">
+                    <label><input type="file" name ="profilePicture"style="display:none;">
+                    <img class="profileImg"src="https://cdn.discordapp.com/attachments/954273372760571914/955479398054772796/unknown.png" style="width: 100px; border-radius: 150px; cursor: pointer; ">
                     </label>
+                    </div>                    
                     <div style = "position:absolute; top: 19px; left: 136px;">
                           <h3 style="margin-bottom: 3px; font-size: 18px;">${userVO.getUserName()}</h3><span style = "margin-top: 20px; font-size:16px;">${userAge}세,                                    
 	                           <c:choose>
@@ -80,7 +84,7 @@
                     <!--  인풋 시작 -->
                   
                      <div  style = "position:absolute; top: 30px; left: 76%;">
-                            <button class = "button" onclick = "send();">글 저장하기</button></a>
+                            <button class = "button" onclick = "writeProfileFormSend()">글 저장하기</button>
                      </div>
                 </div>
                 
@@ -105,8 +109,8 @@
                                 <label for="clean" style = "font-size:16px;">청소</label>
                             </div>
                             <div>
-                                <input type="checkbox" id="teach" name="teach"  >
-                                <label for="teach" style = "font-size:16px;">학습 지도</label>
+                                <input type="checkbox" id="study" name="study"  >
+                                <label for="study" style = "font-size:16px;">학습 지도</label>
                             </div>
                               <div>
                                 <input type="checkbox" id="careEmergency" name="careEmergency"  >
@@ -154,7 +158,7 @@
                     <p class ="innerTitle">희망 시급</p>             
                      
                      	 <div style = "font-size:16px;">
-	                          <input type = "number" min="9160" step="20" id = "wage" value = "9160">
+	                          <input type = "number" min="9160" step="20" id = "wage" value = "9160" name="profileSalary">
 	                          <span>원</span>
                           </div>
                     
@@ -184,6 +188,14 @@
                      </div>
                 </div>
             </div>
+            
+             
+                
+            
+            				<!-- 모달 데이터를 받기위해 생성되는 히든 인풋영역 -->				
+				<div id="formDataFromIf">
+				</div>
+            
              </form>
           
             <!-- aside part -->
@@ -206,7 +218,7 @@
             <div>
                 <h5 style = "font-weight:500">부모님 게시글 목록</h5>
                 <p style = "font-size:16px;">마미랑 부모님들의 프로필을 참고해서 나의 프로필을 더 멋지게 꾸며보세요! 멋진 프로필은 좋은 시터와 높은 매칭률에 도움이 됩니다!</p>
-                <a href = "${pageContext.request.contextPath}/app/serviceSearch/searchJob.jsp;"><button class = "buttonAside">부모님 게시글 목록</button></a>
+                <a href = "${pageContext.request.contextPath}/service/SearchJobOk.ser"><button class = "buttonAside">부모님 게시글 목록</button></a>
             </div>
         </div>
         <br>
@@ -220,7 +232,7 @@
             <div>
                 <h5 style = "font-weight:500">시터 찾기 바로가기</h5>
                 <p style = "font-size:16px;">마미랑만의 인증 시스템을 거친 믿음직한 시터들을 지금 바로 만나보세요.</p>
-                <a href = "${pageContext.request.contextPath}/app/serviceSearch/searchMom.jsp;"><button class = "buttonAside">시터 찾기</button></a>
+                <a href = "${pageContext.request.contextPath}/service/SearchMomOk.ser"><button class = "buttonAside">시터 찾기</button></a>
             </div>
         </div>
     </aside>	
@@ -242,10 +254,10 @@
 			<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 			  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-          <script src="${pageContext.request.contextPath}/assets/js/WriteSitter.js"></script>
+          <script src="${pageContext.request.contextPath}/assets/js/WriteProfile.js"></script>
           <script>
-          function send(){
-        	  /*
+/*           function send(){
+        	
 				if(!writeForm.title){
 					alert("제목을 작성해주세요");
 					return;
@@ -254,10 +266,11 @@
 					alert("내용을 작성해주세요");
 					return;
 				}
-				*/
+				
 				writeForm.submit();
 			}	
-          </script>
+*/
+          </script> 
 </body>
 
 

@@ -33,7 +33,6 @@ public class AskInsertOk implements Action{
 		ask.setAskContent(multi.getParameter("content"));
 		ask.setAskAnswer(multi.getParameter("answer"));
 		ask.setUserNum((Integer)req.getSession().getAttribute("userNum"));
-		
 		//게시글 추가
 		aDao.insert(ask);
 				
@@ -41,7 +40,7 @@ public class AskInsertOk implements Action{
 		afDao.insert(multi, aDao.getSeq());
 				
 		af.setRedirect(true);
-		af.setPath(req.getContextPath() + "/ask/AskListOk.ask");
+		af.setPath(req.getContextPath() + "/ask/AskList.ask");
 		
 		return af;
 	}

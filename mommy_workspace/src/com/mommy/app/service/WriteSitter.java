@@ -30,9 +30,19 @@ public class WriteSitter implements Action{
 		/*String userId = dao.getInfo((Integer)session.getAttribute("userNum")).getUserId();*/
 		userVO = userDao.getInfo(userNum);
 		
-		int birthYear = userVO.getUserBirthYear();
-		int nowYear = Calendar.getInstance().get(Calendar.YEAR);
-		int age = nowYear -  birthYear;
+		//나이(만나이)
+				int birthYear = userVO.getUserBirthYear();
+				int birthMonth = userVO.getUserBirthMonth();
+				int birthDay = userVO.getUserBirthDate();
+				
+		        Calendar current = Calendar.getInstance();
+		        int currentYear  = current.get(Calendar.YEAR);
+		        int currentMonth = current.get(Calendar.MONTH) + 1;
+		        int currentDay   = current.get(Calendar.DAY_OF_MONTH);
+		      
+		        int age = currentYear - birthYear;
+	
+		        
 		req.setAttribute("userAge", age);
 		req.setAttribute("userVO", userVO);
 		

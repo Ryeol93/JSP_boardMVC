@@ -405,6 +405,14 @@ a.pageClass.currentPage{
     border: 1px solid #ffb61a;
     background-color: #ffb61a;
     font-weight: bold;
+    position: relative;
+    z-index: 1;
+    font-size: 13px;
+    border: 1px solid ffb61a;
+    background: #ffb61a;
+    margin: 0 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 .new{

@@ -32,6 +32,7 @@ public class UserFindIdPwOk implements Action {
 	      findIdPw.put("userEmail", req.getParameter("userEmail"));
 	      String userId = null;
 	      
+	      
 	      userId = userDao.findIdPw(findIdPw);
 	    
 			if(userId ==null) {

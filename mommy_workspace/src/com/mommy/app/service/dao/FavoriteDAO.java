@@ -26,11 +26,21 @@ public class FavoriteDAO {
 	 		public void delete(FavoriteVO favorite) {
 	 			sqlSession.delete("Favorite.delete", favorite);
 	 		}
+	 		
+	 	// 찜 상태 확인
+	 		public int check(FavoriteVO favorite) {
+	 			return sqlSession.selectOne("Favorite.check", favorite);
+	 		}
 	   
 	 // 전체 목록 
-	 		public List<FavoriteDTO> selectAll(int userNum){
+	 	public List<FavoriteDTO> selectAll(int userNum){
 	 			return sqlSession.selectList("Favorite.selectAll", userNum);
 	 		}
+	 	
+	 	// 유저넘으로 해당 유저의 찜목록 전체 삭제 
+	 	public void deleteUserAll(int userNum) {
+	 		 sqlSession.delete("Favorite.deleteUserAll",userNum);
+	 	}
 	 		
 	   
 }

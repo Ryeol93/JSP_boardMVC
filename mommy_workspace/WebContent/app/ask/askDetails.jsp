@@ -16,6 +16,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/askDetails.css" rel="stylesheet"/>
+        <link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/etcMain.css" />
    </head>
    
    <body class="is-preload">
@@ -66,22 +68,21 @@
 
                         <tr>
                             <td class = "bold">내용</td>
-                            <td colspan = "3" ><textarea name="" id="" cols="30" rows="10" class = "innerText" style = "box-shadow:none;" readonly> 
-${ask.getAskContent()}                     
-                            </textarea></td>
+                            <td colspan = "3" >
+<textarea name="" id="" cols="30" rows="10" class = "innerText" style = "box-shadow:none;" readonly>${ask.getAskContent()}</textarea></td>
                         </tr>
                         <tr style = "border-top: 1.1px solid #000; border-bottom: 2px solid #000;">
                             <td class = "bold">답변</td>                       
 <c:choose>
 	<c:when test="${ask.getAskAnswer() eq null}">
-		<td colspan = "3" style="color:#93999a;"><textarea  name="" id="" cols="30" rows="10" class = "innerText" placeholder="답변까지는 최대 3일 까지 소요 됩니다." readonly> 	
-답변까지는 최대 3일 소요 됩니다.		 
-		 </textarea></td>
+		<td colspan = "3" style="color:#93999a;">
+<textarea  name="" id="" cols="30" rows="10" class = "innerText" placeholder="답변까지는 최대 3일 까지 소요 됩니다." readonly>
+답변까지는 최대 3일 소요 됩니다.
+</textarea></td>
 	</c:when>
 	<c:otherwise>
-		<td colspan = "3"><textarea name="" id="" cols="30" rows="10" class = "innerText" placeholder="" readonly> 	
-${ask.getAskAnswer()}
-  </textarea></td>
+		<td colspan = "3">
+<textarea name="" id="" cols="30" rows="10" class = "innerText" placeholder="" readonly>${ask.getAskAnswer()}</textarea></td>
  	</c:otherwise>
 </c:choose>
 				</tr>

@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.mommy.app.user.vo.DeleteUserDTO;
 import com.mommy.app.user.vo.UserVO;
 import com.mommy.mybatis.config.MyBatisConfig;
 
@@ -40,6 +41,11 @@ public class UserDAO {
          try {userNum = sqlSession.selectOne("User.login", loginMap);} catch (Exception e) {;}
          return userNum;
       }
+      public int Emiallogin(Map<String, String> loginMap2) {
+          int userNum = 0;
+          try {userNum = sqlSession.selectOne("User.Emiallogin", loginMap2);} catch (Exception e) {;}
+          return userNum;
+       }
       
       //userStatus조회
       public int selectStatus(int userNum) {
@@ -117,36 +123,45 @@ public class UserDAO {
       }
 
   	// 회원 전체 정보 조회
-  	public List<UserVO> selectAll() {
-  		List<UserVO> list = null; // 파라미터에 식별자 이름을 적는다.
-  		list = sqlSession.selectList("User.selectAll");
-  		return list; // memberSearchAll()
+  	public List<UserVO> selectAll(Map<String, Integer> userMap) {// 파라미터에 식별자 이름을 적는다.
+  		return sqlSession.selectList("User.selectAll", userMap); // memberSearchAll()
   	}
   	
   	// 회원 전체 수
-  	public List<UserVO> selectCount() {
-  		List<UserVO> list = null; // 파라미터에 식별자 이름을 적는다.
-  		list = sqlSession.selectList("User.selectCount");
-  		return list; // memberSearchAll()
+  	public int selectCount() {
+  		return sqlSession.selectOne("User.selectCount");	
   	}
   	
   	// 맘 회원 수
-  	public List<UserVO> MomCount() {
-  		List<UserVO> list = null; // 파라미터에 식별자 이름을 적는다.
-  		list = sqlSession.selectList("User.MomCount");
-  		return list; // memberSearchAll()
+  	public int MomCount() {
+  		return sqlSession.selectOne("User.MomCount");
   	}
   	
   	// 시터 회원 수
-  	public List<UserVO> SitterCount() {
-  		List<UserVO> list = null; // 파라미터에 식별자 이름을 적는다.
-  		list = sqlSession.selectList("User.SitterCount");
-  		return list; // memberSearchAll()
+  	public int SitterCount() {
+  		return sqlSession.selectOne("User.SitterCount");
+  		
   	}
+  	
     // 프로필 유무 검사
   	public boolean myPageProfileCk(int userNum) {
-  
        return (Integer)sqlSession.selectOne("User.myPageProfileCk", userNum)== 1;
     }  	
+  	
+  	// 프로필 대기중 검사 
+  	public int profileProcess (int userNum) { // 0 이면 대기중
+  		return (Integer)sqlSession.selectOne("User.profileProcess", userNum);
+  	}
+  	
+  	
+  	
+  	// 유저와 관련된 데이터를 삭제시 필요한 쿼리문
+  	public DeleteUserDTO getNumforDelete(int userNum) {
+  		return sqlSession.selectOne("User.getNumforDelete",userNum);
+  	}
+  	// 회원탈퇴 
+  	public void cancelUser(int userNum) {
+  		sqlSession.update("User.cancelUser",userNum);
+  	}
       
 }

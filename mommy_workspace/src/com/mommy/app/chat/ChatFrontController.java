@@ -28,9 +28,15 @@ public class ChatFrontController extends HttpServlet{
 		String command = requestURI.substring(contextPath.length());
 		ActionForward af = null;
 	
-	//	System.out.println("채팅 프론트컨트롤러 들어옴");
+		System.out.println("채팅 프론트컨트롤러 들어옴");
 		if(command.equals("/chat/ChatListOk.chat")) {
 			af = new ChatListOk().execute(req, resp);
+		}else if (command.equals("/chat/ChatReadOne.chat")) {
+			new ChatReadOne().execute(req, resp);
+		}else if (command.equals("/chat/ChatReadAll.chat")) {
+			new ChatReadAll().execute(req, resp);
+		}else if(command.equals("/chat/ChatInsertOk.chat")) {
+			new ChatInsertOk().execute(req, resp);
 		}
 		
 		if(af != null) {// af가 null이 아니라면

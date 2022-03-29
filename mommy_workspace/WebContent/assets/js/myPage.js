@@ -26,7 +26,18 @@ var flag = false;
 		}
 		
 	});
+ 
    
+  
+  $(function (){ $("#chat").click(function (){
+		$("#divToggle").toggle();
+		
+	}); });
+
+  $(function (){ $("#chatGray").click(function (){
+		$("#divToggle").toggle();
+		
+	}); });
 
   
 	
@@ -117,7 +128,7 @@ var flag = false;
 	$bookMark.on("click",function(){
 	
 		contents=$.ajax({
-			url:  contextPath + "/myPage/MyPageHeart.my", 		// 통신할url
+			url:  contextPath + "/service/FavoriteListOk.ser", 		// 통신할url
 			dataType: "html",			//전송받은 데이터를 변환시킬 컨텐츠 타입
 			type:"get"	,
 			success:function(e){
@@ -312,5 +323,89 @@ var flag = false;
     document.querySelector(".quit").addEventListener("click", close);
     document.querySelector(".bg").addEventListener("click", close);
   
+    
+    
+    
+    
+		function favoriteDelete(profileUserNum,userNum ) {
+			console.log(userNum);
+			console.log(profileUserNum);
+			 $.ajax({
+			        url: contextPath + "/service/FavoriteDeleteOk.ser",
+			        type: "post",
+			        beforeSend: function() {
+			            //마우스 커서를 로딩 중 커서로 변경
+			            $('html').css("cursor", "wait");
+			        },
+			        complete: function() {
+			            //마우스 커서를 원래대로 돌린다
+			            $('html').css("cursor", "auto");
+			        },
+			        data: {"userNum": userNum, "profileUserNum": profileUserNum, "fromList": 1},
+					success:function(e){
+					/* 	location.href = contextPath + "/service/FavoriteListOk.ser"; */
+						console.log(e);
+						$('div#informatiom').html(e);
+					},
+					error:function(a,b,c){
+						console.log('실패')
+						console.log(a)
+						console.log(b)
+						console.log(c)
+					} 
+			     
+			    });
+			
+			
+		}
+		
+		function deleteUser() {
+				$.ajax({
+					url:  contextPath + "/user/UserDeleteOk.user", 		// 통신할url
+					type:"get"	,
+					success:function(){
+						alert("회원 탈퇴가 완료되었습니다. 이용해 주셔서 감사합니다.")
+						window.location.href = contextPath+"/user/UserMainOk.user";
+					},
+			        beforeSend: function() {
+			            //마우스 커서를 로딩 중 커서로 변경
+			            $('html').css("cursor", "wait");
+			        },
+			        complete: function() {
+			            //마우스 커서를 원래대로 돌린다
+			            $('html').css("cursor", "auto");
+			        },
+					error:function(a,b,c){
+						alert("실패");
+						console.log(a)
+						console.log(b)
+						console.log(c)
+					}
+					
+					});
+				
+				
+				
+				
+		}
+		
+		
+		
+		
+    
+/*		//AJAX 통신 시작
+		$( document ).ajaxStart(function() {
+		    //마우스 커서를 로딩 중 커서로 변경
+		    $('html').css("cursor", "wait"); 
+		});
+		//AJAX 통신 종료
+		$( document ).ajaxStop(function() {
+		    //마우스 커서를 원래대로 돌린다
+		    $('html').css("cursor", "auto"); 
+		});  */
+    
+    
+    
+    
     
     

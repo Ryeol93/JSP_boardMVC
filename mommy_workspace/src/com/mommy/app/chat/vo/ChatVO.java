@@ -5,6 +5,7 @@ public class ChatVO {
 	private int chatNum;
 	private int userNum;
 	private int sendUserName; /*나에게 요청한 사람들. 로그인세션  + 이름*/
+	private int chatStatus;
 	private String chatTitle;
 	private String chatContent;
 	private String chatDate;
@@ -57,6 +58,14 @@ public class ChatVO {
 
 	public void setChatDate(String chatDate) {
 		this.chatDate = chatDate;
+	}
+
+	public int getChatStatus() {
+		return chatStatus;
+	}
+
+	public void setChatStatus(int chatStatus) {
+		this.chatStatus = chatStatus;
 	}
 	
 

@@ -19,13 +19,15 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/summernote/summernote-lite.css"/>
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/communityInsert.css" />
-		
+		<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+		<link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
 		
 		
 	</head>
 	<body class="is-preload">
 		<c:set var="page" value="${page}"/>
 		<c:set var="community" value="${community}"/>
+		<c:set var="fileName" value="${fileName}"/>
 		
 		<!-- Header -->
 			<div class="wrapper">
@@ -87,13 +89,32 @@
 						<input type ="text" id="title" name = "title" placeholder="제목을 입력하세요" style = "resize: none;" value="${community.getCommunityTitle()}">
 						<hr style = "margin-top: 2em !important; margin-bottom: 1em !important;">
 						
-						<div>
+					
+						 </div>
+					
+						<div class="profile">
+						
+                    <label><input type="file" name ="profilePicture"style="display:none;">
+                    
+                     <c:choose>
+                    	<c:when test="${empty fileName}">
+                    			<img class="profileImg"src="https://cdn.discordapp.com/attachments/953473528030715988/957320833628504125/unknown.png" 
+                    style="width: 30px; border-radius: 10px; cursor: pointer; ">
+                   		</c:when>
+                   		<c:otherwise>
+                   		<img class="profileImg"src="/communityData/${fileName}" 
+                    style="width: 30px; border-radius: 10px; cursor: pointer; ">
+                   		</c:otherwise>
+                   	</c:choose>
+                   
+                    	<span style = "font-size: 12px; vertical-align: top; font-weight: 200;"> 썸네일을 등록해주세요.</span></label>
+                    </div>    
+						
+						
+						<div    style =" margin-top: -30px;">
 							<br>
-							<textarea id="summernote" name="content">
-${community.getCommunityContent()}
-
-							</textarea>
-							
+							<textarea id="summernote" name="editordata" required>${community.getCommunityContent()}</textarea>
+			
 						</div>
 					</div>
 				</div>
@@ -123,19 +144,61 @@ ${community.getCommunityContent()}
   			<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   			<script src="${pageContext.request.contextPath}/assets/js/summernote/summernote-lite.js"></script>
   			<script src="${pageContext.request.contextPath}/assets/js/summernote/lang/summernote-ko-KR/js"></script>
+  				<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+			<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+  			<script src="${pageContext.request.contextPath}/assets/js/WriteProfile.js"></script>
   			<script>
   				
 				function send(){
-  					if(!updateForm.title){
-  						alert("제목을 작성해주세요");
-  						return;
-  					}
-  					if(!updateForm.content){
-  						alert("내용을 작성해주세요");
-  						return;
-  					}
+  					
   					updateForm.submit();
   				}	
+				
+
+	  			  $(document).ready(function() {
+	  			       $('#summernote').summernote({
+	  			              tabsize: 2,
+	  			              height: 500,
+	  			              toolbar: [
+	  			            	  ['fontname', ['fontname']],
+	  						    ['fontsize', ['fontsize']],
+	  						    ['style', ['bold', 'italic', 'underline', 'clear']],
+	  						    ['color', ['forecolor','color']],
+	  						    ['para', ['ul', 'ol', 'paragraph']],
+	  						    ['height', ['height']],
+	  						    ['insert',['picture','link']]
+	  						  ],
+	  						  
+	  							
+	  						fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
+	  						fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],
+	  			           
+	  			                callbacks: {
+	  			                 onImageUpload: function(files, editor, welEditable) {
+	  			                    sendFile(files[0], this, welEditable);
+	  			                  }
+	  			                }
+	  			            });
+	  			   });
+	  			   
+	  			   function sendFile(file, editor, welEditable){
+	  			      data = new FormData();
+	  			      data.append("file", file);
+	  			      $.ajax({
+	  			         data: data,
+	  			         type: "post",
+	  			         url: "${pageContext.request.contextPath}/fileUpload",
+	  			         cache: false,
+	  			         contentType: false,
+	  			         processData: false,
+	  			         dataType: "json",
+	  			         success: function(url){
+	  			            console.log(url.url);
+	  			            $(editor).summernote("editor.insertImage", url.url);
+	  			         }
+	  			      });
+	  			   }
+
   			</script>
   			
 			<script>
@@ -176,7 +239,7 @@ ${community.getCommunityContent()}
 			$('#summernote').summernote('redo');
 			//썸머노트 툴바 변경 
 			
-			*/
+			
 			$('#summernote').summernote({
 				  toolbar: [
 					    // [groupName, [list of button]]
@@ -201,9 +264,9 @@ ${community.getCommunityContent()}
 				            }
 				        }
 					}
-			*/
 			
-			  });
+			
+			  }); */
 			
 			/* 
 			
@@ -223,7 +286,7 @@ ${community.getCommunityContent()}
 						$(editor).summernote("insertImage",data.url);
 					}
 				});
-			} */
+			} 
 			
 			
 			function sendFile(file, el) {
@@ -242,6 +305,8 @@ ${community.getCommunityContent()}
 		        	}
 		      	});
 		    }
+			
+			*/
 		/*
 		
 		강사님 파일에 있던 것

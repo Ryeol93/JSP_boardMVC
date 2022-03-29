@@ -17,6 +17,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" >
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 		<link href="${pageContext.request.contextPath}/assets/css/login.css" rel="stylesheet" >
+		<link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
 	</head>
 	
 	<body>
@@ -83,7 +84,7 @@
             <div class="col-3">
                <div class="col-1">
                   <div class="col-6 col-12-xsmall">
-                     <input type="text" name="userId" id="userId" placeholder="이메일 또는 아이디"  value="<%=memberId%>"/>
+                     <input type="text" name="userId" id="userId" placeholder="아이디"  value="<%=memberId%>"/>
                   </div>
                   <div class="col-6 col-12-xsmall">
                      <input type="password" name="userPw" id="userPw" placeholder="비밀번호" name="memberPw" value="<%=memberPw%>"/>
@@ -98,7 +99,7 @@
                      <button class="button-size01" onclick="send()">로그인</button>
                   </div>   
                   <div style="display: flex; justify-content: space-evenly;">
-                     <a href="${pageContext.request.contextPath}/app/user/findIdPw.jsp" class="button small">아이디 혹은 비밀번호를 잊으셨나요 ?</a>
+                     <a href="${pageContext.request.contextPath}/user/findIdPw.user" class="button small">아이디 혹은 비밀번호를 잊으셨나요 ?</a>
                   </div>         
                </div>
             </div>

@@ -1,10 +1,13 @@
 package com.mommy.app.admin.vo;
 
+import com.mommy.app.service.vo.ProfileFilesVO;
+
 public class AdminAuthDTO {
 
 	private int profileNum;
 	private int userNum;
 	private String userName;
+	private int userStatus;
 	private String userId;
 	private String profileAttach;
 	private String profileDate;
@@ -13,7 +16,11 @@ public class AdminAuthDTO {
 	private int checkTeacher;
 	private int checkCitizen;
 	private int checkUniversity;
+	private int profileProcess;
+	private String fileName;
+	private String fileNameOriginal;
 	
+
 	public AdminAuthDTO() {;}
 	
 	public AdminAuthDTO(AdminAuthVO AdminAuthVO) {
@@ -27,8 +34,17 @@ public class AdminAuthDTO {
 		this.checkTeacher = AdminAuthVO.getCheckTeacher();
 		this.checkCitizen = AdminAuthVO.getCheckCitizen();
 		this.checkUniversity = AdminAuthVO.getCheckUniversity();
+		this.profileProcess = AdminAuthVO.getProfileProcess();
+		
+	}
+	
+	public AdminAuthDTO(ProfileFilesVO ProfileFilesVO) {
+		super();
+		this.fileName = ProfileFilesVO.getFileName();
+		this.fileNameOriginal = ProfileFilesVO.getFileNameOriginal();
 	}
 
+	
 	public int getProfileNum() {
 		return profileNum;
 	}
@@ -115,8 +131,39 @@ public class AdminAuthDTO {
 
 	public void setCheckUniversity(int checkUniversity) {
 		this.checkUniversity = checkUniversity;
+								
 	}
 	
+	public int getProfileProcess() {
+		return profileProcess;
+	}
+
+	public void setProfileProcess(int profileProcess) {
+		this.profileProcess = profileProcess;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public String getFileNameOriginal() {
+		return fileNameOriginal;
+	}
+
+	public void setFileNameOriginal(String fileNameOriginal) {
+		this.fileNameOriginal = fileNameOriginal;
+	}	
 	
+	public int getUserStatus() {
+		return userStatus;
+	}
+
+	public void setUserStatus(int userStatus) {
+		this.userStatus = userStatus;
+	}
 	
 }

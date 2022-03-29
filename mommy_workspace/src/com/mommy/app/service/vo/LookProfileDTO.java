@@ -38,6 +38,7 @@ public class LookProfileDTO {
 	private int careFood;
 	private int careClean;
 	private int careStudy;
+	private int careEmergency;
 	private int babyNewborn;
 	private int babyChild;
 	private int babyKinder;
@@ -47,6 +48,7 @@ public class LookProfileDTO {
 	private int checkTeacher;
 	private int checkCitizen;
 	private int checkUniversity;
+	private int profileNum;
 	
 	public String getUserName() {
 		return userName;
@@ -253,6 +255,12 @@ public class LookProfileDTO {
 	public void setCareStudy(int careStudy) {
 		this.careStudy = careStudy;
 	}
+	public int getCareEmergency() {
+		return careEmergency;
+	}
+	public void setCareEmergency(int careEmergency) {
+		this.careEmergency = careEmergency;
+	}
 	public int getBabyNewborn() {
 		return babyNewborn;
 	}
@@ -307,7 +315,11 @@ public class LookProfileDTO {
 	public void setCheckUniversity(int checkUniversity) {
 		this.checkUniversity = checkUniversity;
 	}
-	
-	
+	public int getProfileNum() {
+		return profileNum;
+	}
+	public void setProfileNum(int profileNum) {
+		this.profileNum = profileNum;
+	}
 	
 }

@@ -61,10 +61,7 @@ input[type='checkbox']+ label:before{
 	display: inline-block;
 }
 
-.morning, .lunch{
-	padding-right: 8px;
-	border-right: 1px solid #ccc;
-}
+
 
 .week, .month, .quarter, .semiAnnual{
 	display: inline-block;

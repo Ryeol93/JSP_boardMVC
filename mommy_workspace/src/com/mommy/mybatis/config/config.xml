@@ -4,12 +4,13 @@
 <configuration>
    <typeAliases>
       <typeAlias type="com.mommy.app.user.vo.UserVO" alias="UserVO"/>
+      <typeAlias type="com.mommy.app.user.vo.DeleteUserDTO" alias="DeleteUserDTO"/>
       <typeAlias type="com.mommy.app.ask.vo.AskVO" alias="askVO"/>
       <typeAlias type="com.mommy.app.ask.vo.AskDTO" alias="askDTO"/>
        
       <typeAlias type="com.mommy.app.community.vo.CommunityCommentVO" alias="communityCommentVO"/>
       <typeAlias type="com.mommy.app.community.vo.CommunityCommentDTO" alias="communityCommentDTO"/>
-      
+      <typeAlias type="com.mommy.app.service.vo.FavoriteVO" alias="FavoriteVO"/>
       <typeAlias type="com.mommy.app.admin.vo.AdminFilesVO" alias="AdminFilesVO"/>
       <typeAlias type="com.mommy.app.ask.vo.AskFilesVO" alias="AskFilesVO"/>
       <typeAlias type="com.mommy.app.community.vo.FilesVO" alias="FilesVO"/>
@@ -18,13 +19,14 @@
       <!-- 
       <typeAlias type="com.mommy.app.myPage.vo.myPageVO" alias="myPageVO"/>
       <typeAlias type="com.mommy.app.myPage.vo.myPageDTO" alias="myPageDTO"/>
-      
-       <typeAlias type="com.mommy.app.service.vo.FavoriteVO" alias="FavoriteVO"/>
+      -->
        <typeAlias type="com.mommy.app.service.vo.FavoriteDTO" alias="FavoriteDTO"/>
-      --> 
+        
+       
        <typeAlias type="com.mommy.app.notice.vo.NoticeVO" alias="NoticeVO"/>
        <typeAlias type="com.mommy.app.service.vo.ServiceVO" alias="ServiceVO"/>
        <typeAlias type="com.mommy.app.service.vo.ServiceDTO" alias="ServiceDTO"/>
+       <typeAlias type="com.mommy.app.service.vo.ParameterDTO" alias="ParameterDTO"/>
        <typeAlias type="com.mommy.app.service.vo.LookProfileDTO" alias="LookProfileDTO"/>
        <typeAlias type="com.mommy.app.admin.vo.AdminQnaVO" alias="AdminQnaVO"/>
        <typeAlias type="com.mommy.app.admin.vo.AdminQnaDTO" alias="AdminQnaDTO"/>
@@ -33,6 +35,8 @@
        <typeAlias type="com.mommy.app.admin.vo.AdminAuthDTO" alias="AdminAuthDTO"/>
       
        <typeAlias type="com.mommy.app.service.vo.ProfileFilesVO" alias="ProfileFilesVO"/>
+       <typeAlias type="com.mommy.app.chat.vo.ChatVO" alias="ChatVO"/>
+       <typeAlias type="com.mommy.app.chat.vo.ChatDTO" alias="ChatDTO"/>
 	
    </typeAliases>
 
@@ -41,9 +45,9 @@
          <transactionManager type="JDBC"/>
          <dataSource type="POOLED">
             <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="url" value="jdbc:mysql://localhost:3306/mommy"/>
-            <property name="username" value="root"/>
-            <property name="password" value="1234"/>
+            <property name="url" value="jdbc:mysql://localhost:3306/hello"/>
+            <property name="username" value="test"/>
+            <property name="password" value="123456789"/>
          </dataSource>
       </environment>
    </environments>
@@ -57,12 +61,13 @@
       <mapper resource="com/mommy/mybatis/mapper/notice.xml"/>
       <mapper resource="com/mommy/mybatis/mapper/service.xml"/>
       <mapper resource="com/mommy/mybatis/mapper/myPage.xml"/>
-      <!--  <mapper resource="com/mommy/mybatis/mapper/myPage.xml"/>
-      <mapper resource="com/mommy/mybatis/mapper/favorite.xml"/> -->
-      
+      <!--  <mapper resource="com/mommy/mybatis/mapper/myPage.xml"/>-->
+      <mapper resource="com/mommy/mybatis/mapper/favorite.xml"/>  
       <mapper resource="com/mommy/mybatis/mapper/admin.xml"/>
       <mapper resource="com/mommy/mybatis/mapper/adminFiles.xml"/>
       <mapper resource="com/mommy/mybatis/mapper/profileFiles.xml"/>
+      
+      <mapper resource="com/mommy/mybatis/mapper/chat.xml"/>
    </mappers>
    
 </configuration>

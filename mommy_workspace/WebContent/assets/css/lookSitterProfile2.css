@@ -1,4 +1,22 @@
 
+
+  .area{
+   margin-left: 7px;
+       margin-top: 21px;
+       margin-bottom: 21px;
+   }
+       
+   .days{
+    background-color: white;
+    width: 29px;
+    border-radius: 30px;
+    color: #ffb61a;
+    font-weight: bold;
+    border: 1.5px solid #ffb61a;
+    height: 29px;
+    margin-left: 9px;
+   }     
+
 div#main{
 padding-top: 24px !important;
 }
@@ -11,10 +29,9 @@ width: 25px;
 }
 
 a.a{
-color: gray;
+	color: gray;
     border: none;
     cursor: pointer;
-
 }
 
 aside.aside2{
@@ -38,6 +55,7 @@ div#main {
             border: hidden;
             font-weight: bold;
             font-size:16px;
+            cursor: pointer;
         }
 
         .buttonAside:hover,
@@ -293,12 +311,13 @@ input::-moz-focus-inner, input::-moz-focus-outer {
 .imgIcon{
     width: 20px;
     margin-right: 10px;
+    float: left;
 }
 
 .liCss{
-    margin-bottom: 16px;
     font-size: 15px;
     display: inline-block;
+    width: 130%;
 }
 .reviewText{
     font-weight: bold;
@@ -328,9 +347,52 @@ background-color: #9b9999;
 
 /*------------------------------------------------------------------------------------------------------  */
 @media (max-width: 576px){
-#header{width: 74%;}
+#header{width: 100%;}
 
+ .area{
+   margin-left: 7px;
+   }
+       
 
+.apply{
+    position: absolute;
+    left: -49%;
+    width: 105px !important;
+    font-size: 13px !important;
+    top: -110px;
+    display: inline-block !important
+}
+.can{
+	margin-right: 18px;
+}
+div.activity2{
+	width: 76px !important;
+}
+
+.b{
+	margin-bottom: 31px !important;
+	
+}
+
+.activity{
+	border-radius: 9px !important;
+    color: #ffb61a !important;
+    width: 51px !important;
+    height: 26px;
+    text-align: center;
+    margin: 0 2px 0 5px;
+    float: left;
+    box-shadow: 1px 1px #ffb61a;
+    font-size: 10px !important;
+    font-weight: bold;
+}
+
+.subContent{
+	display: block !important;
+    margin-top: 32px;
+    position: absolute;
+    margin-left: 18px;
+}
 .vertical{
 
 left: 37px !important;
@@ -343,9 +405,11 @@ aside.aside2{
 }
 
 div#main {
-width: 87% !important;
+    width: 94% !important;
     padding: 3.5em 0 3.5em 0;
     margin-top: 18px !important;
+    margin-left: 10px;
+    overflow: hidden;
 }
 
 
@@ -406,6 +470,7 @@ width: 87% !important;
         .innerContent2{
             padding: 1.5rem 0 0 0;
             width: 167px;
+            margin-left: 5px;
 
         }
         .innerTitle{
@@ -444,7 +509,7 @@ width: 87% !important;
     }
 
     div.innerContent p{
-        margin: 0 0 1em 0;
+        margin-left: 3px !important;
     }
 
     
@@ -539,12 +604,13 @@ input::-moz-focus-inner, input::-moz-focus-outer {
 .imgIcon{
     width: 20px;
     margin-right: 10px;
+    float: left;
 }
 
 .liCss{
-    margin-bottom: 16px;
     font-size: 15px;
     display: inline-block;
+    width: 130%;
 }
 .reviewText{
     font-weight: bold;
@@ -582,12 +648,117 @@ margin-left: -1% !important;
  margin-left: 63px;
 }
 .aside2{
-display:none;
+    margin-left: 140px;
+    position: absolute !important;
 }
 .media_star{
    display:none;
 }
 
+.modalBox {
+	    left: 35px;
+    width: 320px !important;
+}
+
+
+
 
 
 }
+
+
+
+/*모달*/
+ .modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow:hidden;
+        }
+
+        .modal .bg {
+          width: 100%;
+          height: 100%;
+        }
+
+        .modalBox {
+          position: absolute;
+          background-color: #fff3f0;
+          width: 400px;
+          height: 350px;
+          padding: 15px;
+          border-radius: 6px;
+          text-align: center;
+          top: 249px;
+         right: 160px;
+         box-shadow: 4px 4px 20px rgb(51 51 51 / 15%);
+        }
+
+        .modalBox button {
+          display: block;
+          width: 80px;
+          margin: 0 auto;
+        }
+
+        .hidden {
+          display: none;
+        }
+        
+        .modalText{
+            margin: 18px 0;
+            font-family: 'GmarketSansMedium';
+            color:black;
+
+        }
+
+        .modalSubText{
+            font-size:14px;
+            line-height: initial;
+            margin: -10px 0 2em 0 !important; 
+            
+        }
+
+        button.submitBtn {
+          background-color: #ff7065 ;
+          padding: 5px 10px;
+          border-radius: 4px;
+          border:hidden;
+          cursor: pointer;font-family: 'GmarketSansMedium';
+            width:50%;
+            height:50px;
+            color:white;
+        }
+
+        .quit{
+            font-size: 14px;
+            color: #d4cfcf;
+        }
+
+	div.activity{
+    border-radius: 9px !important;
+    color: #ffb61a !important;
+    width: 70px;
+    height: 26px;
+    text-align: center;
+    margin: 0 2px 0 5px;
+    float: left;
+    box-shadow: 1px 1px #ffb61a;
+    font-size: 12px;
+    font-weight: bold;
+ }
+ 
+ a.b{
+	color: gray;
+    border: none;
+    float: left;
+    margin-bottom: 10px;
+}
+
+ 
+ 
+ 

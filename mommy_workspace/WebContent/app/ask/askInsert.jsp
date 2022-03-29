@@ -15,6 +15,8 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
       <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
       <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/askInsert.css" rel="stylesheet"/>
+      <link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/etcMain.css" />
    </head>
    <body class="is-preload">
 		<c:set var="userId" value="${userId}"/>
@@ -54,7 +56,7 @@
 					 <form action="${pageContext.request.contextPath}/ask/AskInsertOk.ask" name="insertForm" method="post" enctype="multipart/form-data">
 							<div class= "label">
 								<label for = "username" class = "innerLabel">아이디</label>
-								<input type = "text" id ="username" class = "input" value ="${userId}" style = "background:white; border: none;" readonly>
+								<input type = "text" id ="username" class = "input" value ="${userId}" style = "background:white; width: 200px !important;" readonly>
 							</div>
 							<div class= "label">  
 								<label for = "category"  class = "innerLabel">카테고리 선택<span style = "color:red; font-weight:bold"> *</span></label>

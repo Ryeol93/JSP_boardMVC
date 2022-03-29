@@ -3,8 +3,7 @@ package com.mommy.app.community.vo;
 public class FilesVO {
 	private String fileName;
 	private int communityNum;
-	private String fileNameOriginal;
-	
+		
 	public FilesVO() {;}
 
 	public String getFileName() {
@@ -23,11 +22,5 @@ public class FilesVO {
 		this.communityNum = communityNum;
 	}
 
-	public String getFileNameOriginal() {
-		return fileNameOriginal;
-	}
 
-	public void setFileNameOriginal(String fileNameOriginal) {
-		this.fileNameOriginal = fileNameOriginal;
-	}
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css" />
 	<footer id="footer" style = "background: #f6f6f6;">
 				<div class="container">
 					<div class="row">
@@ -22,46 +23,44 @@
 							</ul>
 						</section>
 						<section class="col-4 col-6-medium col-12-small" style = "width: 33.33333%;">
-							<h3 style = "font-size: 1em !important;">서비스 종류</h3>
+							<h3 style = "font-size: 1em !important;" id="mediahidden" >서비스 종류</h3>
 							<ul class="updates">
 								<li>
-									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/app/serviceSearch/searchMom.jsp">신생아/영아 풀타임 베이비시팅</a></p>
+									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a onclick="location.href='${pageContext.request.contextPath}/service/SearchMomOk.ser'" id="mediahidden" >신생아/영아 풀타임 베이비시팅</a></p>
 								</li>
 								<li>
-									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/app/serviceSearch/searchMom.jsp">신생아/영아 풀타임 보조 베이비시팅</a></p>
+									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a onclick="location.href='${pageContext.request.contextPath}/service/SearchMomOk.ser'" id="mediahidden">신생아/영아 풀타임 보조 베이비시팅</a></p>
 								</li>
 								<li>
-									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/app/serviceSearch/searchMom.jsp">등하원 베이비시팅</a></p>
+									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a onclick="location.href='${pageContext.request.contextPath}/service/SearchMomOk.ser'" id="mediahidden">등하원 베이비시팅</a></p>
 								</li>
 								<li>
-									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/app/serviceSearch/searchMom.jsp">놀이/학습 베이비시팅</a></p>
+									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a onclick="location.href='${pageContext.request.contextPath}/service/SearchMomOk.ser'" id="mediahidden">놀이/학습 베이비시팅</a></p>
 								</li>
 									<li>
-									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/app/serviceSearch/searchMom.jsp">긴급/단기 베이비시팅</a></p>
+									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a onclick="location.href='${pageContext.request.contextPath}/service/SearchMomOk.ser'" id="mediashow">긴급/단기 베이비시팅</a></p>
 								</li>
 								</li>
 									<li>
-									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/app/serviceSearch/searchJob.jsp">일자리 찾기</a></p>
+									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a onclick="location.href='${pageContext.request.contextPath}/service/SearchJobOk.ser'" id="mediashow">일자리 찾기</a></p>
 								</li>
 									<li>
-									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/app/community/community2.jsp">부모님/시터 커뮤니티</a></p>
+									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a onclick="location.href='${pageContext.request.contextPath}/community/CommunityListOk.com'" id="mediahidden">부모님/시터 커뮤니티</a></p>
 								</li>
 							</ul>
 						</section>
-						<section class="col-4 col-6-medium col-12-small" style = "width: 16.6666%;">
+						<section class="col-4 col-6-medium col-12-small" style = "width: 16.6666%;" id="mediahidden">
 							<h3 style = "font-size: 1em !important;">고객센터</h3>
-							<ul class="updates">
+							<ul class="updates" id="mediahidden" >
 								<li>
-									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/app/notice/notice.jsp">공지사항</a></p>
+									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/notice/NoticeListOk.no">공지사항</a></p>
+								</li>
+								
+								<li>
+									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/user/joinInfo.user">이용약관</a></p>
 								</li>
 								<li>
-									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/app/ask/askInsert.jsp">1:1 문의하기</a></p>
-								</li>
-								<li>
-									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/app/user/joinInfo.jsp">이용약관</a></p>
-								</li>
-								<li>
-									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/app/user/joinInfo.jsp">개인정보처리방침</a></p>
+									<p style = "margin-bottom:-20px; font-size:0.9em !important;"><a href="${pageContext.request.contextPath}/user/joinInfo.user">개인정보처리방침</a></p>
 								</li>
 							</ul>
 						</section>

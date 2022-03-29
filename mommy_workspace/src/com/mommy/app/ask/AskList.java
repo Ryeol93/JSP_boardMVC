@@ -28,8 +28,13 @@ public class AskList implements Action{
 //		BoardDAO bDao = new BoardDAO();
 //		MemberDAO mDao = new MemberDAO();
 
+		int userNum = (Integer)session.getAttribute("userNum");
 		//전체 게시글 개수
-		int total = dao.getTotal();
+		int total = dao.getTotal(userNum);
+//		int total = bDao.getTotal();
+		//사용자가 요청한 페이지
+		//사용자가 요청한 페이지
+
 //		int total = bDao.getTotal();
 		//사용자가 요청한 페이지
 		String temp = req.getParameter("page");
@@ -39,7 +44,7 @@ public class AskList implements Action{
 		//한 페이지에 출력되는 게시글의 개수
 		int rowCount = 10;
 		//한 화면에 나오는 페이지 번호 수
-		int pageSize = 10;
+		int pageSize = 5;
 		
 		//페이지에서 출력되는 게시글 중 첫번째 게시글의 인덱스
 		int startRow = (page - 1) * rowCount;
@@ -57,43 +62,12 @@ public class AskList implements Action{
 		//endPage는 항상 10단위로 끝나기 때문에, 14페이지가 마지막 페이지일 경우
 		//14페이지를 endPage에 담아준다. 
 		endPage = endPage > realEndPage ? realEndPage : endPage;
-		
-		//DB에서 필요한 데이터를 Map에 담는다.
+				
 		askMap.put("startRow", startRow);
 		askMap.put("rowCount", rowCount);
-
-//		//게시글 전체 정보
-//		List<BoardVO> boardVO_list = bDao.selectAll(boardMap);
-//		
-//		//게시글 전체 정보에서
-//		List<String> memberIdList = boardVO_list.stream()
-//				//작성자 번호로 변경한 뒤
-//				.map(vo -> vo.getMemberNumber())
-//				//각 번호를 통해 작성자의 정보를 알아낸 후
-//				.map(number -> mDao.getInfo(number))
-//				//정보 중 작성자의 아이디를 추출
-//				.map(vo -> vo.getMemberId())
-//				//리스트로 리턴
-//				.collect(Collectors.toList());
-//		
-//		//게시글 전체 정보 + 작성자 아이디를 담을 List
-//		List<BoardDTO> boardDTO_list = new ArrayList<>();
-//		
-//		//게시글 전체 정보를 DTO에 담아준다.
-//		boardVO_list.forEach(vo ->{
-//			BoardDTO bDTO = new BoardDTO(vo);
-//			boardDTO_list.add(bDTO);
-//		});
-//		
-//		//DTO에 있는 작성자의 아이디 필드에 위에서 구한 작성자의 아이디로 대입
-//		for (int i = 0; i < boardDTO_list.size(); i++) {
-//			boardDTO_list.get(i).setMemberId(memberIdList.get(i));
-//		}
+		askMap.put("userNum", userNum);
 		
-		//시작 인덱스와, 개수를 전달하여 게시글 목록을 가져온 뒤 requestScope에 담아준다.
 		req.setAttribute("askList", dao.selectAll(askMap));
-//		req.setAttribute("boardList", boardDTO_list);
-		//현재 페이지를 requestScope에 담아준다.
 		req.setAttribute("page", page);
 		req.setAttribute("startPage", startPage);
 		req.setAttribute("endPage", endPage);
@@ -102,12 +76,13 @@ public class AskList implements Action{
 		
 		String userId = uDao.getInfo((Integer)session.getAttribute("userNum")).getUserId();
 		String userName = uDao.getInfo((Integer)session.getAttribute("userNum")).getUserName();
-		
 
 		
 		req.setAttribute("userId", userId);
 		req.setAttribute("userName", userName);
 		
+		System.out.println(total);
+		System.out.println(userNum);
 		af.setRedirect(false);
 		af.setPath("/app/ask/ask.jsp");
 		

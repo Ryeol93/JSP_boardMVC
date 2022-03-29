@@ -16,18 +16,19 @@ import org.json.simple.JSONObject;
 import com.mommy.action.Action;
 import com.mommy.action.ActionForward;
 import com.mommy.app.service.dao.ServiceDAO;
+import com.mommy.app.service.vo.ParameterDTO;
 import com.mommy.app.service.vo.ServiceDTO;
 
 public class SearchJobOk2 implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		
+		System.out.println("서치잡 오케이2들어옴");
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
 		HashMap<String, Integer> searchDetailMap = new HashMap<>();
 		HashMap<String, Integer> modalInput = new HashMap<>();
-		HashMap<String, String> areaMap = new HashMap<>();
+		ParameterDTO param = new ParameterDTO();
 		ServiceDAO dao = new ServiceDAO();
 		int userStatus=1;
 
@@ -47,7 +48,7 @@ public class SearchJobOk2 implements Action{
 		//한 페이지에 출력되는 게시글의 개수
 		int rowCount = 5;
 		//한 화면에 나오는 페이지 번호 수
-/*		int pageSize = 10;*/
+		int pageSize = 10;
 		
 		//페이지에서 출력되는 게시글 중 첫번째 게시글의 인덱스
 		int startRow = (page - 1) * rowCount;
@@ -59,11 +60,13 @@ public class SearchJobOk2 implements Action{
 		searchDetailMap.put("startRow", startRow);
 		searchDetailMap.put("rowCount", rowCount);
 		searchDetailMap.put("userStatus", userStatus);
-		searchDetailMap.put("profileProcess", 0);
+		searchDetailMap.put("profileProcess", 1);
 		modalInput.put("startRow", startRow);
 		modalInput.put("rowCount", rowCount);
 		modalInput.put("userStatus", userStatus);
-		modalInput.put("profileProcess", 0);
+		modalInput.put("profileProcess", 1);
+		param.setStartRow(startRow);
+		param.setRowCount(rowCount);
 		
 		//화면에 출력되는 페이지 번호 중
 		//시작 페이지(1, 11, 21, ....)
@@ -101,6 +104,7 @@ public class SearchJobOk2 implements Action{
 		searchDetailMap.put("careFood", Integer.parseInt(req.getParameter("careFood")));
 		searchDetailMap.put("careClean", Integer.parseInt(req.getParameter("careClean")));
 		searchDetailMap.put("careStudy", Integer.parseInt(req.getParameter("careStudy")));
+		
 		searchDetailMap.put("userStatus", userStatus);
 		} 
 
@@ -125,25 +129,29 @@ public class SearchJobOk2 implements Action{
 				break;
 			}
 //		돌봄지역모달------------------------------- 
-		}else if(req.getParameter("sido")!=null) {
+		}else if(req.getParameter("locationSido")!=null) {
 			System.out.println("지역모달들어왔다");
-			 areaMap.put("locationSido", req.getParameter("locationSido"));
-			 areaMap.put("locationSigun", req.getParameter("locationSigun"));
-			 areaMap.put("locationDong", req.getParameter("locationDong"));
-
-	/*		if(req.getParameter("locationSigun").equals("선택")) {
-				 areaMap.put("locationSigun","1");
+			if(req.getParameter("locationSido").contains("선택")) {
+				param.setLocationSido(null);
 			}else {
-				 areaMap.put("locationSigun", req.getParameter("locationSigun"));
+				param.setLocationSido(req.getParameter("locationSido"));
 			}
-			if(req.getParameter("locationDong").equals("선택") ||req.getParameter("locationDong").equals("'동'을 선택해주세요")) {
-				 areaMap.put("locationDong", "1");
+			
+			if(req.getParameter("locationSigun").contains("선택")) {
+//				System.out.println("시군 선택시 들어와따");
+				param.setLocationSigun(null);
 			}else {
-				 areaMap.put("locationDong", req.getParameter("locationDong"));
-			}*/
-			 jobList = dao.searchArea2(areaMap);
-			 
-			 System.out.println("jobList길이"+jobList);
+				param.setLocationSigun( req.getParameter("locationSigun"));
+			}
+			if(req.getParameter("locationDong").contains("선택")) {
+//				System.out.println("동 선택들어와따");
+				param.setLocationDong(null);
+			}else {
+				param.setLocationDong( req.getParameter("locationDong"));
+			}
+			param.setUserStatus(userStatus);
+			jobList = dao.searchArea(param); 
+			 System.out.println("리스트사이즈" +jobList.size());
 //		상세검색모달-------------------------------
 		 }else {
 			 jobList = dao.searchDetail(searchDetailMap);
@@ -178,8 +186,14 @@ public class SearchJobOk2 implements Action{
 			job.put("CareFood", s.getCareFood());
 			job.put("CareStudy", s.getCareStudy());
 			job.put("CareClean", s.getCareClean());
+			job.put("CheckMedi", s.getCheckMedi());
+			job.put("CheckCitizen", s.getCheckCitizen());
+			job.put("CheckMom", s.getCheckMom());
+			job.put("CheckTeacher", s.getCheckTeacher());
+			job.put("CheckUniversity", s.getCheckUniversity());
 			job.put("periodStartDate", s.getP_periodStartDate());
-			
+			job.put("ProfilePicture", s.getProfilePicture());
+			job.put("profileNum", s.getProfileNum());
 			jobs.add(job); 
 		}
 		

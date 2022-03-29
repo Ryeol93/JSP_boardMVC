@@ -24,11 +24,12 @@ public class CommunityUpdateOk implements Action{
 		
 		CommunityVO community = new CommunityVO();
 		CommunityDAO cDao = new CommunityDAO();
-		List<FilesVO> files = null;
+		String files = "";
 		FilesDAO fDao = new FilesDAO();
 		ActionForward af = new ActionForward();
 		
-		String uploadFolder = req.getSession().getServletContext().getRealPath("/") + "upload"; // 경로 확인 
+		String realPath =req.getSession().getServletContext().getRealPath("/") + "communityData";
+		String uploadFolder = realPath;
 		int fileSize = 1024 * 1024 * 5;//5M
 		int communityNum = 0, page = 0;
 		
@@ -40,9 +41,10 @@ public class CommunityUpdateOk implements Action{
 		page = Integer.parseInt(multi.getParameter("page"));
 		communityNum = Integer.parseInt(multi.getParameter("communityNum"));
 		community.setCommunityTitle(multi.getParameter("title"));
-		community.setCommunityContent(multi.getParameter("content"));
+		community.setCommunityContent(multi.getParameter("editordata"));
 		
 		community.setCommunityCategory(Integer.parseInt(multi.getParameter("select")));
+		community.setFileName(multi.getFilesystemName("communityPic"));
 		community.setCommunityNum(communityNum);
 		
 		files = fDao.select(communityNum);
@@ -53,11 +55,6 @@ public class CommunityUpdateOk implements Action{
 		fDao.delete(communityNum);
 		fDao.insert(multi, communityNum);
 		//************************
-		
-		files.forEach(file -> {
-			File f = new File(uploadFolder, file.getFileName());
-			if(f.exists()) {f.delete();}
-		});
 		
 		//redirect일 경우 데이터를 전달할 수 있는 방법
 		//1. 쿼리스트링으로 전달한다.

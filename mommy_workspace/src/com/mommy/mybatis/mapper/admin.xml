@@ -10,6 +10,10 @@
 		order by 1 desc limit #{startRow}, #{rowCount}
 	</select>
 	
+	
+		
+	
+	
 		<!--신고 게시글 목록 -->
 	<select id="reportSelectAll" parameterType="map" resultType="AdminQnaDTO">
 		select askNum, a.userNum, categoryNum, askTitle, askContent,
@@ -21,12 +25,12 @@
 
 	<!--문의 게시글 전체 개수  -->
 	<select id="getQnaTotal" resultType="_int">
-		select count(categoryNum='1') from tbl_ask
+		select count(categoryNum) from tbl_ask where categoryNum=1
 	</select>
 	
 	<!--신고 게시글 전체 개수  -->
 	<select id="getReportTotal" resultType="_int">
-		select count(categoryNum='2') from tbl_ask
+		select count(categoryNum) from tbl_ask where categoryNum=2
 	</select>
 	
 	<!-- 게시글 상세보기(전체 정보 조회) -->
@@ -100,23 +104,39 @@
 	
 	<!-- 인증글 목록 조회 -->
 	<select id="authSelectAll" parameterType="map" resultType="AdminAuthDTO">
-		select profileNum, profileAttach, userName, userId, 
-		p.userNum, profileDate, checkMedi, checkMom, checkTeacher, 
-		checkCitizen, checkUniversity 
-		from tbl_profile p join tbl_user u 
+     	select p.profileNum, profileAttach, userName, userId, userStatus,
+		p.userNum, profileDate, checkMedi, checkMom, checkTeacher, profileProcess, 
+		checkCitizen, checkUniversity, fileName, fileNameOriginal
+		from tbl_profile p, tbl_user u, tbl_profilefiles pf
 		where p.userNum=u.userNum
+		and  p.profileNum = pf.profileNum and fileName LIKE '%.zip'
+		and userStatus = 2
 		order by 1 desc limit #{startRow}, #{rowCount}
 	</select>
 	
 	<!-- 인증 게시글 총 갯수 -->
 	<select id="authGetTotal" resultType="_int">
-		select count(profileNum) from tbl_profile
+		select count(profileNum) from tbl_profile p 
+		join tbl_user u 
+		where userStatus = 2 and p.userNum = u.userNum
+	
 	</select>
+	
+	<!-- 인증 대기 총 갯수 -->
+	<select id="authGetTotal0" resultType="_int">
+		select count(profileProcess) from tbl_profile where profileProcess = 0 and profileAttach is not null
+	</select>
+	
+		<!-- 인증 완료 총 갯수 -->
+	<select id="authGetTotal1" resultType="_int">
+		select count(profileProcess) from tbl_profile where profileProcess = 1 and profileAttach is not null
+	</select>
+	
 	<!-- 인증 업데이트 -->
 	<update id="update_Certification" parameterType="AdminAuthDTO">
 		update tbl_profile
 		  set checkMedi = #{checkMedi} , checkMom = #{checkMom}, checkTeacher = #{checkTeacher} 
-		  ,checkCitizen = #{checkCitizen}, checkUniversity = #{checkUniversity}
+		  ,checkCitizen = #{checkCitizen}, checkUniversity = #{checkUniversity}, profileProcess= 1
 		   where profileNum= #{profileNum}
 	</update>
 	

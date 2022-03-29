@@ -150,40 +150,7 @@ var form = document.joinForm;
 
  
  
- function join(){
-     if(!form.userId.value){
-         alert("아이디를 입력해주세요.");
-         form.userId.focus();
-         return;
-     }
-     
-     if(form.userId.value.length < 4 || form.userId.value.length > 16) {
-         alert("아이디는 4자 이상, 16자 이하로 입력해주세요.");
-         form.userId.focus();
-         return;
-     }
-
-     if(!form.userPw.value){
-         alert("패스워드를 입력해주세요.");
-         form.userPw.focus();
-         return;
-     }
-
-   
-    
-     
-     
-     
-     
-     
-     
-     
-     if(check){
-         form.submit();
-     }
- }
-   
-   
+ 
    
    $all.on('click', function(){
        if($(this).is(":checked")){
@@ -195,45 +162,68 @@ var form = document.joinForm;
    
    // 회원가입 유효성 검사
    function send(){
+	   
+	   if($('input[name=userStatus]:radio:checked').length < 1){
+		   alert("회원 유형을 선택하세요.");
+		   return;
+	   }
       if(!$all.is(":checked")){
          alert("약관에 동의해주세요.");
          return;
       }
-   
-    
       
-      
-      
-      
-      
+      if(!joinForm.userName.value){
+    	  joinForm.userName.focus();
+    	  alert("이름을 확인해주세요.");
+    	  return;
+      }
+         
+      if(!joinForm.userGender.value){
+    	  alert("성별을 선택해주세요");
+    	  joinForm.userGender.focus();
+    	  return;
+      }
       if(!check){
          alert("아이디를 확인해주세요.");
          return;
       }
+//      
+//      if(!phoneCheck){
+//          alert("휴대폰 인증을 다시 시도해주세요.");
+//          return;
+//       }
       
- /*     if(!phoneCheck){
-          alert("휴대폰 인증을 다시 시도해주세요.");
-          return;
-       }
-      */
-      
-      if($('input[name=userStatus]:radio:checked').length < 1){
-    	  alert("회원 유형을 선택하세요.");
-    	  return;
-      }
-      if(!joinForm.userGender.value){
-    	  alert("성별을 선택해주세요");
-    	  return;
-      }
       if(!joinForm.userPw.value){
          alert("패스워드를 확인해주세요.");
+         joinForm.userPw.focus();
          return;
       }
       
-      if(!joinForm.userName.value){
-         alert("이름을 확인해주세요.");
-         return;
-      }
+
+      var yy=  /^([0-9]{4})$/;
+	  if(!yy.test(joinForm.userBirthYear.value) ||!joinForm.userBirthYear.value){
+		  alert("생년월일을 확인해주세요.");
+          
+          return;
+       }
+	  var mm =/^(0?[1-9]|1[012])$/;
+	  if(!mm.test(joinForm.userBirthMonth.value) ||!joinForm.userBirthMonth.value){
+		  alert("생년월일을 확인해주세요.");
+          
+          return;
+       }
+	  var dd= /^(0?[1-9]|[12][0-9]|3[01])$/;
+      if(!dd.test(joinForm.userBirthDate.value) ||!joinForm.userBirthDate.value){
+    	 
+          alert("생년월일을 확인해주세요.");
+          return;
+       }
+      
+      
+      
+      
+      
+      
       alert("마미랑에 오신걸 환영합니다!\n\n마미랑만의 인증으로 검증된 시터와 부모를 만나보세요 !")
       joinForm.submit();
    }

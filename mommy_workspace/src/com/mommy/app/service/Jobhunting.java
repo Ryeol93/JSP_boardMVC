@@ -38,7 +38,7 @@ public class Jobhunting implements Action {
 		System.out.println("현재 상태 값:"+userStatus);
 		System.out.println(userDao.myPageProfileCk(userNum));
 		
-		
+		req.setAttribute("userNum", userNum);
 	// 부모 프로필이라면
 		if( userStatus == statusParent) {
 //			resultStatus = statusParent;
@@ -47,7 +47,7 @@ public class Jobhunting implements Action {
 			if(userDao.myPageProfileCk(userNum)) {
 				//af.setPath("/app/serviceProfile/lookMomProfile2.jsp"); // 부모님
 				System.out.println("부모 게시글 있을때 ==들어옴");
-				af.setPath("/service/LookMomProfile2.ser"); // 부모님
+				af.setPath("/service/LookMomProfileOk.ser?userNum="+userNum); // 부모님
 				// 컨트롤러 요청으로 변경
 				
 			}else {
@@ -63,7 +63,7 @@ public class Jobhunting implements Action {
 			// 프로필이 있다면 시터의 프로필페이지로
 			if(userDao.myPageProfileCk(userNum)) {
 				System.out.println("시터 게시글 있을때 ==들어옴");
-				af.setPath("/service/lookSitterProfile2.ser"); // 시터 게시글이 있을때 
+				af.setPath("/service/LookSitterProfileOk.ser?userNum="+userNum); // 시터 게시글이 있을때 
 				//af.setPath("/app/serviceProfile/lookSitterProfile2.jsp"); // 시터 게시글이 있을때 
 				// 컨트롤러 요청으로 변경
 			}else {
