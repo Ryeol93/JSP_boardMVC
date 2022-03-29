@@ -1,0 +1,178 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE HTML>
+<!--
+	Exponent by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+-->
+<html>
+	<head>
+		<title>커뮤니티 글쓰기</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/summernote/summernote-lite.css"/>
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/communityInsert.css" />
+		<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+		<link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
+		
+	</head>
+	<body class="is-preload">
+	
+			
+		<!-- Header -->
+			<div class="wrapper">
+				<div class="inner">
+					<jsp:include page="/app/fix/header.jsp"/>
+				</div>
+			</div> 
+			
+
+		<!-- 글쓰기 -->
+			
+		<div id="main" class="container medium">
+			<form action="${pageContext.request.contextPath}/communtiy/CommunityInsertOk.com" name="writeForm" method="post" enctype="multipart/form-data">
+																																	<!-- 파일 첨부됐을 때 보내는 폼 (멀티 리퀘스트로 받아야함)-->
+
+				
+
+			<div class="inner">
+						<div style="display:flex; justify-content:space-between; margin-top: 50px; margin-bottom: -59px;">
+							<select id ="select" name="select" style = "width: 12%;">
+								<option value = "2">전체</option>
+								<option value = "3">부모님</option>
+								<option value = "1">시터</option>
+							</select>
+							<div style="margin-right:0px">
+							<input type="button" id="btn" value="글쓰기" onclick="send(); "><br>
+						</div>
+					
+						
+					</div>
+					
+
+					
+
+					<div style = "background-color: white;">
+						<input type ="text" id="title" name = "title" placeholder="제목을 입력하세요" style = " resize: none;" required>
+						<hr style = "margin-top: 2em !important; margin-bottom: 1em !important;">
+                        </div>
+					
+						<div class="profile">
+						
+                    <label><input type="file" name ="communityPic"style="display:none;">
+                    <img class="profileImg"src="https://cdn.discordapp.com/attachments/953473528030715988/957320833628504125/unknown.png" 
+                    style="width: 30px; border-radius: 10px; cursor: pointer; ">
+                    	<span style = "font-size: 12px; vertical-align: top; font-weight: 200;"> 썸네일을 등록해주세요.</span></label>
+                    </div>    
+						
+						
+						<div    style =" margin-top: -30px;">
+							<br>
+							
+						<!-- 	<textarea id="summernote" name="content"></textarea> -->
+							 <textarea id="summernote" name="editordata" required></textarea>
+						</div>
+						
+						
+					</div>
+				</div>
+			
+  </form>
+				
+				
+		
+
+		</div>
+			<!--footer-->
+			 <div class="wrapper">
+				<div class="inner">
+				   <jsp:include page="/app/fix/footer.jsp"/>
+				</div>
+			 </div>
+				
+
+		<!-- Scripts -->
+			<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+			<script src="${pageContext.request.contextPath}/assets/js/jquery.scrolly.min.js"></script>
+			<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
+			<script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
+			<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
+			<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
+			<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  			<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  			<script src="${pageContext.request.contextPath}/assets/js/summernote/summernote-lite.js"></script>
+  			<script src="${pageContext.request.contextPath}/assets/js/summernote/lang/summernote-ko-KR/js"></script>
+  			<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+			<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+			 <script src="${pageContext.request.contextPath}/assets/js/WriteProfile.js"></script>
+  			
+  			<script>
+  				function send(){
+  				  	var str = $("#summernote").summernote("code");
+  		        	console.log(str);
+  		        	
+  					writeForm.submit();
+  				}	
+  				
+
+  			  $(document).ready(function() {
+  			       $('#summernote').summernote({
+  			              tabsize: 2,
+  			             // width: 600,
+  			              height: 490,
+  			  
+  			              toolbar: [
+  			            	  ['fontname', ['fontname']],
+  						    ['fontsize', ['fontsize']],
+  						    ['style', ['bold', 'italic', 'underline', 'clear']],
+  						    ['color', ['forecolor','color']],
+  						    ['para', ['ul', 'ol', 'paragraph']],
+  						    ['height', ['height']],
+  						    ['insert',['picture','link']]
+  						  ],
+  						  
+  							
+  						fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
+  						fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],
+  			           
+  			                callbacks: {
+  			                 onImageUpload: function(files, editor, welEditable) { 			                      
+		  			                	 
+		  			                    sendFile(files[0], this, welEditable);
+  			                  }
+  			       
+  			                }
+  			            });
+  			   });
+  			   
+  			   function sendFile(file, editor, welEditable){
+  			      data = new FormData();
+  			      data.append("file", file);
+  			      $.ajax({
+  			         data: data,
+  			         type: "post",
+  			         url: "${pageContext.request.contextPath}/fileUpload",
+  			         cache: false,
+  			         contentType: false,
+  			         processData: false,
+  			         dataType: "json",
+  			         success: function(url){
+  			            console.log(url.url);
+  			            $(editor).summernote("editor.insertImage", url.url);
+  			         }
+  			      });
+  			   }
+
+  				
+  			</script>
+  			
+		
+  
+			
+	</body>
+</html>

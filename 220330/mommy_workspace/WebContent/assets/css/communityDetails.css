@@ -1,0 +1,322 @@
+@charset "UTF-8";
+
+	
+		@font-face {
+		    font-family: 'GmarketSansMedium';
+		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+
+        @font-face {
+            font-family: 'GmarketSansLight';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+            @media (max-width: 576px){
+     
+            
+             #toc-content {
+            display: none;
+            padding-left:0px;
+        }
+        #toc-toggle {
+            cursor: pointer;
+            color: #ffb61a;
+        }
+        #toc-toggle:hover {
+            text-decoration: underline;
+        }
+
+        .rep_a{
+            color:black;            
+        }
+
+        a img.close{
+            width:30px;
+            -webkit-filter: grayscale(100%);
+            filter : gray;
+            margin-top: 42px !important;
+        }
+        a:hover img.close{
+            -webkit-filter: grayscale(0%);
+            filter: none;
+        }
+
+        .textOnImg{
+            position: absolute;
+            color: white;
+            left: 50%;
+            top: 50%;
+			transform:translate(-50%, -50%);
+            font-family: GmarketSansMedium !important;
+			font-size: 2em;
+        }
+	
+		
+		h2.myh2{
+			color:white;
+			font-family: GmarketSansMedium !important;
+		}
+
+                
+        .gray{
+            color:#b7b7b7;
+            
+        }
+
+        #main h1,  #main h2,  #main h3,  #main h4,  #main h5,  #main h6, #main p, #main strong{
+            color:black;
+        }
+ 
+		.profile{
+            
+            width: 28px; border-radius: 150px;
+        }
+
+        #innerText p{
+            margin: 0 !important;
+        }
+
+        .close{
+
+            text-align: right;
+    margin-bottom: 0 !important;
+        }
+
+        .commentImg{
+            float:left;
+            width:25px;
+            margin-top: 2px;
+            margin-right: 5px;
+        }
+
+        p.nickname{
+            margin: 0 0 1em 0;
+            font-size:16px;
+        }
+
+        p.comment {
+            margin: 0;
+            font-size:16px;
+        }
+
+        p.commentDate{
+            color: #b7b7b7 !important;
+            font-size: 13px;
+            font-family: tahoma, 돋음 !important;
+            margin: 0 0 0 0;
+        }
+
+        hr.splitComment {
+            margin: 1.7em 0;
+        }
+        
+		.profileComment{
+            width: 23px;
+            border-radius: 150px;
+            margin-top: 5px;
+        }
+
+        .commentGray{
+            font-size:15px;
+            color: #b7b7b7 !important;
+        }
+
+        .commentBox{
+            border-radius: 0px;
+            resize: none !important;
+            font-size: 16px;
+            overflow: hidden !important;
+            height: 130px !important;
+            background: #FFF7CA;
+            border: solid 1px #f6f6f6;
+            color: black;
+        }
+
+        input.submitButton{
+            float:right;
+            background-color: #ffb61a !important;
+            box-shadow: inset 0 0 0 1px white;
+            color:white !important;
+            width: 12%;
+            height:5%;
+            font-size: 12px;
+            margin-top:10px;
+                width: 21% !important;
+        }
+
+        input[type="submit"]:hover{
+            color:white !important;
+            box-shadow: inset 0 0 0 1px white !important;
+            box-shadow: inset 0 0 0 1px #ffb61a !important;
+            width: 72px !important;
+		}
+		
+		.media1{
+		margin-top: 28px !important;
+    font-size: 13px !important;}
+		.media2{
+		}
+		.media3{width: 120% !important;
+    margin-left: -67px !important;
+		}
+		.media4{    width: 111% !important;
+		}
+		.media5{
+		
+		
+		}
+		.media6{
+		
+		}
+		.media7{
+		
+		}
+		.media8{
+		
+		}
+		
+		
+		
+		
+            
+            }
+            
+            
+            
+            /*---------------------------------------------------------------------------------------------------------  */
+        #toc-content {
+            display: none;
+            padding-left:0px;
+        }
+        #toc-toggle {
+            cursor: pointer;
+            color: #ffb61a;
+        }
+        #toc-toggle:hover {
+            text-decoration: underline;
+        }
+
+        .rep_a{
+            color:black;            
+        }
+
+        a img.close{
+            width:30px;
+            -webkit-filter: grayscale(100%);
+            filter : gray;
+        }
+        a:hover img.close{
+            -webkit-filter: grayscale(0%);
+            filter: none;
+        }
+
+        .textOnImg{
+            position: absolute;
+            color: white;
+            left: 50%;
+            top: 50%;
+			transform:translate(-50%, -50%);
+            font-family: GmarketSansMedium !important;
+			font-size: 2em;
+        }
+	
+		
+		h2.myh2{
+			color:white;
+			font-family: GmarketSansMedium !important;
+		}
+
+                
+        .gray{
+            color:#b7b7b7;
+            
+        }
+
+        #main h1,  #main h2,  #main h3,  #main h4,  #main h5,  #main h6, #main p, #main strong{
+            color:black;
+        }
+ 
+		.profile{
+            
+            width: 28px; border-radius: 150px;
+        }
+
+        #innerText p{
+            margin: 0 !important;
+        }
+
+        .close{
+            text-align: right;
+        }
+
+        .commentImg{
+            float:left;
+            width:25px;
+            margin-top: 2px;
+            margin-right: 5px;
+        }
+
+        p.nickname{
+            margin: 0 0 1em 0;
+            font-size:16px;
+        }
+
+        p.comment {
+            margin: 0;
+            font-size:16px;
+        }
+
+        p.commentDate{
+            color: #b7b7b7 !important;
+            font-size: 13px;
+            font-family: tahoma, 돋음 !important;
+            margin: 0 0 0 0;
+        }
+
+        hr.splitComment {
+            margin: 1.7em 0;
+        }
+        
+		.profileComment{
+            width: 23px;
+            border-radius: 150px;
+            margin-top: 5px;
+        }
+
+        .commentGray{
+            font-size:15px;
+            color: #b7b7b7 !important;
+        }
+
+        .commentBox{
+            border-radius: 0px;
+            resize: none !important;
+            font-size: 16px;
+            overflow: hidden !important;
+            height: 130px !important;
+            background: #FFF7CA;
+            border: solid 1px #f6f6f6;
+            color: black;
+        }
+
+        input.submitButton{
+            float:right;
+            background-color: #ffb61a !important;
+            box-shadow: inset 0 0 0 1px white;
+            color:white !important;
+            width: 12%;
+            height:5%;
+            font-size: 12px;
+            margin-top:10px;
+        }
+
+        input[type="submit"]:hover{
+            color:white !important;
+            box-shadow: inset 0 0 0 1px white !important;
+            box-shadow: inset 0 0 0 1px #ffb61a !important;
+            
+		}

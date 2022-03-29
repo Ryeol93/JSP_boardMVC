@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http//mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Community">
+ 
+   
+   <!-- 게시글 목록 -->
+   
+   	<!-- <select id="selectAll" parameterType="map" resultType="boardVO">
+		select boardNumber, boardTitle, boardContent, memberNumber, boardDate, readCount from tbl_board 
+		order by 1 desc limit #{startRow}, #{rowCount}
+	</select> -->
+
+	<select id="selectAll" parameterType="map" resultType="communityDTO">
+		select communityTitle, communityContent, boardDate, communityCategory, communityNum, fileName
+		from tbl_community 
+		order by communityNum desc  limit #{startRow}, #{rowCount}
+	</select>
+	
+
+<!-- 게시글 상세보기(전체 정보 조회) -->
+	<select id="selectDetail" parameterType="_int" resultType="communityDTO">
+		<!-- profile 연결 후 아래 쿼리문으로 변경
+		 select communityTitle, communityContent, userStatus, communityCategory, c.userNum, userId, profilePicture, boardDate
+		from tbl_community c join tbl_user u 
+		on  c.userNum = u.userNum join tbl_profile p 
+		on  c.userNum = p.userNum and communityNum = #{communityNum}
+		-->
+		
+		select communityNum, communityTitle, communityContent, communityCategory, c.userNum, userId,userStatus, boardDate
+		from tbl_community c 
+		join tbl_user u on  c.userNum = u.userNum 
+	and communityNum = #{communityNum}
+	</select>
+	
+	<!-- 최근 게시글 번호 -->
+	<select id="getSeq" resultType="_int">
+		select communityNum from tbl_community
+		order by 1 desc limit 0, 1;
+	</select>
+	
+	<!-- 게시글 전체 개수  -->
+	<select id="getTotal" resultType="_int">
+		select count(communityNum) from tbl_community
+	</select>
+	
+	<!-- 게시글 작성 -->
+	<insert id="insert" parameterType="communityVO">
+		insert into tbl_community (communityTitle, communityContent, communityCategory, userNum, boardDate) 
+		values(#{communityTitle}, #{communityContent}, #{communityCategory}, #{userNum}, now())
+	</insert>
+	
+	<!-- 게시글 삭제 -->
+	<delete id="delete" parameterType="_int">
+		delete from tbl_community where communityNum = #{communityNum}
+	</delete>
+	<!-- 게시글 전체 삭제 -->
+	<delete id="allDelete" parameterType="_int">
+		delete from tbl_community where userNum = #{userNum}
+	</delete>
+	
+	<!-- 게시글 수정 -->
+	<update id="update" parameterType="communityVO">
+		update tbl_community
+		set communityTitle=#{communityTitle}, communityContent=#{communityContent}
+		where communityNum = #{communityNum}
+	</update>
+ 
+ 
+ <!-- 댓글 목록 -->
+	<select id="selectComments" parameterType="_int" resultType="communityCommentDTO">		
+		select commentNum, communityNum, commentDate, c.userNum, userId, commentContent
+		from tbl_communitycomment c join tbl_user u 
+		on c.userNum = u.userNum and communityNum = #{communityNum}
+		order by 1 desc
+	</select>
+	
+	<!-- 댓글 등록 -->
+	<insert id="insertComment" parameterType="communityCommentVO">
+		insert into tbl_communitycomment
+		(communityNum, commentDate, userNum, commentContent)
+		values(#{communityNum}, now(), #{userNum}, #{commentContent})
+	</insert>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="deleteComment" parameterType="_int">
+		delete from tbl_communitycomment where commentNum = #{commentNum}
+	</delete>
+	<!-- 댓글 전체 삭제 -->
+	<delete id="deleteAllComment" parameterType="_int">
+		delete from tbl_communitycomment where userNum = #{userNum}
+	</delete>
+	
+	<!-- 댓글 수정 -->
+	<update id="updateComment" parameterType="communityCommentVO">
+		update tbl_communitycomment 
+		set commentContent = #{commentContent} 
+		where commentNum = #{commentNum}
+	</update>
+	
+	
+	<!-- 커뮤니티 넘으로 유저넘 조회 -->
+	<select id="getUserNum" parameterType="_int" resultType="_int">		
+	select userNum from tbl_community
+	where communityNum = #{commentNum}
+	</select>
+</mapper>
+	
+	<!-- 게시글 상세보기(전체 정보 조회) 
+	<select id="selectDetail" parameterType="_int" resultType="communityDTO">
+		select communityNum, communityTitle, communityContent, c.userNum, boardDate, communityCategory, userId 
+		from tbl_community c join tbl_user u 
+		on  c.userNum = u.userNum and communityNum = #{communityNum}
+	</select>
+	-->
+	
+	 <!-- 게시글 내용 미리보기 
+   <select id="" parameterType="map" resultType="communityVO">
+	      select left(communityContent,15), communityNum 
+	      from tbl_community 
+	      order by communityNum desc  limit #{startRow}, #{rowCount}
+     </select>
+ -->

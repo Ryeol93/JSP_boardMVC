@@ -1,0 +1,932 @@
+const body = document.querySelector('body');
+    function open(){
+      document.querySelector(".modal").classList.remove("hidden");
+    }
+  
+    function close(){
+      document.querySelector(".modal").classList.add("hidden");
+    }
+    
+    function open2(){
+    	document.querySelector(".modal2").classList.remove("hidden");
+    }
+    
+    function close2(){
+    	document.querySelector(".modal2").classList.add("hidden");
+    }
+    
+    
+    function open3(){
+    	document.querySelector(".modal3").classList.remove("hidden");
+    }
+    
+    function close3(){
+    	document.querySelector(".modal3").classList.add("hidden");
+    }
+  
+
+    document.querySelector(".openBtn").addEventListener("click", open);
+    document.querySelector(".bg").addEventListener("click", close);
+    
+    document.querySelector(".openBtn2").addEventListener("click", open2);
+    document.querySelector(".bg2").addEventListener("click", close2);
+  
+    document.querySelector(".openBtn3").addEventListener("click", open3);
+    document.querySelector(".bg3").addEventListener("click", close3);
+
+    
+    console.log("찍힘");
+ 
+
+	
+		const $heart = $('.heart');
+
+		$heart.on("click", function(){
+
+			if($(this).attr("src")=='../images/emptyHeart.png'){
+				
+				$(this).attr("src", '../images/heart.png');
+			}else{
+			
+				$(this).attr("src", '../images/emptyHeart.png');
+			}
+			
+		});
+		
+		
+	    console.log("찍힘");
+		
+		
+/*		window.addEventListener( 'message', (e) => {
+		    // 전달 된 데이터 
+		    console.log( e.data.functionName );
+		  
+		    // 부모창의 함수 실행
+		    if( e.data.functionName === 'modal' ){
+		    		console.log(e.data.baby);
+		    		$('input[name=baby]').val(e.data.baby);
+		    }
+		      
+		});
+		*/
+		
+		  const $newbornBaby = $("img#newbornBaby");
+		    const $baby = $("img#baby");
+		    const $kinder = $("img#kinder");
+		    const $elementary =$("img#elementary");
+		    const $monday = $("img#monday");
+		    const $tuesday = $("img#tuesday ");
+		    const $wednesday = $("img#wednesday");
+		    const $thursday = $("img#thursday");
+		    const $friday = $("img#friday");
+		    const $saturday = $("img#saturday");
+		    const $sunday = $("img#sunday");
+		    const $morning = $("img#morning");
+		    const $lunch = $("img#lunch");
+		    const $dinner = $("img#dinner");
+		    const $play = $("img#play ");
+		    const $goingSchool = $("img#goingSchool");
+		    const $makeEat = $("img#makeEat");
+		    const $cleaning = $("img#cleaning");
+		    const $study = $("img#study");
+		    
+		    $newbornBaby.on("click",function(){
+
+		        if($newbornBaby.attr('src')=='../images/신생아.png'){
+		    		$newbornBaby.removeClass('on');
+		            $newbornBaby.attr('src','../images/신생아no.png');
+					}else{
+						$newbornBaby.attr('src','../images/신생아.png');
+						$newbornBaby.addClass('on');
+					}
+		    })
+
+		    $baby.on("click",function(){
+		        if($baby.attr('src')=='../images/영아.png'){
+		        	$baby.removeClass('on');
+		            $baby.attr('src','../images/영아no.png');
+					}else{$baby.attr('src','../images/영아.png');
+					$baby.addClass('on');
+					}
+		    })
+		   
+		    $kinder.on("click",function(){
+		        if($kinder.attr('src')=='../images/유치원.png'){
+		        	$kinder.removeClass('on');
+		            $kinder.attr('src','../images/유치원no.png');
+					}else{$kinder.attr('src','../images/유치원.png');
+					$kinder.addClass('on');}
+		    })
+		    $elementary.on("click",function(){
+		        if($elementary.attr('src')=='../images/초등학생.png'){
+		        	$elementary.removeClass('on');
+		            $elementary.attr('src','../images/초등학생no.png');
+					}else{$elementary.attr('src','../images/초등학생.png');
+					$elementary.addClass('on');}
+		    })
+		    $monday.on("click",function(){
+		        if($monday.attr('src')=='../images/월1.png'){
+		        	$monday.removeClass('on');
+		            $monday.attr('src','../images/월.png');
+					}else{
+					$monday.attr('src','../images/월1.png');
+					$monday.addClass('on');}
+		    })
+		    $tuesday.on("click",function(){
+		        if($tuesday.attr('src')=='../images/화1.png'){
+		        	$tuesday.removeClass('on');
+		            $tuesday.attr('src','../images/화.png');
+					}else{$tuesday.attr('src','../images/화1.png');
+					$tuesday.addClass('on');}
+		    })
+		    $wednesday.on("click",function(){
+		        if($wednesday.attr('src')=='../images/수1.png'){
+		        	$wednesday.removeClass('on');
+		            $wednesday.attr('src','../images/수.png');
+					}else{$wednesday.attr('src','../images/수1.png');
+					$wednesday.addClass('on');}
+		    })
+		    $thursday.on("click",function(){
+		        if($thursday.attr('src')=='../images/목1.png'){
+		        	$thursday.removeClass('on');
+		            $thursday.attr('src','../images/목.png');
+					}else{$thursday.attr('src','../images/목1.png');
+					$thursday.addClass('on');}
+		    })
+		    $friday.on("click",function(){
+		        if($friday.attr('src')=='../images/금1.png'){
+		        	$friday.removeClass('on');
+		            $friday.attr('src','../images/금.png');
+					}else{$friday.attr('src','../images/금1.png');
+					$friday.addClass('on');
+		}
+		    })
+		    $saturday.on("click",function(){
+		        if($saturday.attr('src')=='../images/토1.png'){
+		        	$saturday.removeClass('on');
+		            $saturday.attr('src','../images/토.png');
+					}else{$saturday.attr('src','../images/토1.png');
+					$saturday.addClass('on');}
+		    })
+		    $sunday.on("click",function(){
+		        if($sunday.attr('src')=='../images/일1.png'){
+		        	$sunday.removeClass('on');
+		            $sunday.attr('src','../images/일.png');
+					}else{$sunday.attr('src','../images/일1.png');
+					$sunday.addClass('on');}
+		    })
+		    $morning.on("click",function(){
+		        if($morning.attr('src')=='../images/아침.png'){
+		        	$morning.removeClass('on');
+		            $morning.attr('src','../images/아침1.png');
+					}else{$morning.attr('src','../images/아침.png');
+					$morning.addClass('on');}
+		    })
+		    $lunch.on("click",function(){
+		        if($lunch.attr('src')=='../images/오후.png'){
+					$lunch.removeClass('on');
+		            $lunch.attr('src','../images/오후1.png');
+					}else{$lunch.attr('src','../images/오후.png');
+					$lunch.addClass('on');}
+		    })
+		    $dinner.on("click",function(){
+		        if($dinner.attr('src')=='../images/저녁.png'){
+		        	$dinner.removeClass('on');
+		            $dinner.attr('src','../images/저녁1.png');
+					}else{$dinner.attr('src','../images/저녁.png');
+					$dinner.addClass('on');}
+		    })
+		   
+		    $play.on("click",function(){
+		        if($play.attr('src')=='../images/실내놀이.png'){
+		        	$play.removeClass('on');
+		            $play.attr('src','../images/no실내놀이.png');
+					}else{$play.attr('src','../images/실내놀이.png');
+					$play.addClass('on');}
+		    })
+		    $goingSchool.on("click",function(){
+		        if($goingSchool.attr('src')=='../images/등하원.png'){
+		        	$goingSchool.removeClass('on');
+		            $goingSchool.attr('src','../images/no등하원.png');
+					}else{$goingSchool.attr('src','../images/등하원.png');
+					$goingSchool.addClass('on');}
+		    })
+		    $makeEat.on("click",function(){
+		        if($makeEat.attr('src')=='../images/밥챙겨주기.png'){
+		        	$makeEat.removeClass('on');
+		            $makeEat.attr('src','../images/no밥챙겨주기.png');
+					}else{$makeEat.attr('src','../images/밥챙겨주기.png');
+					$makeEat.addClass('on');}
+		    })
+		    $cleaning.on("click",function(){
+		        if($cleaning.attr('src')=='../images/청소.png'){
+		        	$cleaning.removeClass('on');
+		            $cleaning.attr('src','../images/no청소.png');
+					}else{$cleaning.attr('src','../images/청소.png');
+					$cleaning.addClass('on');}
+		    })
+		    $study.on("click",function(){
+		        if($study.attr('src')=='../images/학습지도.png'){
+		        	$study.removeClass('on');
+		        	$study.attr('src','../images/no학습지도.png');
+					}else{$study.attr('src','../images/학습지도.png');
+					$study.addClass('on');}
+		    })
+	    console.log("찍힘");	   
+
+		   
+    var newbornBaby=0;
+    var baby =0;
+    var kinder = 0;
+    var elementary =0;
+    var monday = 0;
+    var tuesday = 0;
+    var wednesday = 0;
+    var thursday = 0;
+    var friday = 0;
+    var saturday = 0;
+    var sunday = 0;
+    var morning = 0;
+    var lunch = 0;
+    var dinner = 0;
+    var twenty= 0;
+    var thirty= 0;
+    var fourty= 0;
+    var fifty= 0;
+    var sixty= 0;
+    var play = 0;
+    var goingSchool =0;
+    var makeEat = 0;
+    var cleaning = 0;
+    var study = 0;
+    var check=0;
+    console.log("찍힘");  
+    
+    $('#close').on("click",function(){
+    	careType=false;
+    	check=1;
+    	console.log(check);
+    	if($("#baby").hasClass("on")==true){
+    		baby=1; 
+    		console.log("베이비 찍힘");
+    	}else{baby=0;}
+    	
+    	if($("#newbornBaby").hasClass('on')==true){
+    		newbornBaby=1;
+    		console.log("신생아 찍힘");
+    	}else{newbornBaby=0;}
+    	if($("#kinder").hasClass('on')==true){
+    		kinder=1;
+    		console.log("유치원 찍힘");
+     		
+    	}else{kinder=0;}
+    	if($("#elementary").hasClass('on')==true){
+    		elementary =1; 
+    		console.log("초등학생 찍힘");
+     		
+    	}else{elementary=0;}
+    	if($("#monday").hasClass('on')==true){
+    		monday=1; 
+     		
+    	}else{monday=0;}
+    	if($("#tuesday").hasClass('on')==true){
+    		tuesday =1; 
+    	}else{tuesday=0;}
+    	if($("#wednesday").hasClass('on')==true){
+    		wednesday =1; 
+    	}else{wednesday=0;}
+    	if($("#thursday").hasClass('on')==true){
+    		thursday =1;
+    	}else{thursday=0;}
+    	if($("#friday").hasClass('on')==true){
+    		friday =1; 
+    	}else{friday=0;}
+    	if($("#saturday").hasClass('on')==true){
+    		saturday =1;
+    	}else{saturday=0;}
+    	if($("#sunday").hasClass('on')==true){
+    		sunday =1; 
+    	}else{sunday=0;}
+    	if($("#morning").hasClass('on')==true){
+    		morning =1;
+    	}else{morning=0;}
+    	if($("#lunch").hasClass('on')==true){
+    		lunch =1; 
+    	}else{lunch=0;}
+    	if($("#dinner").hasClass('on')==true){
+    		dinner =1; 
+    	}else{dinner=0;}
+    	
+    	if($("#play").hasClass('on')==true){
+    		play =1; 
+    	}else{play=0;}
+    	if($("#goingSchool").hasClass('on')==true){
+    		goingSchool =1; 
+    	}else{goingSchool=0;}
+    	if($("#makeEat").hasClass('on')==true){
+    		makeEat  =1; 
+    	}else{makeEat=0;}
+    	if($("#cleaning").hasClass('on')==true){
+    		cleaning  =1; 
+    	}else{cleaning=0;}
+    	if($("#study").hasClass('on')==true){
+    		study  =1;  
+    	}else{study=0;}
+    	
+//    	submit();
+    	
+    	// 리스트 초기화
+    	$(".userAll").empty();
+    	
+    	// 필터 초기화
+    	page = 1;
+    	isLast = false;
+    	
+    	// 리스트 조회
+    	getList();
+    	
+    	// 모달 팝업 닫기
+    	close();
+
+    });
+
+    console.log("찍힘");
+   
+    
+//	돌봄유형 모달창--------------------------------------------------------------------------
+		const $goToSchool=$('#goToSchool');
+		const $teach =$('#teach');
+		const $fullTime=$('#fullTime');
+		const $assistance=$('#assistance');
+		const $emergency=$('#emergency');
+		const $fullType=$('#fullType');
+		var careType=false;
+		var careNum=0;
+	    console.log("찍힘");	
+		$goToSchool.on("click",function(){
+			careType=true;
+			careNum=1;
+			
+			getList1();
+			
+				// 리스트 초기화
+		    	$(".userAll").empty();
+		    	
+		    	// 필터 초기화
+		    	page = 1;
+		    	isLast = false;
+
+		    	// 모달 팝업 닫기
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
+			 
+		})
+		
+		$teach.on("click",function(){
+			careType=true;
+			careNum=2;
+	
+				// 리스트 초기화
+		    	$(".userAll").empty();
+		    	
+		    	// 필터 초기화
+		    	page = 1;
+		    	isLast = false;
+
+		    	getList2();
+		    	// 모달 팝업 닫기
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
+		})
+		
+		$fullTime.on("click",function(){
+			careType=true;
+			careNum=3;
+			
+			
+				// 리스트 초기화
+		    	$(".userAll").empty();
+		    	
+		    	// 필터 초기화
+		    	page = 1;
+		    	isLast = false;
+
+		    	getList3();
+		    	// 모달 팝업 닫기
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
+		})
+		
+		$assistance.on("click",function(){
+			careType=true;
+			careNum=4;
+				// 리스트 초기화
+		    	$(".userAll").empty();
+		    	
+		    	// 필터 초기화
+		    	page = 1;
+		    	isLast = false;
+
+		    	getList4();
+		    	// 모달 팝업 닫기
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
+		})
+		
+		$emergency.on("click",function(){
+			careType=true;
+			careNum=5;
+				// 리스트 초기화
+		    	$(".userAll").empty();
+		    	
+		    	// 필터 초기화
+		    	page = 1;
+		    	isLast = false;
+
+		    	getList5();
+		    	// 모달 팝업 닫기
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
+		})
+		
+		$fullType.on("click",function(){
+			careType=true;
+			careNum=6;
+		
+				// 리스트 초기화
+		    	$(".userAll").empty();
+		    	
+		    	// 필터 초기화
+		    	page = 1;
+		    	isLast = false;
+
+		    	getList6();
+		    	// 모달 팝업 닫기
+		    	document.querySelector(".modal2").classList.add("hidden");
+//		    	close();
+		})
+		
+// 돌봄지역 모달창-------------------------------------------------------------------------
+		var areaModal=false;
+		$('#areaButton').on("click",function(){
+			areaModal=true;
+			careType=true;
+//			careNum=7;
+		
+		
+				// 리스트 초기화
+		    	$(".userAll").empty();
+		    	
+		    	// 필터 초기화
+		    	page = 1;
+		    	isLast = false;
+		    	
+		    	getList7();
+		    	document.querySelector(".modal3").classList.add("hidden");
+		    	// 모달 팝업 닫기
+//		    	close();
+		})
+
+	
+//	----------------------------------------------------------------------주소 시군동 오픈소스
+	$(document).ready(function(){
+	  //sido option 추가
+	  $.each(hangjungdong.sido, function(idx, code){
+	    //append를 이용하여 option 하위에 붙여넣음
+	    $('#sido').append(fn_option(code.sido, code.codeNm));
+	  });
+	
+	  //sido 변경시 시군구 option 추가
+	  $('#sido').change(function(){
+	    $('#sigugun').show();
+	    $('#sigugun').empty();
+	    $('#sigugun').append(fn_option('','선택')); //
+	    $.each(hangjungdong.sigugun, function(idx, code){
+	      if($('#sido > option:selected').val() == code.sido)
+	        $('#sigugun').append(fn_option(code.sigugun, code.codeNm));
+	    });
+	
+	    //세종특별자치시 예외처리
+	    //옵션값을 읽어 비교
+	    if($('#sido option:selected').val() == '36'){
+	      $('#sigugun').hide();
+	      //index를 이용해서 selected 속성(attr)추가
+	      //기본 선택 옵션이 최상위로 index 0을 가짐
+	      $('#sigugun option:eq(1)').attr('selected', 'selected');
+	      //trigger를 이용해 change 실행
+	      $('#sigugun').trigger('change');
+	    }
+	  });
+	
+	  //시군구 변경시 행정동 옵션추가
+	  $('#sigugun').change(function(){
+	    //option 제거
+	    $('#dong').empty();
+	    $.each(hangjungdong.dong, function(idx, code){
+	      if($('#sido > option:selected').val() == code.sido && $('#sigugun > option:selected').val() == code.sigugun)
+	        $('#dong').append(fn_option(code.dong, code.codeNm));
+	    });
+	    //option의 맨앞에 추가
+	    $('#dong').prepend(fn_option('','선택'));
+	    //option중 선택을 기본으로 선택
+	    $('#dong option:eq("")').attr('selected', 'selected');
+	
+	  });
+	
+	  $('#dong').change(function(){
+	    var sido = $('#sido option:selected').val();
+	    var sigugun = $('#sigugun option:selected').val();
+	    var dong = $('#dong option:selected').val();
+	    var dongCode = sido + sigugun + dong + '00';
+
+	  });
+	});
+	
+	function fn_option(code, name){
+	  return '<option value="' + code +'">' + name +'</option>';
+	}
+	
+//	무한스크롤---------------------------------------------------------------------------------------
+
+	/*	$(window).scroll(function(){
+		alert('스크롤 동작 감지')
+	});*/
+
+	var page = 1; // 페이지 번호
+	var isLast = false; // 마지막 페이지 여부
+	
+	$(window).scroll(function(){
+	    console.log("찍힘");
+		console.log("스크롤이벤트들어옴");
+		var scrT = $(window).scrollTop();
+//		console.log(scrT + "스크롤값");
+		/*  console.log(scrT); //스크롤 값 확인용*/		
+		//document.height=문서의 높이
+		//window.heigth=보여지는 창의 높이 
+	/*	console.log($(document).height() + "문서높이");
+		console.log($(window).height() + "보여지는 창의 높이");*/
+		if(scrT +1>= $(document).height() - $(window).height())
+		{
+			//스크롤이 끝에 도달했을때 실행될 이벤트
+//			console.log("스크롤끝에 닿았다");
+//			$(".userAll").append(userProfile);
+			if (!isLast) { // 마지막 페이지가 아닐 경우 리스트 조회
+				 if(!careType){
+					 ++page; // 페이지 번호 1증가
+				getList();	// 리스트 조회
+				 }else if(careNum==1){++page; getList1();}
+				 else if(careNum==2){++page; getList2();}
+				 else if(careNum==3){++page; getList3();}
+				 else if(careNum==4){++page; getList4();}
+				 else if(careNum==5){++page; getList5();}
+				 else if(careNum==6){++page; getList6();}
+				 else if(areaModal){++page; getList7();}
+			} else { // 마지막 페이지일 경우
+			}
+		} else {
+//			console.log("스크롤아직 끝에 안닿았다");
+			//아닐때 이벤트
+		}
+		
+	});
+	
+	// 리스트 조회
+	 function getList() {
+		
+		 // 페이지 파라미터 (필터링 값, 페이지 번호)
+		 const data = {
+				 "page": page,
+				 "babyNewborn": newbornBaby,
+				 "babyKinder": kinder,
+				 "babyChild": baby,
+				 "babyElementary": elementary,
+				 "P_mon": monday,
+				 "P_tue": tuesday,
+				 "P_wed": wednesday,
+				 "P_thu": thursday,
+				 "P_fri": friday,
+				 "P_sat": saturday,
+				 "P_sun": sunday,
+				 "P_morning": morning,
+				 "P_lunch": lunch,
+				 "P_noon": dinner,
+				 "careIndoor": play,
+				 "careCommit": goingSchool,
+				 "careFood": makeEat,
+				 "careClean": cleaning,
+				 "careStudy": study,
+				 "check":check
+		 }
+	     
+	     // 컨트롤러 호출
+		 $.ajax({
+			 type: "GET",
+			 url: "/mommy_workspace/service/SearchJobOk2.ser",
+			 data: data,
+	         contentType: "application/json;charset=utf-8", // 보내는 타입
+			 dataType: "json", // 받는 타입
+			 success: function(result) { // 조회 성공일 경우
+				 if (result.length > 0) { // 조회 결과가 있을 경우
+					 addList(result); // 페이지에 리스트 추가
+				 } else { // 조회 결과가 없을 경우
+					 isLast = true; // 마지막 페이지
+				 }
+			 },
+			 error: function(err) { // 조회 에러일 경우
+				 console.log("error : ", err);
+			 }
+		 })
+	 }
+	
+	 // 페이지 리스트 추가
+		function addList(result) {
+			console.log("addList실행");
+			// result 개수만큼 반복
+			for (var i = 0; i < result.length; i++) {
+				var userProfile="<div class='userPf'>";
+				userProfile+="<div class='userImg  medi2'>";
+				userProfile+="	<!-- 유저 사진 -->";
+				if(result[i].ProfilePicture=="" || result[i].ProfilePicture==null ){
+					console.log("픽쳐 널일때 들어옴")
+					userProfile+="<img src='../images/아이.png'class='userImgDetail'>";
+				}else{
+					console.log("픽쳐 널아님")
+					userProfile+="<img src='/profileData/"+result[i].ProfilePicture+"'class='userImgDetail medi3'>";
+				}
+				userProfile+="</div>";
+				userProfile+="<div class='userName'>";
+				userProfile+="	<!-- 게시글 제목 -->";
+				userProfile+="	<h4 style='margin-bottom: 0;'><a href='"+contextPath+"/service/LookMomProfileOk.ser?userNum="+result[i].userNum+"&profile="+result[i].profileNum+"' style='border:none;'>";
+				userProfile+=""+result[i].ProfileDescription+"</a></h4>";
+				userProfile+="	<div class='mobileAd'>";
+				userProfile+="		<!-- 주소 -->";
+				userProfile+="		<span class='span medi6'>"+result[i].LocationSido+result[i].LocationSigun+" </span>&nbsp;";
+				userProfile+="		<div class='line medi7'></div>&nbsp;&nbsp;";
+				userProfile+="		<!-- 아이정보 -->";
+					if(result[i].BabyNewborn==1){
+						userProfile+="<span class='span medi6'>신생아</span>&nbsp;";
+					}
+					else if(result[i].BabyChild==1){
+						userProfile+="<span class='span medi6'>유아</span>&nbsp;";
+					}
+					else if(result[i].BabyKinder==1){
+						userProfile+="<span class='span medi6'>유치원생</span>&nbsp;";
+					}
+					else if(result[i].BabyElementary==1){
+						userProfile+="<span class='span medi6'>초등학생</span>&nbsp;";
+					}else{
+						userProfile+="<span class='span medi6'>정보 없음</span>&nbsp;";
+						
+					}
+		
+				userProfile+="		<div class='line medi14'></div>";
+				userProfile+="		<!-- 시작날짜 -->";
+				userProfile+="		<span class='span medi15'>&nbsp;&nbsp;&nbsp;"+result[i].periodStartDate+"시작</span>";
+				userProfile+="		&nbsp;&nbsp;";
+				userProfile+="</div>";
+				userProfile+="	<div class='fontSize'>";
+				userProfile+="		<div class='money'>";
+				userProfile+="		<img src='../images/money.png' style='width:100%;'>";
+				userProfile+="		</div>";
+				userProfile+="		<!-- 희망시급, 협의가능여부 -->";
+				userProfile+="		희망시급 "+result[i].getProfileSalary+"원</div>";
+				userProfile+="		<hr style='margin: 7px 0px;width: 100%;' class='medi16'>";
+				userProfile+="		<!-- 돌봄가능날짜 -->";
+				userProfile+="		<div class='day'>";
+				userProfile+="		<div class='days'>";
+					if(result[i].mon==1){
+						userProfile+="<img src='../images/월1.png' style='width: 35px;'  class='medi12'>";
+					}else{
+						userProfile+="	<img src='../images/월.png' style='width: 35px;'  class='medi12'>";
+					}
+					if(result[i].tue==1){
+						userProfile+="<img src='../images/화1.png' style='width: 35px;'  class='medi12'>";
+					}else{
+						userProfile+="	<img src='../images/화.png' style='width: 35px;'  class='medi12'>";
+					}
+					if(result[i].wed==1){
+						userProfile+="<img src='../images/수1.png' style='width: 35px;'  class='medi12'>";
+					}else{
+						userProfile+="	<img src='../images/수.png' style='width: 35px;' class='medi12'>";
+					}
+					if(result[i].thu==1){
+						userProfile+="<img src='../images/목1.png' style='width: 35px;'  class='medi12'>";
+					}else{
+						userProfile+="	<img src='../images/목.png' style='width: 35px;' class='medi12'>";
+					}
+					if(result[i].fri==1){
+						userProfile+="<img src='../images/금1.png' style='width: 35px;'  class='medi12'>";
+					}else{
+						userProfile+="	<img src='../images/금.png' style='width: 35px;' class='medi12'>";
+					}
+					if(result[i].sat==1){
+						userProfile+="<img src='../images/토1.png' style='width: 35px;'  class='medi12'>";
+					}else{
+						userProfile+="	<img src='../images/토.png' style='width: 35px;' class='medi12'>";
+					}
+					if(result[i].sun==1){
+						userProfile+="<img src='../images/일1.png' style='width: 35px;'  class='medi12'>";
+					}else{
+						userProfile+="	<img src='../images/일.png' style='width: 35px;' class='medi12'>";
+					}
+
+				userProfile+="		</div>";
+				userProfile+="	</div>";
+				userProfile+="</div>";	
+				userProfile+="</div>";	
+				
+				$(".userAll").append(userProfile); 
+		}
+		}
+	    
+
+					
+
+
+				
+				
+	function getList1(){
+		
+		$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchJobOk2.ser",
+		 data: {"careType":1, "page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result);
+			 if (result.length > 0) { 
+				 addList(result); 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+}
+
+
+
+function getList2(){
+
+	$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchJobOk2.ser",
+		 data: {"careType":2, "page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result);
+			 if (result.length > 0) { 
+				 addList(result); 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+	 }
+
+
+
+
+function getList3(){
+	
+	$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchJobOk2.ser",
+		 data: {"careType":3,"page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result);
+			 if (result.length > 0) { 
+				 addList(result); 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+	}
+
+
+function getList4(){
+	
+	$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchJobOk2.ser",
+		 data: {"careType":4,"page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result);
+			 if (result.length > 0) { 
+				 addList(result); 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+	}
+
+
+function getList5(){
+
+	$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchJobOk2.ser",
+		 data: {"careType":5,"page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result.length);
+			 
+			 if (result.length > 0) { 
+				 addList(result); 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+	}
+
+
+function getList6(){ 
+
+	$.ajax({
+		 type: "GET",
+		 url: "/mommy_workspace/service/SearchJobOk2.ser",
+		 data: {"careType":6,"page":page},
+        contentType: "application/json;charset=utf-8",
+		 dataType: "json", // 받는 타입
+		 success: function(result) { 
+			 console.log(result);
+			 if (result.length > 0) { 
+				 addList(result); 
+			 } else {
+				 isLast = true;
+			 }
+		 },
+		 error: function(err) {
+			 console.log("error : ", err);
+		 }
+	 })
+	}
+	
+
+function getList7(){ 
+	
+	var locationSido=$("#sido option:selected").text();
+	var locationSigun=$("#sigugun option:selected").text();
+	var locationDong=$("#dong option:selected").text();
+
+	$.ajax({
+	 type: "GET",
+	 url: "/mommy_workspace/service/SearchJobOk2.ser",
+	 data: {"locationSido":locationSido, "locationSigun":locationSigun, "locationDong":locationDong,"page":page},
+     contentType: "application/json;charset=utf-8",
+	 dataType: "json", // 받는 타입
+	 success: function(result) { 
+		 console.log(result);
+		 if (result.length > 0) { 
+			 addList(result); 
+		 } else {
+			 isLast = true;
+		 }
+	 },
+	 error: function(err) {
+		 console.log("error : ", err);
+	 }
+ })
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http//mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ProfileFiles">
+
+
+	<!-- 첨부파일 추가 -->
+	<insert id="insert" parameterType="ProfileFilesVO">
+		insert into tbl_profileFiles (fileName, profileNum, fileNameOriginal) 
+		values(#{fileName}, #{profileNum}, #{fileNameOriginal})
+	</insert>
+	
+	<!-- 첨부파일 삭제 -->
+	<delete id="delete" parameterType="ProfileFilesVO">
+		delete from tbl_profileFiles where profileNum=#{profileNum}
+	</delete>
+	
+	<!-- 프로파일 번호로 이미지 파일 조회 -->
+	<select id="selectFileName"  parameterType="_int" resultType="string">
+	select fileName from tbl_profileFiles pf join tbl_profile p
+	on pf.profileNum  = p.profileNum and p.profileNum = #{profileNum} and (fileName like '%.jpg' or fileName like '%.png') 
+	</select>
+	
+	<!--  마이페이지  userNum으로 이미지파일 조회 -->
+	<select id="selectUserImg" parameterType="_int" resultType="string">
+	select fileName from tbl_profile p join tbl_profileFiles pf
+	on p.profileNum = pf.profileNum and p.userNum = #{userNum} and (fileName like '%.jpg' or fileName like '%.png')
+	</select>
+
+</mapper>
+

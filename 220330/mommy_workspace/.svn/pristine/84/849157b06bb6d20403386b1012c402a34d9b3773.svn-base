@@ -1,0 +1,53 @@
+#input_number{
+	top :0 !important;
+	padding : 0 !important;
+	margin : 10px 0  !important;
+	width: 33% !important;
+	display: inline-block !important;
+	padding-left: 10px !important;
+}
+hr{
+	text-align: center !important;
+	width: 50%  !important;
+	color :#ffb61a !important;
+	padding : 0 !important;
+	margin : 25px auto  !important;
+}
+.input_btn{
+	
+	display: inline-block !important;
+	padding : 0 !important;
+	margin : 0  !important;
+	height: 48px !important; 
+	border : 0 !important;
+	outline :0 !important;
+	color : white;
+	font-size:15px;
+	font-weight: bold;
+	padding : 0 5px !important;
+	background-color: #ffb61a;
+	border-radius: 5px !important;
+	cursor: pointer;
+	padding 
+}
+.input_Click_btn{
+	display: inline-block !important;
+	padding : 0 !important;
+	margin : 10px  0px !important;
+	width: 380px;
+	height: 48px !important; 
+	border : 0 !important;
+	outline :0 !important;
+	color : white;
+	font-size:15px;
+	font-weight: bold;
+	padding : 0 5px !important;
+	background-color: #ffb61a;
+	border-radius: 5px !important;
+	cursor: pointer;
+	padding 	
+	
+	
+}
+
+

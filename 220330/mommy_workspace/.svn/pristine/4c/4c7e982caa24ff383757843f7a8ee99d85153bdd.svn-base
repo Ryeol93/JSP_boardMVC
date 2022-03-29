@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http//mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Ask">	
+	<!-- 게시글 목록 -->
+	<select id="selectAll" parameterType="map" resultType="askDTO">
+		select askNum, userNum, categoryNum, askTitle, askContent,
+		askDate, askStatus, askAnswer, askAttach
+		from tbl_ask
+		where userNum = #{userNum}
+		order by 1 desc limit #{startRow}, #{rowCount}
+	</select>
+
+	<!-- 게시글 전체 개수  -->
+	<select id="getTotal" parameterType="_int" resultType="_int">
+		select count(askNum) from tbl_ask where userNum = #{userNum}
+	</select>
+	
+	<!-- 게시글 상세보기(전체 정보 조회) -->
+	<select id="selectDetail" parameterType="_int" resultType="askDTO">
+		select askNum, askTitle, askContent, askDate, askAnswer, askStatus, categoryNum, a.userNum
+		from tbl_ask a join tbl_user u
+		on  a.userNum = u.userNum and askNum = #{askNum}
+	</select>
+	
+	<!-- 최근 게시글 번호 -->
+	<select id="getSeq" resultType="_int">
+		select askNum from tbl_ask
+		order by 1 desc limit 0, 1;
+	</select>
+	
+	<!-- 게시글 작성 -->
+	<insert id="insert" parameterType="askVO">
+		insert into tbl_ask (askTitle, askContent, categoryNum, userNum, askDate) 
+		values(#{askTitle}, #{askContent}, #{categoryNum}, #{userNum}, now())
+	</insert>
+
+	<!-- askStatus -->
+   <select id="selectStatus" parameterType="_int" resultType="_int">
+      select askStatus from tbl_ask where askNum=#{askNum}
+   </select>
+   
+	<!-- categoryNum -->
+   <select id="selectCategoryNum" parameterType="_int" resultType="_int">
+      select categoryNum from tbl_ask where askNum=#{askNum}
+   </select>
+   <!--  삭제  -->
+	<delete id="delete" parameterType="_int" >
+			delete from tbl_ask where userNum = #{userNum}
+	</delete>
+</mapper>

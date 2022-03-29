@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http//mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MyPage">
+	<!-- myPage 비밀번호 검사  -->
+	<select id="myPagePwCk"  parameterType="map" resultType="_int">
+		select count(#{userNum}) from tbl_user where userNum = #{userNum} and userPw = hex(aes_encrypt(#{userPw}, 'abc'))
+	</select> 
+	<!-- myPage 내정보 수정 -->
+	<update id="updateMyInfo"  parameterType="userVO" >
+		update tbl_user
+		set userPhone= #{userPhone}, userBirthYear= #{userBirthYear}, userBirthMonth= #{userBirthMonth},userBirthDate= #{userBirthDate}
+		where userNum = #{userNum};
+	</update> 
+	
+	<!-- myPage 비밀번호 수정 -->
+	<update id="updateUserPw"  parameterType="map" >
+			update tbl_user
+			set userPw = hex(aes_encrypt(#{newPw}, 'abc'))
+			where userNum = #{userNum};
+	</update>  
+
+	
+</mapper>

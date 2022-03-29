@@ -1,0 +1,772 @@
+	a{ 
+		border:none;
+	}
+	
+	span.span{
+		font-size:15px;
+	}
+	
+	@font-face {
+          font-family: 'GmarketSansMedium';
+          src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+      }
+
+        @font-face {
+            font-family: 'GmarketSansLight';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+	
+
+	
+		input:focus{
+			border: none;
+			box-shadow: none;
+			cursor: pointer;
+		}
+	
+	
+		.main{
+			width:70%;
+			margin: 0 auto;
+			padding-bottom: 22px !important;
+			
+			margin-bottom: 30px;
+		}
+	
+		.userPf{
+			
+    position: relative;
+    background-color: white;
+    width: 100%;
+    height: 200px;
+    border-radius: 20px;
+    border: 1px solid #d4cfcf;
+    margin-bottom: 15px;
+		
+		}
+.userImg {
+       width: 10.7%;
+    float: left;
+    margin-top: 20px;
+    margin-left: 22px;
+    height: 61%;
+}
+		.userImgDetail{
+			width:100%;
+			border-radius: 20px;
+			
+		}
+		.userName{
+		float: left;
+    margin-top: 29px;
+    margin-left: 17px;
+    width: 65%;
+		}
+	.locationFilter_wrap{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	
+	}
+	.locationFilter_1{
+	    background-color: #f6f6f6;
+    border-radius: 15px;
+    float: left;
+    width: 271px;
+    height: 45px;
+    padding-left: 17px;
+	}
+	.locationFilter_2{
+	margin-left: 30px;
+    width: 271px;
+    height: 45px;
+    background-color: #f6f6f6;
+    border-radius: 15px;
+    padding-left: 10px;
+	}
+	
+		.heart{
+			width: 34px;
+			position: absolute;
+			margin-top: 22px;
+    		margin-left: 93%;
+		}
+		.infoDetail{
+			display: inline; 
+			font-size: 14px;
+		}
+
+		/* .line{
+			width: 1px;
+			height: 13px;
+			background-color: gray;
+			position: relative;
+			margin-left: 24.7%;
+    		margin-top: -15.2%;
+		} */
+	
+
+		.locationImg{
+		    width: 20px;
+		    float: left;
+		    position: absolute;
+		    top: 283px;
+		}
+		input:focus { outline: none !important; }
+		
+		input.locationInput{
+			width: 60% ; 
+			height: 47px;
+			display: inline-block;
+		
+			background-color: white ; 
+			border: none ;
+			
+
+		}
+		.baby{
+	width: 25px;
+    margin-left: 5px;
+  
+		}
+
+	.detailSearch{
+		display: flex;
+		
+	
+	}
+		.filter{
+	width: 20px;
+    position: absolute;
+    top: 287px;
+    right: 330px;
+		
+		
+  
+		}
+		.fontSize{
+			font-size: 15px;
+			
+
+		}
+		.money{
+			width: 23px;
+			display: inline-block;
+		}
+		.line{
+			display: inline-block; width: 1px; height: 15px; background-color: gray;
+			margin-top: 11px;
+    		position: absolute;
+		}
+
+		.day{
+		margin-left: -12%;
+			position: relative;
+			
+		}
+		.days{
+			position: absolute;
+			display: inline;
+	margin-top: 0.5%;
+  margin-left: 92px;
+		
+		}
+		   
+
+		   
+  
+ #searchDetail{
+width: 112px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid #b6b6b6;
+    border-radius: 11px;
+    font-size: 16px;
+    color: #8d8d8d;
+    font-family: 'Noto Sans KR';
+    line-height: 2;
+    padding-left: 27px;
+			            }
+			            
+            
+                  
+      /* 상세검색 모달창 -------------------------------------------------------------------*/           
+        .modal {
+          position: fixed;
+          top: 44px;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow:hidden;
+        }
+
+        .modal .bg {
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .modalBox {
+           position: absolute;
+    background-color: #fff;
+    width: 538px;
+   height: 638px;
+    border-radius: 6px;
+    text-align: center;
+    overflow: hidden;
+        }
+
+        .modalBox button {
+          display: block;
+          width: 80px;
+          margin: 0 auto;
+        }
+
+        .hidden {
+          display: none;
+        }
+        
+
+
+        .quit{
+            font-size: 14px;
+            color: #d4cfcf;
+
+        }
+
+
+        /* 상세정보모달창 ----------------------------------------------------------------------- */
+
+
+  .header{
+   
+      height: 100px;
+      text-align: center;
+      margin: 0 auto;
+      position: relative;
+     margin-bottom: 4px;
+     /* background-color: pink; */
+  }
+
+  .apply{
+position: absolute;
+    background-color: white !important;
+    font-weight: bold !important;
+    height: 35px !important;
+    border: none !important;
+    border-radius: 15px !important;
+    font-size: 16px;
+    margin: -42px 178px;
+    width: 82px !important;
+    text-align: center !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+
+  }
+  hr{
+    width: 550px;
+    color:#f6f6f6;
+    margin:10px 0 !Important;
+  }
+
+
+ .content{
+
+    margin: 0 auto;
+    
+ }
+.gradeImgSize{
+ width: 39px; 
+}
+ .grade{
+   margin: 0 35px;
+    cursor: pointer;
+   
+ }
+.grade2{
+ margin: 0px 34px;
+    display: inline-block;
+    font-size: 15px !important;
+    
+    
+}
+
+.time{
+margin: 0 20px;
+    font-size: 12px;
+    margin-top: -6px;
+}
+.timeIcon{
+    margin: 0px 14px;
+    cursor: pointer;
+    width: 70px;
+    margin-top: -9px;
+}
+.age{
+    margin: 0px 19px;
+    width: 50px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.activity{
+width: 46px;
+    margin: 0 20px;
+    cursor: pointer;
+    margin-top: 13px;
+}
+
+.days2{
+width: 50px;
+    margin: 4px;
+cursor: pointer;
+margin-top:9px;
+}
+    .main2{
+  text-align: center;
+    margin: 0 auto;
+    width: 537px;
+    height: 733px;
+    }
+.font-size{
+   font-size:15px;
+   text-align: left;
+}
+        
+            
+        
+        
+        /* 돌봄유형 선택 모달창 --------------------------------------------------------------------*/
+                        
+        .modal2{
+          position: fixed;
+          top: 44px;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow:hidden;
+        }
+
+        .modal2 .bg2 {
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .modalBox2 {
+       position: absolute;
+       background-color: #fff;
+       width: 477px;
+       height: 820px;
+       border-radius: 6px;
+       text-align: center;
+       overflow: hidden;
+        }
+
+        .modalBox2 button {
+            display: block;
+          width: 271px;
+          margin: 0 auto;
+          margin-top: -53px;
+          line-height: 1.5;
+          padding: 0 !important;
+          color: white !important;
+          box-shadow: none;
+        }
+
+        .hidden {
+          display: none;
+        }
+        
+
+
+        .quit2{
+            font-size: 14px;
+            color: #d4cfcf;
+
+        }
+
+
+        .phoneBtn2{
+            background-color: #ffb61a;
+            border: hidden;
+            width:20%;
+            font-weight: bold;
+            color:white;
+        }
+        
+        
+   p{
+   font-size: 13px;}
+
+    .main3{
+    text-align: center;
+    margin: 0 auto;
+    position: absolute;
+    width: 499px;
+    height: 796px;
+    }
+    .child{
+       width: 180px;
+    height: 36px;
+    margin: 24px auto;
+    background-color: #ffd270;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    line-height: 2.5;
+    font-size: 14px;
+    }
+    .text{
+      float: left;
+    margin-left: 79px;
+    font-weight: bold;
+    }
+    .p2{
+           margin: 0px;
+          color: rgb(163, 163, 163);
+          font-size: 13px;
+          font-weight: lighter;
+          font-family: GmarketSansLight;
+          margin-top: -10px;
+    }
+
+    .button{
+        width: 300px;
+    height: 49px;
+    border-radius: 11px;
+    background-color: #Ff7065;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    margin-top: 4px;
+    margin-bottom: 120px;
+    }
+       
+     /* 돌봄지역선택 모달 -------------------------------- */
+      
+        .modal3 {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow:hidden;
+        }
+
+        .modal3 .bg3 {
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .modalBox3 {
+       position: absolute;
+       background-color: #fff;
+       width: 527px;
+       height: 360px;
+       border-radius: 6px;
+       text-align: center;
+        }
+
+        .modalBox3 button {
+          display: block;
+          width: 80px;
+          margin: 0 auto;
+        }
+
+        .hidden {
+          display: none;
+        }
+        
+
+
+        .quit3{
+            font-size: 14px;
+            color: #d4cfcf;
+
+        }
+   
+        
+.write_btn{
+	padding: 4px 15px;
+	border: none;
+	color: white;
+    border-color: #ffb61a;
+    background: #ffb61a;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.write_btn_wrap{
+	padding-bottom: 4px;
+	text-align: right;
+}
+.locationInput.span.openBtn3{
+    margin-left: 27px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #626c6e;
+    line-height: 2.7 !important;
+	
+}
+.locationInput.span.openBtn2{
+    margin-left: 39px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #626c6e;
+    position: absolute;
+    top: 282px;
+}
+.location_title{
+	background-color: #ffb61a9e;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+}
+.region_select{
+	margin: 45px 15px;
+}
+.region_btn{
+	width: 113px !important;
+    height: 48px !important;
+    margin-top: 10px !important;
+    background: white !important;
+    text-align: center !important;
+    border: 0 !important;
+    outline: 0 !important;
+}
+
+.media_img{
+		margin-top: 6px;
+	}
+
+
+.userPf{
+	margin-top: 30px;
+	
+}
+
+
+
+
+@media (max-width: 390px){
+	.locationFilter_1{
+	    padding-left: 0px;
+    float: none;
+    width: 193px;
+    height: 35px !important;
+		
+	}
+	
+	.medi15{
+		display:none;
+	}
+	
+	.locationFilter_wrap{
+		width: 100%;
+	
+		
+	}
+	.locationFilter_2{
+	margin-top:10px;
+	margin-left: 0px;
+	padding-left:0px;
+	width: 193px;
+    height: 35px !important;
+	}
+	.main{
+	width: 90%
+	}
+	.media_img{
+margin-top: -49px;
+    position: absolute;
+    top: 9px !important;
+    left: 10px;
+    width: 19px !important;
+	
+	}
+	.detailSearch{
+		margin-top: 10px;
+	}
+	.locationImg{
+	width: 20px;
+    float: left;
+    position: absolute;
+    top: 245px;
+    left: 24px;
+	}
+
+	.locationFilter_1, .locationFilter_2{
+	height: 30px;
+	}
+	
+	
+	
+	.userImg{
+	width: 10%;
+	margin-top: 10px;
+	margin-left: 15px;
+	}
+	.userName{
+		float: none;
+		width: 100%;
+		margin-top: 20px;
+	}
+	.userPf{
+		height: auto;
+	}
+	.day{
+	    margin-left: -30px;
+	text-align: center;
+	}
+	.days{
+		    display: block;
+		    position: relative;
+		    margin-left:0px;
+		    
+	}
+	.modalBox3{
+		width: 95%
+	}
+	#close{
+		margin: -54px 100px;
+		width: 70px !important; 
+	}
+
+	.grade{
+	    margin: 0px 25px;
+	}
+	.grade2{
+	 margin: 0px 24px;
+	}
+	.days2{
+	margin: 0px;
+	margin-top: 0px;
+	width: 45px;
+	
+	
+	}
+	
+	.font-size{
+	text-align: center;
+	}
+	.activity {
+		width: 36px;
+		
+	}
+	.media25 span{
+		margin: 18px !important;
+	}
+	.child{display: none;}
+
+	.f_wrap{
+	margin-top: 35px;
+	}
+	.s_wrap{
+	margin-top: 35px;
+	}
+	.media15{
+	margin-top: 35px;
+	}
+
+.userImg {
+    width: 10%;
+    float: left;
+    margin-top: 33px;
+    margin-left: 40px;
+    height: 61%;
+}
+
+.medi1{
+      position: absolute;
+    right: 84px;
+    top: 248px;
+    width: 18px;
+}
+.medi2{  
+	margin-top: 14px;
+    margin-left: 13px;
+    width: 27%;
+    margin-right: 10px;
+    }
+
+.medi6{ 
+	font-size: 13px !important;
+	}
+.medi7{ 
+    height: 13px;
+    top: 43px !important;
+    }
+
+.medi12{   
+	margin-left: 5px;
+    width: 35px !important;
+    }
+.medi14{background: #ffffff00 !important}
+
+.medi16{
+	margin-left: -17px !important;
+	}
+
+.locationInput.span.openBtn3{
+  margin-left: 40px;
+    font-size: 13px;
+    cursor: pointer;
+    color: #626c6e;
+
+	
+}
+.baby{
+	margin-left: -1px;
+    position: absolute;
+    top: 292px;
+}
+.medi17{
+	    width: 22px !important;
+    margin-left: -1px !important;
+}
+.locationInput.span.openBtn2 {
+    margin-left: 40px;
+    font-size: 13px;
+    cursor: pointer;
+    color: #626c6e;
+    position: absolute;
+    top: 246px;
+}
+
+#searchDetail{
+padding-left: 25px !important;
+    height: 33px;
+    width: 96px;
+    font-size: 14px;
+}
+.h3{
+	margin-bottom:50px !important;
+	
+}
+
+
+}
+
+
+
+
+
+
+
+

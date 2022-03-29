@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http//mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="User">
+   <!-- 아이디 중복검사 -->
+   <select id="checkId" parameterType="string" resultType="_int">
+      select count(userId) from tbl_user 
+      where userId = #{userId}
+   </select>
+   <!-- 이메일 중복 검사 -->
+    <select id="CheckEmail" parameterType="string" resultType="_int">
+      select count(userEmail) from tbl_user 
+      where userEmail = #{userEmail}
+   </select>
+   
+      <!-- 아이디 찾기 -->
+   <select id="findIdPw" parameterType="map" resultType="string">
+      select userId from tbl_user where userName= #{userName} and userEmail = #{userEmail}
+   </select>
+   <!-- 번호 조회 -->
+   <select id="SelectPhone" parameterType="map" resultType="string">
+      select userPhone from tbl_user where userId= #{userId} and userPhone = #{userPhone}
+   </select>
+   
+   
+   <!-- 회원 가입 -->
+   <insert id="join" parameterType="userVO">
+   
+      insert into tbl_user
+      (userName, userId, userPw,userPhone, userBirthYear, userBirthMonth, userBirthDate, userStatus, userEmail ,userGender)
+
+      values
+      (#{userName},#{userId}, hex(aes_encrypt(#{userPw}, 'abc')), #{userPhone},#{userBirthYear}
+      ,#{userBirthMonth},#{userBirthDate},#{userStatus},#{userEmail},#{userGender})
+   </insert>
+   
+   <!-- 로그인 -->
+   <select id="login" parameterType="map" resultType="_int">
+      select userNum from tbl_user where userId=#{userId} and userPw =hex(aes_encrypt(#{userPw}, 'abc'))
+   </select>
+   
+   <select id="Emiallogin" parameterType="map" resultType="_int">
+      select userNum from tbl_user where userEmail=#{userEmail} and userPw =hex(aes_encrypt(#{userPw}, 'abc'))
+   </select>
+   
+   <!-- userStatus -->
+   <select id="selectStatus" parameterType="_int" resultType="_int">
+      select userStatus from tbl_user where userNum=#{userNum}
+   </select>
+   
+   <!-- userName -->
+   <select id="selectName" parameterType="_int" resultType="string">
+      select userName from tbl_user where userNum=#{userNum}
+   </select>
+
+	<!-- user정보 조회 -->
+
+	<select id="getInfo" parameterType="_int" resultType="userVO">
+	 select userNum, userName, userId, userPw, userPhone, userBirthYear, userBirthMonth, userBirthDate, userStatus, userEmail, userGender
+	 from tbl_user
+	 where userNum= #{userNum}
+	
+	</select>
+	
+
+
+	<!-- 회원 전체 정보 조회 -->
+   <select id="selectAll" parameterType="map" resultType="UserVO">
+      select userNum, userName, userId, userPw, userPhone, userEmail, userBirthYear, userBirthMonth, userBirthDate, userStatus 
+      from tbl_user
+      where userStatus = 1 or userStatus = 2
+      order by 1 desc limit #{startRow}, #{rowCount} 
+   </select>
+   
+   <!-- 회원 전체 수 -->
+   <select id="selectCount" resultType="_int">
+      select count(userNum) from tbl_user
+      where userStatus = 1 or userStatus = 2 
+   </select>
+   
+   <!-- 맘 회원수 -->
+   <select id="MomCount" resultType="_int">
+      select count(userStatus) from tbl_user where userStatus = 1;
+   </select>
+   
+   <!-- 시터 회원수 -->
+   <select id="SitterCount" resultType="_int">
+      select count(userStatus) from tbl_user where userStatus = 2;
+   </select>  
+	<!-- 유저가 작성한 프로필이 있는지 중복검사 하는 쿼리  -->
+	  <select id="myPageProfileCk" parameterType="_int" resultType="_int">
+	 select count(profileNum) from tbl_profile p
+	 join tbl_user u on  p.userNum = u.userNum 
+	 where u.userNum = #{userNum};
+	</select> 
+	
+		<!-- profileProcess -->
+   <select id="profileProcess" parameterType="_int" resultType="_int">
+      select profileProcess from tbl_profile where userNum=#{userNum}
+   </select>
+	
+	
+		<!-- 비밀번호 변경 -->
+	<update id="updateUserPw"  parameterType="map" >
+			update tbl_user set userPw = hex(aes_encrypt(#{userPw}, 'abc')) where userId = #{userId};
+	</update>  
+	
+		<!--  회원 삭제 -->
+	<delete id="deleteUser" parameterType="_int">
+		delete from tbl_user
+		where userNum = #{userNum}
+	</delete>
+		<!--  회원 탈퇴 -->
+	<update id="cancelUser" parameterType="_int">
+		update  tbl_user 
+		set userStatus = 3
+		where userNum = #{userNum}
+	</update>
+	
+		<!-- 유저 삭제를 위한 sql문  -->
+	<select id="getNumforDelete" parameterType="_int" resultType="DeleteUserDTO" >
+	select communityNum ,profileNum ,askNum from tbl_community tc join tbl_profile tp 
+	on tc.userNum = tp.userNum 
+	join tbl_ask ta 
+	on tc.userNum = ta.userNum 
+	where tc.userNum = #{userNum}
+	</select>
+	
+	  
+</mapper>

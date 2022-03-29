@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+   
+      @font-face {
+          font-family: 'GmarketSansMedium';
+          src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+      }
+
+        @font-face {
+            font-family: 'GmarketSansLight';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        	.web-view {
+				display:table-cell;
+			}
+			
+			.mobile-view {
+				display:none;
+			}
+			
+			@media(max-width:660px){
+				.web-view {
+					display:none;
+				}
+				
+				.mobile-view {
+					display:table-cell;
+				}
+			}
+			
+@media (max-width: 576px){
+
+.media1{    margin-top: 28px !important;}
+.media2{font-size: 14px !important;}
+.media3{width: 28% !important;}
+.media4{width: 386px !important;}
+.media5{margin-top: 0 !important;
+    margin-bottom: 22px !important;}
+
+.media7{
+width: 70px;
+
+}
+.media8{
+width: 171px !important;
+}
+.media9{
+height: 43px !important;
+    width: 60px;
+}
+  .textOnImg{
+            position: absolute;
+            color: white;
+            left: 50%;
+            top: 50%;
+         transform:translate(-50%, -50%);
+            font-family: GmarketSansMedium !important;
+         font-size: 2em;
+        }
+   
+      div#a{
+         display:flex;
+         margin: 0 auto;
+         justify-content: center;
+         margin-bottom: 124px;
+         
+      }
+      div#b{
+         position:relative;
+         display:inline-block;
+         padding:3px;
+         height:50px;
+         width: 109px !important;
+      
+      }
+      div#c{
+   width: 204px !important;
+      }
+      
+      div#d{
+      margin-left: -26px !important;
+    width: 63px !important;
+      }
+      
+      h2.myh2{
+         color:white;
+         font-family: GmarketSansMedium !important;
+      }
+      
+  
+}
+
+        .textOnImg{
+            position: absolute;
+            color: white;
+            left: 50%;
+            top: 50%;
+         transform:translate(-50%, -50%);
+            font-family: GmarketSansMedium !important;
+         font-size: 2em;
+        }
+   
+      div#a{
+         display:flex;
+         margin: 0 auto;
+         justify-content: center;
+         margin-bottom: 124px;
+         
+      }
+      div#b{
+         position:relative;
+         display:inline-block;
+         padding:3px;
+         height:50px;
+      
+      }
+      div#c{
+         position:relative;
+         display:inline-block;
+         padding:3px;
+         height:50px;
+      }
+      
+      div#d{
+         position:relative;
+         display:inline-block;
+         padding:3px;
+         height:50px;
+      }
+      
+      h2.myh2{
+         color:white;
+         font-family: GmarketSansMedium !important;
+      }
+      
