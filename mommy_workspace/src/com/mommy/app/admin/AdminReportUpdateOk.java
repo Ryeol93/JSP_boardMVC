@@ -21,6 +21,7 @@ public class AdminReportUpdateOk implements Action{
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		req.setCharacterEncoding("utf-8");
 	
+		
 		String uploadFolder = req.getSession().getServletContext().getRealPath("/") + "upload";
 		int fileSize = 1024 * 1024 * 5;//5M
 

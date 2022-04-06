@@ -75,7 +75,7 @@ public class UserFrontController extends HttpServlet{
 		}else if(command.equals("/user/UserMainOk.user")) {
 			af = new ActionForward();
 			af.setRedirect(false);
-			af.setPath("/main.jsp");
+			af.setPath("/app/etc/main.jsp");
 		}else if(command.equals("/user/UserLogout.user")) {
 	         af = new UserLogout().execute(req, resp);
 	         

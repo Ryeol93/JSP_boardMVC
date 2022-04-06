@@ -14,7 +14,7 @@ public class UserMainOk implements Action{
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		ActionForward af = new ActionForward();
 		af.setRedirect(false);
-		af.setPath("/main.jsp");
+		af.setPath("/app/etc/main.jsp");
 		
 		
 		return af;

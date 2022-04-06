@@ -61,7 +61,7 @@
 	<!-- 게시글 수정 -->
 	<update id="update" parameterType="communityVO">
 		update tbl_community
-		set communityTitle=#{communityTitle}, communityContent=#{communityContent}
+		set communityTitle=#{communityTitle}, communityContent=#{communityContent}, communityCategory=#{communityCategory}
 		where communityNum = #{communityNum}
 	</update>
  

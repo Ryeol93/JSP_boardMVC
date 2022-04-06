@@ -17,6 +17,7 @@
 	
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/communityDetails.css" />
+		<link rel="favicon" href="${pageContext.request.contextPath}/images/favicon3.ico"/>
 		<link rel="icon" href="${pageContext.request.contextPath}/images/favicon3.ico" type="image/x-icon" sizes="16x16"/>
 	
 	</head>
@@ -196,7 +197,6 @@
 			<script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
-			<script src="${pageContext.request.contextPath}/assets/js/communityDetails.js"></script>
 			<script>
 				var contextPath = "${pageContext.request.contextPath}";
 	         	var communityNum = "${community.getCommunityNum()}";

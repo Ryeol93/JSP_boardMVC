@@ -22,7 +22,7 @@ public class FileUpload extends HttpServlet{
    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
       req.setCharacterEncoding("UTF-8");
       resp.setCharacterEncoding("UTF-8");
-      String uploadFolder = "C:\\Users\\Windows\\Desktop\\aigb_0900_장서영\\jsp\\workspace\\mommy_workspace\\WebContent\\upload";
+      String uploadFolder = req.getSession().getServletContext().getRealPath("/")+"upload";
       int fileSize = 1024 * 1024 * 3;//10M
       PrintWriter out = resp.getWriter();
       JSONObject obj = new JSONObject();

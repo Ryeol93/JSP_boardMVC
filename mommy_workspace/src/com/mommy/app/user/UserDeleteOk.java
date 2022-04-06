@@ -80,7 +80,7 @@ public class UserDeleteOk implements Action{
 		
 		af.setRedirect(true);
 		
-		af.setPath(req.getContextPath()+"/main.jsp");
+		af.setPath(req.getContextPath()+"/app/etc/main.jsp");
 		
 		return af;
 	}
